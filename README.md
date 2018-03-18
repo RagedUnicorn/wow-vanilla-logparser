@@ -2,9 +2,9 @@
 
 ![](/Docs/pvpw_raged_unicorn_logo.png)
 
-> LogParser is a library for parsing combatlog messages and dispatching the results to other addons that registered to such event
+> LogParser is a library for parsing combatlog messages and dispatching the results to other addons that registered to such events
 
-**Note: The addon on its own is not helpful to the player. It is to be understod as a library that is used by other addons**
+**Note: The addon on its own is not helpful to the player. It is to be understood as a library that is used by other addons**
 
 ## Installation
 
@@ -19,7 +19,7 @@ Make sure to get the newest version of the Addon from the releases tab:
 > Note: If the Addon is not showing up in your ingame Addonlist make sure that the Addon is named `LogParser` in your Addons folder
 
 
-## Register callback
+## How to use
 
 To register a callback to an event call the `RegisterCallbackHandler` function and pass both the type of the event and the callback to the function
 
