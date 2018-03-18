@@ -1,0 +1,20 @@
+## Interface: 11200
+## Title: LogParser
+## Author: Michael Wiesendanger <michael.wiesendanger@gmail.com>
+## Notes: Addon for parsing combat log messages
+
+# constant values
+Code\LP_Constants.lua
+
+# code
+Code\LP_Core.lua
+Code\LP_Logger.lua
+Code\LP_Parser.lua
+Code\LP_EventHandler.lua
+Code\LP_EventManager.lua
+
+# gui
+Gui\LP_Frame.xml
+
+# debug
+# Code\PVPCCW_Debug.lua

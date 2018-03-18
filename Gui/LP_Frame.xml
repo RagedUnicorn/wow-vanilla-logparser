@@ -1,0 +1,21 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/">
+  <!-- MainFrame -->
+  <Frame name="LP_MainFrame" parent="UIParent" hidden="true">
+    <Anchors>
+      <Anchor point="TOPLEFT" relativeTo="UIParent" relativePoint="BOTTOMLEFT">
+        <Offset>
+          <AbsDimension x="400" y="400"/>
+        </Offset>
+      </Anchor>
+    </Anchors>
+    <!-- script events -->
+    <Scripts>
+      <OnLoad>
+        lp.OnLoad()
+      </OnLoad>
+      <OnEvent>
+        lp.OnEvent()
+      </OnEvent>
+    </Scripts>
+  </Frame>
+</Ui>
