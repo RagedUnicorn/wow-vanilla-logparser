@@ -17,4 +17,4 @@ Code\LP_EventManager.lua
 Gui\LP_Frame.xml
 
 # debug
-# Code\PVPCCW_Debug.lua
+Code\LP_Debug.lua
