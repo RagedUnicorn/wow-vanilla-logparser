@@ -688,7 +688,7 @@ if (GetLocale() == "deDE") then
 
       return 1, {
         ["type"] = "CHAT_MSG_SPELL_PERIODIC_HOSTILEPLAYER_BUFFS",
-        ["soundType"] = LP_CONSTANTS.SPELL_TYPES.SPELL,
+        ["spellType"] = LP_CONSTANTS.SPELL_TYPES.SPELL,
         ["source"] = source,
         ["keyword"] = keyword,
         ["spell"] = spell
@@ -726,7 +726,7 @@ if (GetLocale() == "deDE") then
 
       return 1, {
         ["type"] = "CHAT_MSG_SPELL_AURA_GONE_OTHER",
-        ["soundType"] = LP_CONSTANTS.SPELL_TYPES.SPELL_DOWN,
+        ["spellType"] = LP_CONSTANTS.SPELL_TYPES.SPELL_DOWN,
         ["spell"] = spell,
         ["keyword"] = keyword,
         ["source"] = source,
@@ -757,7 +757,7 @@ if (GetLocale() == "deDE") then
 
       return 1, {
         ["type"] = "CHAT_MSG_SPELL_HOSTILEPLAYER_BUFF",
-        ["soundType"] = LP_CONSTANTS.SPELL_TYPES.SPELL,
+        ["spellType"] = LP_CONSTANTS.SPELL_TYPES.SPELL,
         ["source1"] = source1,
         ["spell"] = spell,
         ["keyword"] = keyword,
@@ -774,7 +774,7 @@ if (GetLocale() == "deDE") then
 
       return 1, {
         ["type"] = "CHAT_MSG_SPELL_HOSTILEPLAYER_BUFF",
-        ["soundType"] = LP_CONSTANTS.SPELL_TYPES.SPELL,
+        ["spellType"] = LP_CONSTANTS.SPELL_TYPES.SPELL,
         ["source"] = source,
         ["keyword"] = keyword,
         ["spell"] = spell
@@ -789,7 +789,7 @@ if (GetLocale() == "deDE") then
 
       return 1, {
         ["type"] = "CHAT_MSG_SPELL_HOSTILEPLAYER_BUFF",
-        ["soundType"] = LP_CONSTANTS.SPELL_TYPES.SPELL,
+        ["spellType"] = LP_CONSTANTS.SPELL_TYPES.SPELL,
         ["source"] = source,
         ["keyword1"] = keyword1,
         ["spell"] = spell,
@@ -805,7 +805,7 @@ if (GetLocale() == "deDE") then
 
       return 1, {
         ["type"] = "CHAT_MSG_SPELL_HOSTILEPLAYER_BUFF",
-        ["soundType"] = LP_CONSTANTS.SPELL_TYPES.SPELL,
+        ["spellType"] = LP_CONSTANTS.SPELL_TYPES.SPELL,
         ["keyword1"] = keyword1,
         ["source"] = source,
         ["spell"] = spell,
@@ -823,7 +823,7 @@ if (GetLocale() == "deDE") then
 
       return 1, {
         ["type"] = "CHAT_MSG_SPELL_HOSTILEPLAYER_BUFF",
-        ["soundType"] = LP_CONSTANTS.SPELL_TYPES.SPELL,
+        ["spellType"] = LP_CONSTANTS.SPELL_TYPES.SPELL,
         ["source1"] = source1,
         ["keyword1"] = keyword1,
         ["amount"] = amount,
@@ -857,7 +857,7 @@ if (GetLocale() == "deDE") then
 
       return 1, {
         ["type"] = "CHAT_MSG_SPELL_PERIODIC_SELF_DAMAGE",
-        ["soundType"] = LP_CONSTANTS.SPELL_TYPES.SPELL,
+        ["spellType"] = LP_CONSTANTS.SPELL_TYPES.SPELL,
         ["target"] = target,
         ["spell"] = spell,
         ["keyword"] = keyword
@@ -887,7 +887,7 @@ if (GetLocale() == "deDE") then
 
       return 1, {
         ["type"] = "CHAT_MSG_SPELL_HOSTILEPLAYER_DAMAGE",
-        ["soundType"] = LP_CONSTANTS.SPELL_TYPES.SPELL,
+        ["spellType"] = LP_CONSTANTS.SPELL_TYPES.SPELL,
         ["source"] = source,
         ["keyword1"] = keyword1,
         ["target"] = target,
@@ -905,7 +905,7 @@ if (GetLocale() == "deDE") then
 
       return 1, {
         ["type"] = "CHAT_MSG_SPELL_HOSTILEPLAYER_DAMAGE",
-        ["soundType"] = LP_CONSTANTS.SPELL_TYPES.SPELL,
+        ["spellType"] = LP_CONSTANTS.SPELL_TYPES.SPELL,
         ["source"] = source,
         ["keyword1"] = keyword1,
         ["target"] = target,
@@ -924,7 +924,7 @@ if (GetLocale() == "deDE") then
 
       return 1, {
         ["type"] = "CHAT_MSG_SPELL_HOSTILEPLAYER_DAMAGE",
-        ["soundType"] = LP_CONSTANTS.SPELL_TYPES.SPELL,
+        ["spellType"] = LP_CONSTANTS.SPELL_TYPES.SPELL,
         ["source"] = source,
         ["keyword1"] = keyword1,
         ["spell"] = spell,
@@ -955,7 +955,7 @@ if (GetLocale() == "deDE") then
 
       return 1, {
         ["type"] = "CHAT_MSG_SPELL_PERIODIC_HOSTILEPLAYER_DAMAGE",
-        ["soundType"] = LP_CONSTANTS.SPELL_TYPES.SPELL,
+        ["spellType"] = LP_CONSTANTS.SPELL_TYPES.SPELL,
         ["target"] = target,
         ["spell"] = spell,
         ["keyword"] = keyword
@@ -985,7 +985,7 @@ if (GetLocale() == "deDE") then
 
       return 1, {
         ["type"] = "CHAT_MSG_SPELL_AURA_GONE_OTHER",
-        ["soundType"] = LP_CONSTANTS.SPELL_TYPES.SPELL_DOWN,
+        ["spellType"] = LP_CONSTANTS.SPELL_TYPES.SPELL_DOWN,
         ["spell"] = spell,
         ["keyword"] = keyword,
         ["source"] = source,
@@ -1016,7 +1016,7 @@ if (GetLocale() == "deDE") then
 
       return 1, {
         ["type"] = "CHAT_MSG_SPELL_DAMAGESHIELDS_ON_SELF",
-        ["soundType"] = LP_CONSTANTS.SPELL_TYPES.ENEMY_AVOIDED,
+        ["spellType"] = LP_CONSTANTS.SPELL_TYPES.ENEMY_AVOIDED,
         ["source"] = source,
         ["spell"] = spell,
         ["keyword1"] = keyword1,
@@ -1033,7 +1033,7 @@ if (GetLocale() == "deDE") then
 
       return 1, {
         ["type"] = "CHAT_MSG_SPELL_DAMAGESHIELDS_ON_SELF",
-        ["soundType"] = LP_CONSTANTS.SPELL_TYPES.ENEMY_AVOIDED,
+        ["spellType"] = LP_CONSTANTS.SPELL_TYPES.ENEMY_AVOIDED,
         ["spell"] = spell,
         ["keyword1"] = keyword1,
         ["target"] = target,
@@ -1049,7 +1049,7 @@ if (GetLocale() == "deDE") then
 
       return 1, {
         ["type"] = "CHAT_MSG_SPELL_DAMAGESHIELDS_ON_SELF",
-        ["soundType"] = LP_CONSTANTS.SPELL_TYPES.ENEMY_AVOIDED,
+        ["spellType"] = LP_CONSTANTS.SPELL_TYPES.ENEMY_AVOIDED,
         ["spell"] = spell,
         ["target"] = target,
         ["keyword"] = keyword
@@ -1064,7 +1064,7 @@ if (GetLocale() == "deDE") then
 
       return 1, {
         ["type"] = "CHAT_MSG_SPELL_DAMAGESHIELDS_ON_SELF",
-        ["soundType"] = LP_CONSTANTS.SPELL_TYPES.ENEMY_AVOIDED,
+        ["spellType"] = LP_CONSTANTS.SPELL_TYPES.ENEMY_AVOIDED,
         ["target"] = target,
         ["spell"] = spell,
         ["keyword"] = keyword
@@ -1079,7 +1079,7 @@ if (GetLocale() == "deDE") then
 
       return 1, {
         ["type"] = "CHAT_MSG_SPELL_DAMAGESHIELDS_ON_SELF",
-        ["soundType"] = LP_CONSTANTS.SPELL_TYPES.ENEMY_AVOIDED,
+        ["spellType"] = LP_CONSTANTS.SPELL_TYPES.ENEMY_AVOIDED,
         ["spell"] = spell,
         ["target"] = target,
         ["keyword"] = keyword
@@ -1109,7 +1109,7 @@ if (GetLocale() == "deDE") then
 
       return 1, {
         ["type"] = "CHAT_MSG_SPELL_SELF_DAMAGE",
-        ["soundType"] = LP_CONSTANTS.SPELL_TYPES.ENEMY_AVOIDED,
+        ["spellType"] = LP_CONSTANTS.SPELL_TYPES.ENEMY_AVOIDED,
         ["spell"] = spell,
         ["target"] = target,
         ["keyword"] = keyword
@@ -1139,7 +1139,7 @@ if (GetLocale() == "deDE") then
 
       return 1, {
         ["type"] = "CHAT_MSG_SPELL_DAMAGESHIELDS_ON_OTHERS",
-        ["soundType"] = LP_CONSTANTS.SPELL_TYPES.SELF_AVOIDED,
+        ["spellType"] = LP_CONSTANTS.SPELL_TYPES.SELF_AVOIDED,
         ["source"] = source,
         ["keyword1"] = keyword1,
         ["spell"] = spell,
@@ -1155,7 +1155,7 @@ if (GetLocale() == "deDE") then
 
       return 1, {
         ["type"] = "CHAT_MSG_SPELL_DAMAGESHIELDS_ON_OTHERS",
-        ["soundType"] = LP_CONSTANTS.SPELL_TYPES.SELF_AVOIDED,
+        ["spellType"] = LP_CONSTANTS.SPELL_TYPES.SELF_AVOIDED,
         ["source"] = source,
         ["spell"] = spell,
         ["keyword"] = keyword
@@ -1170,7 +1170,7 @@ if (GetLocale() == "deDE") then
 
       return 1, {
         ["type"] = "CHAT_MSG_SPELL_DAMAGESHIELDS_ON_OTHERS",
-        ["soundType"] = LP_CONSTANTS.SPELL_TYPES.SELF_AVOIDED,
+        ["spellType"] = LP_CONSTANTS.SPELL_TYPES.SELF_AVOIDED,
         ["source"] = source,
         ["keyword1"] = keyword1,
         ["spell"] = spell,
@@ -1187,7 +1187,7 @@ if (GetLocale() == "deDE") then
 
       return 1, {
         ["type"] = "CHAT_MSG_SPELL_DAMAGESHIELDS_ON_OTHERS",
-        ["soundType"] = LP_CONSTANTS.SPELL_TYPES.SELF_AVOIDED,
+        ["spellType"] = LP_CONSTANTS.SPELL_TYPES.SELF_AVOIDED,
         ["source"] = source,
         ["keyword1"] = keyword1,
         ["spell"] = spell,
@@ -1204,7 +1204,7 @@ if (GetLocale() == "deDE") then
 
       return 1, {
         ["type"] = "CHAT_MSG_SPELL_DAMAGESHIELDS_ON_OTHERS",
-        ["soundType"] = LP_CONSTANTS.SPELL_TYPES.SELF_AVOIDED,
+        ["spellType"] = LP_CONSTANTS.SPELL_TYPES.SELF_AVOIDED,
         ["source"] = source,
         ["spell"] = spell,
         ["keyword"] = keyword
@@ -1219,7 +1219,7 @@ if (GetLocale() == "deDE") then
 
       return 1, {
         ["type"] = "CHAT_MSG_SPELL_DAMAGESHIELDS_ON_OTHERS",
-        ["soundType"] = LP_CONSTANTS.SPELL_TYPES.SELF_AVOIDED,
+        ["spellType"] = LP_CONSTANTS.SPELL_TYPES.SELF_AVOIDED,
         ["source"] = source,
         ["spell"] = spell,
         ["keyword"] = keyword
@@ -1249,7 +1249,7 @@ else
 
       return 1, {
         ["type"] = "CHAT_MSG_SPELL_PERIODIC_HOSTILEPLAYER_BUFFS",
-        ["soundType"] = LP_CONSTANTS.SPELL_TYPES.SPELL,
+        ["spellType"] = LP_CONSTANTS.SPELL_TYPES.SPELL,
         ["source"] = source,
         ["keyword"] = keyword,
         ["spell"] = spell
@@ -1264,7 +1264,7 @@ else
 
       return 1, {
         ["type"] = "CHAT_MSG_SPELL_PERIODIC_HOSTILEPLAYER_BUFFS",
-        ["soundType"] = LP_CONSTANTS.SPELL_TYPES.SPELL,
+        ["spellType"] = LP_CONSTANTS.SPELL_TYPES.SPELL,
         ["source"] = source,
         ["player1"] = player1,
         ["player2"] = player2,
@@ -1305,7 +1305,7 @@ else
 
       return 1, {
         ["type"] = "CHAT_MSG_SPELL_HOSTILEPLAYER_BUFF",
-        ["soundType"] = LP_CONSTANTS.SPELL_TYPES.SPELL,
+        ["spellType"] = LP_CONSTANTS.SPELL_TYPES.SPELL,
         ["source1"] = source1,
         ["spell"] = spell,
         ["keyword"] = keyword,
@@ -1322,7 +1322,7 @@ else
 
       return 1, {
         ["type"] = "CHAT_MSG_SPELL_HOSTILEPLAYER_BUFF",
-        ["soundType"] = LP_CONSTANTS.SPELL_TYPES.SPELL,
+        ["spellType"] = LP_CONSTANTS.SPELL_TYPES.SPELL,
         ["source"] = source,
         ["keyword"] = keyword,
         ["spell"] = spell
@@ -1337,7 +1337,7 @@ else
 
       return 1, {
         ["type"] = "CHAT_MSG_SPELL_HOSTILEPLAYER_BUFF",
-        ["soundType"] = LP_CONSTANTS.SPELL_TYPES.SPELL,
+        ["spellType"] = LP_CONSTANTS.SPELL_TYPES.SPELL,
         ["source"] = source,
         ["spell"] = spell,
         ["keyword"] = keyword
@@ -1352,7 +1352,7 @@ else
 
       return 1, {
         ["type"] = "CHAT_MSG_SPELL_HOSTILEPLAYER_BUFF",
-        ["soundType"] = LP_CONSTANTS.SPELL_TYPES.SPELL,
+        ["spellType"] = LP_CONSTANTS.SPELL_TYPES.SPELL,
         ["source1"] = source1,
         ["spell"] = spell,
         ["keyword"] = keyword,
@@ -1369,7 +1369,7 @@ else
 
       return 1, {
         ["type"] = "CHAT_MSG_SPELL_HOSTILEPLAYER_BUFF",
-        ["soundType"] = LP_CONSTANTS.SPELL_TYPES.SPELL,
+        ["spellType"] = LP_CONSTANTS.SPELL_TYPES.SPELL,
         ["source1"] = source1,
         ["keyword1"] = keyword1,
         ["amount"] = amount,
@@ -1403,7 +1403,7 @@ else
 
       return 1, {
         ["type"] = "CHAT_MSG_SPELL_PERIODIC_SELF_DAMAGE",
-        ["soundType"] = LP_CONSTANTS.SPELL_TYPES.SPELL,
+        ["spellType"] = LP_CONSTANTS.SPELL_TYPES.SPELL,
         ["target"] = target,
         ["keyword"] = keyword,
         ["spell"] = spell
@@ -1433,7 +1433,7 @@ else
 
       return 1, {
         ["type"] = "CHAT_MSG_SPELL_HOSTILEPLAYER_DAMAGE",
-        ["soundType"] = LP_CONSTANTS.SPELL_TYPES.SPELL,
+        ["spellType"] = LP_CONSTANTS.SPELL_TYPES.SPELL,
         ["source"] = source,
         ["spell"] = spell,
         ["keyword"] = keyword,
@@ -1450,7 +1450,7 @@ else
 
       return 1, {
         ["type"] = "CHAT_MSG_SPELL_HOSTILEPLAYER_DAMAGE",
-        ["soundType"] = LP_CONSTANTS.SPELL_TYPES.SPELL,
+        ["spellType"] = LP_CONSTANTS.SPELL_TYPES.SPELL,
         ["source"] = source,
         ["spell"] = spell,
         ["keyword"] = keyword,
@@ -1467,7 +1467,7 @@ else
 
       return 1, {
         ["type"] = "CHAT_MSG_SPELL_HOSTILEPLAYER_DAMAGE",
-        ["soundType"] = LP_CONSTANTS.SPELL_TYPES.SPELL,
+        ["spellType"] = LP_CONSTANTS.SPELL_TYPES.SPELL,
         ["source"] = source,
         ["keyword"] = keyword,
         ["spell"] = spell
@@ -1497,7 +1497,7 @@ else
 
       return 1, {
         ["type"] = "CHAT_MSG_SPELL_PERIODIC_HOSTILEPLAYER_DAMAGE",
-        ["soundType"] = LP_CONSTANTS.SPELL_TYPES.SPELL,
+        ["spellType"] = LP_CONSTANTS.SPELL_TYPES.SPELL,
         ["target"] = target,
         ["keyword"] = keyword,
         ["spell"] = spell
@@ -1527,7 +1527,7 @@ else
 
       return 1, {
         ["type"] = "CHAT_MSG_SPELL_AURA_GONE_OTHER",
-        ["soundType"] = LP_CONSTANTS.SPELL_TYPES.SPELL_DOWN,
+        ["spellType"] = LP_CONSTANTS.SPELL_TYPES.SPELL_DOWN,
         ["spell"] = spell,
         ["keyword"] = keyword,
         ["source"] = source,
@@ -1558,7 +1558,7 @@ else
 
       return 1, {
         ["type"] = "CHAT_MSG_SPELL_DAMAGESHIELDS_ON_SELF",
-        ["soundType"] = LP_CONSTANTS.SPELL_TYPES.ENEMY_AVOIDED,
+        ["spellType"] = LP_CONSTANTS.SPELL_TYPES.ENEMY_AVOIDED,
         ["source"] = source,
         ["spell"] = spell,
         ["keyword"] = keyword,
@@ -1574,7 +1574,7 @@ else
 
       return 1, {
         ["type"] = "CHAT_MSG_SPELL_DAMAGESHIELDS_ON_SELF",
-        ["soundType"] = LP_CONSTANTS.SPELL_TYPES.ENEMY_AVOIDED,
+        ["spellType"] = LP_CONSTANTS.SPELL_TYPES.ENEMY_AVOIDED,
         ["source"] = source,
         ["spell"] = spell,
         ["keyword"] = keyword,
@@ -1591,7 +1591,7 @@ else
 
       return 1, {
         ["type"] = "CHAT_MSG_SPELL_DAMAGESHIELDS_ON_SELF",
-        ["soundType"] = LP_CONSTANTS.SPELL_TYPES.ENEMY_AVOIDED,
+        ["spellType"] = LP_CONSTANTS.SPELL_TYPES.ENEMY_AVOIDED,
         ["source"] = source,
         ["spell"] = spell,
         ["keyword"] = keyword,
@@ -1607,7 +1607,7 @@ else
 
       return 1, {
         ["type"] = "CHAT_MSG_SPELL_DAMAGESHIELDS_ON_SELF",
-        ["soundType"] = LP_CONSTANTS.SPELL_TYPES.ENEMY_AVOIDED,
+        ["spellType"] = LP_CONSTANTS.SPELL_TYPES.ENEMY_AVOIDED,
         ["source"] = source,
         ["spell"] = spell,
         ["keyword"] = keyword,
@@ -1623,7 +1623,7 @@ else
 
       return 1, {
         ["type"] = "CHAT_MSG_SPELL_DAMAGESHIELDS_ON_SELF",
-        ["soundType"] = LP_CONSTANTS.SPELL_TYPES.ENEMY_AVOIDED,
+        ["spellType"] = LP_CONSTANTS.SPELL_TYPES.ENEMY_AVOIDED,
         ["source"] = source,
         ["spell"] = spell,
         ["keyword"] = keyword,
@@ -1654,7 +1654,7 @@ else
 
       return 1, {
         ["type"] = "CHAT_MSG_SPELL_SELF_DAMAGE",
-        ["soundType"] = LP_CONSTANTS.SPELL_TYPES.ENEMY_AVOIDED,
+        ["spellType"] = LP_CONSTANTS.SPELL_TYPES.ENEMY_AVOIDED,
         ["source"] = source,
         ["spell"] = spell,
         ["keyword"] = keyword,
@@ -1685,7 +1685,7 @@ else
 
       return 1, {
         ["type"] = "CHAT_MSG_SPELL_DAMAGESHIELDS_ON_OTHERS",
-        ["soundType"] = LP_CONSTANTS.SPELL_TYPES.SELF_AVOIDED,
+        ["spellType"] = LP_CONSTANTS.SPELL_TYPES.SELF_AVOIDED,
         ["source"] = source,
         ["spell"] = spell,
         ["keyword"] = keyword
@@ -1700,7 +1700,7 @@ else
 
       return 1, {
         ["type"] = "CHAT_MSG_SPELL_DAMAGESHIELDS_ON_OTHERS",
-        ["soundType"] = LP_CONSTANTS.SPELL_TYPES.SELF_AVOIDED,
+        ["spellType"] = LP_CONSTANTS.SPELL_TYPES.SELF_AVOIDED,
         ["source"] = source,
         ["spell"] = spell,
         ["keyword"] = keyword
@@ -1715,7 +1715,7 @@ else
 
       return 1, {
         ["type"] = "CHAT_MSG_SPELL_DAMAGESHIELDS_ON_OTHERS",
-        ["soundType"] = LP_CONSTANTS.SPELL_TYPES.SELF_AVOIDED,
+        ["spellType"] = LP_CONSTANTS.SPELL_TYPES.SELF_AVOIDED,
         ["source"] = source,
         ["spell"] = spell,
         ["keyword"] = keyword
@@ -1730,7 +1730,7 @@ else
 
       return 1, {
         ["type"] = "CHAT_MSG_SPELL_DAMAGESHIELDS_ON_OTHERS",
-        ["soundType"] = LP_CONSTANTS.SPELL_TYPES.SELF_AVOIDED,
+        ["spellType"] = LP_CONSTANTS.SPELL_TYPES.SELF_AVOIDED,
         ["source"] = source,
         ["spell"] = spell,
         ["keyword"] = keyword
@@ -1745,7 +1745,7 @@ else
 
       return 1, {
         ["type"] = "CHAT_MSG_SPELL_DAMAGESHIELDS_ON_OTHERS",
-        ["soundType"] = LP_CONSTANTS.SPELL_TYPES.SELF_AVOIDED,
+        ["spellType"] = LP_CONSTANTS.SPELL_TYPES.SELF_AVOIDED,
         ["source"] = source,
         ["spell"] = spell,
         ["keyword"] = keyword
@@ -1760,7 +1760,7 @@ else
 
       return 1, {
         ["type"] = "CHAT_MSG_SPELL_DAMAGESHIELDS_ON_OTHERS",
-        ["soundType"] = LP_CONSTANTS.SPELL_TYPES.SELF_AVOIDED,
+        ["spellType"] = LP_CONSTANTS.SPELL_TYPES.SELF_AVOIDED,
         ["source"] = source,
         ["spell"] = spell,
         ["keyword"] = keyword
