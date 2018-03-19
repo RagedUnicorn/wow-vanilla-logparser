@@ -31,5 +31,10 @@ LP_CONSTANTS = {
     ["SPELL_DOWN"] = 2,
     ["ENEMY_AVOIDED"] = 3,
     ["SELF_AVOIDED"] = 4
-  }
+  },
+
+  --[[
+    Elements
+  ]]--
+  ELEMENT_LP_MAIN_FRAME = "LP_MainFrame"
 }

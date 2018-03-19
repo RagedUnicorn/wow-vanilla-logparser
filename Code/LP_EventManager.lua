@@ -34,6 +34,10 @@ me.tag = "EventManager"
 ]]--
 local callbacks = {}
 
+function me.GetCallbacks()
+  return callbacks
+end
+
 --[[
   @param {function} handler
   @param {string} evenType
@@ -61,6 +65,7 @@ function me.RegisterCallbackHandler(handler, eventType)
 
   table.insert(callbacks[eventType], callback)
   mod.logger.LogInfo(me.tag, "Registered new callback for type: " .. eventType)
+  mod.eventHandler.RegisterEvent(eventType) -- register event on mainframe
 
   return callback.identifier
 end
@@ -79,6 +84,12 @@ function me.UnregisterCallbackHandler(identifier)
         mod.logger.LogInfo(me.tag, "Found matching identifier unregistering callback with type: "
           .. eventType)
         table.remove(callbacks[eventType], i)
+
+        -- check if event should be unregistered
+        if mod.eventHandler.ShouldUnregisterEvent(eventType) then
+          mod.eventHandler.UnregisterEvent(eventType)
+        end
+
         state = 1
         return
       end

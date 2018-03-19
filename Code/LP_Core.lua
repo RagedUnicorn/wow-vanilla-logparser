@@ -74,24 +74,6 @@ end
 function me.RegisterEvents()
   -- register to player login event also fires on /reload
   this:RegisterEvent("PLAYER_LOGIN")
-  -- fires when a hostile player begins or ends casting a harmful spell.
-  this:RegisterEvent("CHAT_MSG_SPELL_HOSTILEPLAYER_DAMAGE")
-  -- fires when you gain or are affected by an instant or ongoing spell or effect.
-  this:RegisterEvent("CHAT_MSG_SPELL_PERIODIC_SELF_DAMAGE")
-  -- fires when a hostile player starts or stops casting a beneficial spell.
-  this:RegisterEvent("CHAT_MSG_SPELL_HOSTILEPLAYER_BUFF")
-  -- fires when a hostile player is effected by an instant cast or ongoing beneficial effect.
-  this:RegisterEvent("CHAT_MSG_SPELL_PERIODIC_HOSTILEPLAYER_BUFFS")
-  -- fires when a buff or debuff fades from a creature, NPC, or player other than yourself or a party member.
-  this:RegisterEvent("CHAT_MSG_SPELL_AURA_GONE_OTHER")
-  -- fires when a damage shield on you deals damage.
-  this:RegisterEvent("CHAT_MSG_SPELL_DAMAGESHIELDS_ON_SELF")
-  -- fires when a damage shield on someone other than you deals damage.
-  this:RegisterEvent("CHAT_MSG_SPELL_DAMAGESHIELDS_ON_OTHERS")
-  -- fires when you start and stop casting a damaging spell.
-  this:RegisterEvent("CHAT_MSG_SPELL_SELF_DAMAGE")
-  -- fires when a hostile player is affected by a instant or ongoing damaging effect.
-  this:RegisterEvent("CHAT_MSG_SPELL_PERIODIC_HOSTILEPLAYER_DAMAGE")
 end
 
 --[[
