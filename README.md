@@ -2,9 +2,9 @@
 
 ![](/Docs/pvpw_raged_unicorn_logo.png)
 
-> LogParser is a library for parsing combatlog messages and dispatching the results to other addons that registered to such events
+> LogParser is an Addon for parsing combatlog messages and dispatching the results to other Addons that registered to such events
 
-**Note: The addon on its own is not helpful to the player. It is to be understood as a library that is used by other addons**
+**Note:** The addon on its own is not helpful to the player. It is to be understood as an Addon that is used by other Addons
 
 ## Installation
 
@@ -18,26 +18,72 @@ Make sure to get the newest version of the Addon from the releases tab:
 
 > Note: If the Addon is not showing up in your ingame Addonlist make sure that the Addon is named `LogParser` in your Addons folder
 
-
 ## How to use
 
+The Addon has to be separately installed. It is not intended to be used as a library. The reasoning behind this Addon is to prevent doing the same work multiple times. Multiple Addons can register to the same event effectively meaning the message only has to be parsed once and can be used by all registered Addons.
+
+### Register
 To register a callback to an event call the `RegisterCallbackHandler` function and pass both the type of the event and the callback to the function
 
 ```lua
+--[[
+  @param {number} status
+    0 failed to parse message
+    1 successfully parsed message
+  @param {table} spellData
+]]--
+function callback(status, spellData)
+
+end
+
 local identifier = lp.eventManager.RegisterCallbackHandler(
   callback,
   "event"
 )
 ```
 
-By saving the returned identifier the callback can be unregistered at some later point when it is no longer needed. This step is optional.
+The callback will be called with the status of the parser and if successful the gathered data
+
+Status `1` if parsing was successful
+Status `0` if parsing failed
+
+The gathered spell data format depends on the type of the event. For details see `LP_Parser.lua`
 
 ```lua
-  lp.eventManager.UnregisterCallbackHandler(identifier)
+{
+  ["type"] = "eventType", -- {string} e.g. CHAT_MSG_SPELL_SELF_DAMAGE
+  ["spellType"] = spell, -- {number} see LP_CONSTANTS.SPELL_TYPES
+  ["source" | "target" etc.], -- {string} depending on what can be extracted from the message
+  ...
+}
 ```
-## Locale
 
-Because the combat log messages that the addon receives are in the language of the client a separate parser has to be developed depending on the language. This library currently supports `enUS` and `deDE`.
+### Unregister
+By saving the returned identifier the callback can be unregistered at some later point when it is no longer needed. This step is optional but should be used if an Addon can be configured to be disabled or if the Addon is no longer interested in the registered event.
+
+```lua
+lp.eventManager.UnregisterCallbackHandler(identifier)
+```
+
+## Supported Events
+
+| EventType                                    |
+| -------------------------------------------- |
+| CHAT_MSG_SPELL_PERIODIC_SELF_DAMAGE          |
+| CHAT_MSG_SPELL_PERIODIC_HOSTILEPLAYER_BUFFS  |
+| CHAT_MSG_SPELL_HOSTILEPLAYER_BUFF            |
+| CHAT_MSG_SPELL_HOSTILEPLAYER_DAMAGE          |
+| CHAT_MSG_SPELL_AURA_GONE_OTHER               |
+| CHAT_MSG_SPELL_DAMAGESHIELDS_ON_SELF         |
+| CHAT_MSG_SPELL_SELF_DAMAGE                   |
+| CHAT_MSG_SPELL_DAMAGESHIELDS_ON_OTHERS       |
+| CHAT_MSG_SPELL_PERIODIC_HOSTILEPLAYER_DAMAGE |
+
+**Note:** LogParser does not aim to be able to parse every message encountered in a combat log. It instead focuses on those needed in an actual Addon implementation. If parsing does not work LogParser can be further developed to support such messages. Because of this LogParser itself does not contain a lot of tests. The tests are placed directly in the Addons using the parser to see if the results fits their usage.
+
+## Locale Support
+
+Because the combat log messages that the Addon receives are in the language of the client a separate parser has to be developed depending on the language. This library currently supports `enUS` and `deDE`.
 
 ## License
 
