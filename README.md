@@ -2,9 +2,9 @@
 
 ![](/Docs/pvpw_raged_unicorn_logo.png)
 
-> LogParser is an Addon for parsing combatlog messages and dispatching the results to other Addons that registered to such events
+> LogParser is an Addon for parsing combatlog messages and dispatching the results to other Addons that subscribed to such events
 
-**Note:** The addon on its own is not helpful to the player. It is to be understood as an Addon that is used by other Addons
+**Note:** The Addon on its own is not helpful to the player. It is to be understood as a helper that is used by other Addons.
 
 ## Installation
 
@@ -20,10 +20,11 @@ Make sure to get the newest version of the Addon from the releases tab:
 
 ## How to use
 
-The Addon has to be separately installed. It is not intended to be used as a library. The reasoning behind this Addon is to prevent doing the same work multiple times. Multiple Addons can register to the same event effectively meaning the message only has to be parsed once and can be used by all registered Addons.
+The Addon has to be separately installed. It is not intended to be used as a library. The reasoning behind this Addon is to prevent doing the same work multiple times. Multiple Addons can subscribe to the same event effectively meaning the message only has to be parsed once and can be used by all subscribed Addons.
 
-### Register
-To register a callback to an event call the `RegisterCallbackHandler` function and pass both the type of the event and the callback to the function
+### Subscribe
+
+To register a callback to an event call the `SubscribeEvent` function and pass both the type of the event and the callback to the function
 
 ```lua
 --[[
@@ -36,7 +37,7 @@ function callback(status, spellData)
 
 end
 
-local identifier = lp.eventManager.RegisterCallbackHandler(
+local identifier = lp.subscriptionManager.SubscribeEvent(
   callback,
   "event"
 )
@@ -58,11 +59,12 @@ The gathered spell data format depends on the type of the event. For details see
 }
 ```
 
-### Unregister
-By saving the returned identifier the callback can be unregistered at some later point when it is no longer needed. This step is optional but should be used if an Addon can be configured to be disabled or if the Addon is no longer interested in the registered event.
+### Unsubscribe
+
+By saving the returned identifier the Addon can unsubscribe at some later point when it is no longer needed. This step is optional but should be used if an Addon can be configured to be disabled or if the Addon is no longer interested in the subscribed event.
 
 ```lua
-lp.eventManager.UnregisterCallbackHandler(identifier)
+lp.eventManager.UnsubscribeEvent(identifier)
 ```
 
 ## Supported Events

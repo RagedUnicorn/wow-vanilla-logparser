@@ -35,7 +35,7 @@ local function callback()
 end
 
 function _G.__LP__DEBUG_RegisterCallback()
-  identifier = lp.eventManager.RegisterCallbackHandler(
+  identifier = lp.subscriptionManager.SubscribeEvent(
     callback,
     "CHAT_MSG_SPELL_PERIODIC_HOSTILEPLAYER_BUFFS"
   )
@@ -45,6 +45,6 @@ function _G.__LP__DEBUG_UnregisterCallback()
   if identifier == nil then
     mod.logger.LogError(me.tag, "Failed to unregister callback. Make sure to call RegisterCallback first")
   else
-    lp.eventManager.UnregisterCallbackHandler(identifier)
+    lp.subscriptionManager.UnsubscribeEvent(identifier)
   end
 end

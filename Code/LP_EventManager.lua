@@ -25,99 +25,103 @@ mod.eventManager = me
 me.tag = "EventManager"
 
 --[[
-  {
-    ["eventType"] = {
-      identifier, {number}
-      handler {table}
-    }
-  }
+  Eventmanager is responsible to manage registering and unregistering to WoW API events.
+  Based on the information the Eventmanager gets from the Subscriptionmanager an event
+  can be registered because it is newly needed or unregistered because no more subscriptions
+  for that event exist.
 ]]--
-local callbacks = {}
 
-function me.GetCallbacks()
-  return callbacks
+
+--[[
+  Events that the logparser supports. Subscriptions that try to subscribe to an
+  unsupported event will fail
+]]--
+local supportedEvents = {
+  "CHAT_MSG_SPELL_HOSTILEPLAYER_DAMAGE",
+  "CHAT_MSG_SPELL_PERIODIC_SELF_DAMAGE",
+  "CHAT_MSG_SPELL_HOSTILEPLAYER_BUFF",
+  "CHAT_MSG_SPELL_PERIODIC_HOSTILEPLAYER_BUFFS",
+  "CHAT_MSG_SPELL_AURA_GONE_OTHER",
+  "CHAT_MSG_SPELL_DAMAGESHIELDS_ON_SELF",
+  "CHAT_MSG_SPELL_DAMAGESHIELDS_ON_OTHERS",
+  "CHAT_MSG_SPELL_SELF_DAMAGE",
+  "CHAT_MSG_SPELL_PERIODIC_HOSTILEPLAYER_DAMAGE"
+}
+
+--[[
+  @param {string} msg
+  @param {string} event
+]]--
+function me.HandleEvent(msg, event)
+  local status, spellData = mod.parser.ParseCombatText(msg, event)
+
+  mod.subscriptionManager.DispatchEvent(status, spellData)
 end
 
 --[[
-  @param {function} handler
-  @param {string} evenType
-  @return {number}
-    The generated identifier. Should be saved by the caller for later unregistering
-    of the handler
+  Register a new event. A event can only be registered once on a frame. Because of
+  this we don't need to check whether an event is already registered.
+
+  @param {string} eventType
 ]]--
-function me.RegisterCallbackHandler(handler, eventType)
-  assert(type(handler) == "function",
-    string.format("bad argument #1 to `RegisterCallbackHandler` (expected function got %s)", type(handler)))
+function me.RegisterEvent(eventType)
+  local mainFrame = getglobal(LP_CONSTANTS.ELEMENT_LP_MAIN_FRAME)
 
-  assert(type(eventType) == "string",
-    string.format("bad argument #2 to `RegisterCallbackHandler` (expected string got %s)", type(eventType)))
+  if me.IsEventSupported(eventType) then
+    mainFrame:RegisterEvent(eventType)
+    mod.logger.LogDebug(me.tag, "Registered event - " .. eventType .. " - ")
+  else
+    mod.logger.LogError(me.tag, "Event - " .. eventType .. " - is not supported")
+  end
+end
 
-  local callback
+--[[
+  Unregister an event
 
-  callback = {
-    ["identifier"] = math.floor(math.random() * 100000),
-    ["handler"] = handler
-  }
+  @param {string} eventType
+]]--
+function me.UnregisterEvent(eventType)
+  local mainFrame = getglobal(LP_CONSTANTS.ELEMENT_LP_MAIN_FRAME)
 
-  if not callbacks[eventType] then
-    callbacks[eventType] = {}
+  mainFrame:UnregisterEvent(eventType)
+  mod.logger.LogDebug(me.tag, "Unregistered event - " .. eventType .. " - ")
+end
+
+--[[
+  Check whether there is at least one Addon registered to a certain event. Only if
+  no Addon is registered to the event it should be unregistered.
+
+  @param {string} eventType
+  @return {boolean}
+    true if the event should be unregistered because no subscription is active
+    false if the event should not be unregistered because there is at least one subscription
+    active
+]]--
+function me.ShouldUnregisterEvent(eventType)
+  local subscriptions = mod.subscriptionManager.GetSubscriptions()
+  local eventSubscription = subscriptions[eventType]
+
+  if eventSubscription == nil or table.getn(eventSubscription) == 0 then
+    mod.logger.LogDebug(me.tag, "No active subscription found for - "
+      .. eventType .. " - event can be unregistered")
+    return true
   end
 
-  table.insert(callbacks[eventType], callback)
-  mod.logger.LogInfo(me.tag, "Registered new callback for type: " .. eventType)
-  mod.eventHandler.RegisterEvent(eventType) -- register event on mainframe
-
-  return callback.identifier
+  return false
 end
 
 --[[
-  Unregistering a callback by its numeric identifier
-
-  @param {number} identifier
+  @param {string} eventType
+  @return {boolean}
+    true if the event is supported
+    false if the event is not supported
 ]]--
-function me.UnregisterCallbackHandler(identifier)
-  local state = 0
-
-  for eventType, _ in pairs(callbacks) do
-    for i = 1, table.getn(callbacks[eventType]) do
-      if callbacks[eventType][i].identifier == identifier then
-        mod.logger.LogInfo(me.tag, "Found matching identifier unregistering callback with type: "
-          .. eventType)
-        table.remove(callbacks[eventType], i)
-
-        -- check if event should be unregistered
-        if mod.eventHandler.ShouldUnregisterEvent(eventType) then
-          mod.eventHandler.UnregisterEvent(eventType)
-        end
-
-        state = 1
-        return
-      end
+function me.IsEventSupported(eventType)
+  for i = 1, table.getn(supportedEvents) do
+    if supportedEvents[i] == eventType  then
+      return true
     end
   end
 
-  if state == 0 then
-    mod.logger.LogWarn(me.tag, "Failed to unregister callback with identifier " .. identifier)
-  end
-end
-
---[[
-  Work through all the callbacks and see whether there is a registered callback
-  for the detected eventType
-
-  @param {number} status
-    1 - msg was successfully parsed
-    0 - unable to parse msg
-  @param {table} spellData
-]]--
-function me.DispatchEvent(status, spellData)
-  if not callbacks[spellData.type] then
-    mod.logger.LogDebug(me.tag, "No callbacks registered for type: " .. spellData.type)
-    return
-  end
-
-  -- call all registered callbacks
-  for key, callback in pairs(callbacks[spellData.type]) do
-    callback.handler(status, spellData)
-  end
+  return false
 end

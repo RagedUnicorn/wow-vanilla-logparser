@@ -40,31 +40,31 @@ function me.OnEvent()
     me.Initialize()
   elseif event == "CHAT_MSG_SPELL_SELF_DAMAGE" then
     me.logger.LogEvent(me.tag, "CHAT_MSG_SPELL_SELF_DAMAGE")
-    me.eventHandler.HandleEvent(arg1, event)
+    me.eventManager.HandleEvent(arg1, event)
   elseif event == "CHAT_MSG_SPELL_HOSTILEPLAYER_DAMAGE" then
     me.logger.LogEvent(me.tag, "CHAT_MSG_SPELL_HOSTILEPLAYER_DAMAGE")
-    me.eventHandler.HandleEvent(arg1, event)
+    me.eventManager.HandleEvent(arg1, event)
   elseif event == "CHAT_MSG_SPELL_HOSTILEPLAYER_BUFF" then
     me.logger.LogEvent(me.tag, "CHAT_MSG_SPELL_HOSTILEPLAYER_BUFF")
-    me.eventHandler.HandleEvent(arg1, event)
+    me.eventManager.HandleEvent(arg1, event)
   elseif event == "CHAT_MSG_SPELL_PERIODIC_HOSTILEPLAYER_BUFFS" then
     me.logger.LogEvent(me.tag, "CHAT_MSG_SPELL_PERIODIC_HOSTILEPLAYER_BUFFS")
-    me.eventHandler.HandleEvent(arg1, event)
+    me.eventManager.HandleEvent(arg1, event)
   elseif event == "CHAT_MSG_SPELL_DAMAGESHIELDS_ON_SELF" then
     me.logger.LogEvent(me.tag, "CHAT_MSG_SPELL_DAMAGESHIELDS_ON_SELF")
-    me.eventHandler.HandleEvent(arg1, event)
+    me.eventManager.HandleEvent(arg1, event)
   elseif event == "CHAT_MSG_SPELL_DAMAGESHIELDS_ON_OTHERS" then
     me.logger.LogEvent(me.tag, "CHAT_MSG_SPELL_DAMAGESHIELDS_ON_OTHERS")
-    me.eventHandler.HandleEvent(arg1, event)
+    me.eventManager.HandleEvent(arg1, event)
   elseif event == "CHAT_MSG_SPELL_AURA_GONE_OTHER" then
     me.logger.LogEvent(me.tag, "CHAT_MSG_SPELL_AURA_GONE_OTHER")
-    me.eventHandler.HandleEvent(arg1, event)
+    me.eventManager.HandleEvent(arg1, event)
   elseif event == "CHAT_MSG_SPELL_PERIODIC_SELF_DAMAGE" then
     me.logger.LogEvent(me.tag, "CHAT_MSG_SPELL_PERIODIC_SELF_DAMAGE")
-    me.eventHandler.HandleEvent(arg1, event)
+    me.eventManager.HandleEvent(arg1, event)
   elseif event == "CHAT_MSG_SPELL_PERIODIC_HOSTILEPLAYER_DAMAGE" then
     me.logger.LogEvent(me.tag, "CHAT_MSG_SPELL_PERIODIC_HOSTILEPLAYER_DAMAGE")
-    me.eventHandler.HandleEvent(arg1, event)
+    me.eventManager.HandleEvent(arg1, event)
   end
 end
 

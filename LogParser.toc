@@ -10,7 +10,7 @@ Code\LP_Constants.lua
 Code\LP_Core.lua
 Code\LP_Logger.lua
 Code\LP_Parser.lua
-Code\LP_EventHandler.lua
+Code\LP_SubscriptionManager.lua
 Code\LP_EventManager.lua
 
 # gui
