@@ -64,6 +64,9 @@ local SPELL_DAMAGESHIELDS_ON_OTHERS4
 local SPELL_DAMAGESHIELDS_ON_OTHERS5
 local SPELL_DAMAGESHIELDS_ON_OTHERS6
 
+local SPELL_FAILED_LOCALPLAYER1
+local SPELL_FAILED_LOCALPLAYER2
+
 if (GetLocale() == "deDE") then
   --[[
     Matching spells with umlaute:
@@ -353,6 +356,58 @@ if (GetLocale() == "deDE") then
       $player$s Tritt wurde ausgewichen.
   ]]--
   SPELL_DAMAGESHIELDS_ON_OTHERS6 = "^(%a+)s%s([\195\159\195\132\195\150\195\156\195\188\195\164\195\182%(%)%a%s-:]+)%swurde%s(ausgewichen)%.$"
+
+  --[[
+    CHAT_MSG_SPELL_FAILED_LOCALPLAYER
+    [keyword] [keyword] [spell] [reason]
+
+    Lots off different forms of failed spell attacks. The following examples where tested
+    and are supported by this Addon
+
+    examples:
+      Ihr scheitert beim Wirken von Geringes Heilen: Unterbrochen.
+      Ihr scheitert beim Wirken von Geringes Heilen: Es wird gerade eine andere Aktion ausgeführt.
+      Ihr scheitert beim Wirken von Magiebannung: Es gibt nichts zu bannen.
+      Ihr scheitert beim Wirken von Geringes Heilen: Nicht genug Mana.
+      Ihr scheitert beim Wirken von Göttliche Pein: Kein Ziel.
+      Ihr scheitert beim Wirken von Göttliche Pein: Das ist während einer Bewegung nicht möglich.
+
+    patterns that were encountered but not specifically tested:
+      Ihr scheitert beim Wirken von Wiedergeburt: Fehlendes Reagenz: Hornbeam Seed.
+  ]]--
+  SPELL_FAILED_LOCALPLAYER1 = "^Ihr%s(scheitert)%sbeim%s(Wirken)%svon%s([[\195\159\195\132\195\150\195\156\195\188\195\164\195\182%(%)%a%s-:]+):%s([\195\159\195\132\195\150\195\156\195\188\195\164\195\182%a%s]+)%.$"
+
+  --[[
+    CHAT_MSG_SPELL_FAILED_LOCALPLAYER
+    [keyword] [keyword] [spell] [reason]
+
+    Lots off different forms of failed meele attacks. The following examples where tested
+    and are supported by this Addon
+
+    examples:
+      Ihr scheitert beim Ausführen von Solarplexus: Kein Ziel.
+      Ihr scheitert beim Ausführen von Solarplexus: Außer Reichweite.
+      Ihr scheitert beim Ausführen von Solarplexus: Ihr müsst vor eurem Ziel stehen...
+      Ihr scheitert beim Ausführen von Solarplexus: Ungültiges Ziel.
+      Ihr scheitert beim Ausführen von Solarplexus: Nicht genug Energie.
+      Ihr scheitert beim Ausführen von Solarplexus: Noch nicht erholt.
+      Ihr scheitert beim Ausführen von Sturmangriff: Das geht nicht, während Ihr desorientiert seid..
+      Ihr scheitert beim Ausführen von Sturmangriff: Ziel ist zu nah..
+      Ihr scheitert beim Ausführen von Sturmangriff: Ihr seid in einen Kampf verwickelt..
+      Ihr scheitert beim Ausführen von Kopfnuss: Muss in Verstohlenheit sein..
+      Ihr scheitert beim Ausführen von Kopfnuss: Ziel befindet sich im Kampf..
+
+    patterns that were encountered but not specifically tested:
+      Ihr scheitert beim Ausführen von Abfangen: Nicht genug Wut.
+      Ihr scheitert beim Ausführen von Sturmangriff: Muss in Kampfhaltung sein..
+      Ihr scheitert beim Ausführen von Abfangen: Muss in Berserkerhaltung sein..
+      Ihr scheitert beim Ausführen von Schildwall: Muss in Verteidigungshaltung sein..
+      Ihr scheitert beim Ausführen von Schildwall: Schild muss angelegt sein..
+      Ihr scheitert beim Ausführen von Knurren: Muss in Bärengestallt, Terrorbärengestalt sein..
+      Ihr scheitert beim Ausführen von Klaue: Muss in Katzengestalt sein..
+      Ihr scheitert beim Ausführen von Wassergestalt: Kann nur beim Schwimmen benutzt werden..
+  ]]--
+  SPELL_FAILED_LOCALPLAYER2 = "^Ihr%s(scheitert)%sbeim%s(Ausführen)%svon%s([\195\159\195\132\195\150\195\156\195\188\195\164\195\182%(%)%a%s-:]+):%s([\195\159\195\132\195\150\195\156\195\188\195\164\195\182%a%s,]+)%.?%.?%.$"
 else
   --[[
     CHAT_MSG_SPELL_PERIODIC_HOSTILEPLAYER_BUFFS
@@ -619,6 +674,51 @@ else
       $player$'s Kick was dodged.
   ]]--
   SPELL_DAMAGESHIELDS_ON_OTHERS6 = "^(%a+)'s%s([%(%)%a%s'-:]+)%swas%s(dodged)%.$"
+
+  --[[
+    CHAT_MSG_SPELL_FAILED_LOCALPLAYER
+    [keyword] [keyword] [spell] [reason]
+
+    examples:
+    You fail to cast Lesser Heal: Interrupted.
+    You fail to cast Dispel Magic: Another action is in progress.
+    You fail to cast Dispel Magic: Nothing to dispel.
+    You fail to cast Dispel Magic: Not enough mana.
+    You fail to cast Shadow Word: Pain: No target.
+    You fail to cast Lesser Heal: Can't do that while moving.
+  ]]--
+  SPELL_FAILED_LOCALPLAYER1 = "^You%s(fail)%sto%s(cast)%s([%(%)%a%s'-:]+):%s([%a%s']+)%.$"
+
+  --[[
+    CHAT_MSG_SPELL_FAILED_LOCALPLAYER
+    [keyword] [keyword] [spell] [reason]
+
+    examples:
+      You fail to perform Gouge: No target.
+      You fail to perform Gouge: Out of range.
+      You fail to perform Gouge: You must be in front of your target.
+      You fail to perform Gouge: Invalid target.
+      You fail to perform Gouge: Not enough energy.
+      You fail to perform Gouge: Not yet recovered.
+      You fail to perform Charge: Can't do that while disoriented.
+      You fail to perform Charge: Target to close.
+      You fail to perform Charge: You are in combat.
+      You fail to perform Sap: Must be in Stealth.
+      You fail to perform Sap: Target is in combat.
+
+    patterns that were encountered but not specifically tested:
+      You fail to perform Intercept: Not enough rage.
+      You fail to perform Charge: Must be in Battle Stance.
+      You fail to perform Charge: Must be in Berserker Stance.
+      You fail to perform Shield Wall: Must be in Defensive Stance.
+      You fail to perform Shield Wall: Must have a Shield equipped.
+      You fail to perform Growl: Must be in Bear Form, Dire Bear Form.
+      You fail to perform Growl: Must be in Cat Form.
+      You fail to perform Aquatic Form: Can only use while swimming.
+
+
+  ]]--
+  SPELL_FAILED_LOCALPLAYER2 = "^You%s(fail)%sto%s(perform)%s([%(%)%a%s'-:]+):%s([%a%s']+)%.$"
 end
 
 --[[
@@ -636,7 +736,9 @@ function me.ParseCombatText(msg, eventType)
 
   local status = 0, spellData
 
-  if eventType == "CHAT_MSG_SPELL_PERIODIC_SELF_DAMAGE" then
+  if eventType == "CHAT_MSG_SPELL_FAILED_LOCALPLAYER" then
+    status, spellData = me.ParseSpellFailedLocalPlayer(msg)
+  elseif eventType == "CHAT_MSG_SPELL_PERIODIC_SELF_DAMAGE" then
     status, spellData = me.ParseSpellPeriodicSelfDamage(msg)
   elseif eventType == "CHAT_MSG_SPELL_PERIODIC_HOSTILEPLAYER_BUFFS" then
     status, spellData = me.ParseSpellPeriodicHostilePlayerBuffs(msg)
@@ -1235,6 +1337,52 @@ if (GetLocale() == "deDE") then
     mod.logger.LogInfo(me.tag, "Failed to parse CHAT_MSG_SPELL_DAMAGESHIELDS_ON_OTHERS")
     return 0
   end
+
+  --[[
+    Parse combat text for CHAT_MSG_SPELL_FAILED_LOCALPLAYER event
+    @param {string} msg
+      combat text to parse
+    @return {number, table | number}
+      1 if msg could be parsed
+      0 if not able to parse msg
+  ]]--
+  function me.ParseSpellFailedLocalPlayer(msg)
+    local _, _, keyword1, keyword2, spell, reason = string.find(msg, SPELL_FAILED_LOCALPLAYER1)
+
+    if keyword1 and keyword2 and spell and reason then
+      mod.logger.LogDebug(me.tag, "CHAT_MSG_SPELL_FAILED_LOCALPLAYER detected")
+      mod.logger.LogDebug(me.tag, string.format("spell: %s reason: %s", spell, reason))
+
+      return 1, {
+        ["type"] = "CHAT_MSG_SPELL_FAILED_LOCALPLAYER",
+        ["spellType"] = LP_CONSTANTS.SPELL_TYPES.LOCAL_FAILURE,
+        ["spell"] = spell,
+        ["keyword1"] = keyword1,
+        ["keyword2"] = keyword2,
+        ["reason"] = reason
+      }
+    end
+
+    local _, _, keyword1, keyword2, spell, reason = string.find(msg, SPELL_FAILED_LOCALPLAYER2)
+
+    if keyword1 and keyword2 and spell and reason then
+      mod.logger.LogDebug(me.tag, "CHAT_MSG_SPELL_FAILED_LOCALPLAYER detected")
+      mod.logger.LogDebug(me.tag, string.format("spell: %s reason: %s", spell, reason))
+
+      return 1, {
+        ["type"] = "CHAT_MSG_SPELL_FAILED_LOCALPLAYER",
+        ["spellType"] = LP_CONSTANTS.SPELL_TYPES.LOCAL_FAILURE,
+        ["spell"] = spell,
+        ["keyword1"] = keyword1,
+        ["keyword2"] = keyword2,
+        ["reason"] = reason
+      }
+    end
+
+    -- unable to parse message
+    mod.logger.LogInfo(me.tag, "Failed to parse CHAT_MSG_SPELL_FAILED_LOCALPLAYER")
+    return 0
+  end
 else
   --[[
     Parse combat text for CHAT_MSG_SPELL_PERIODIC_HOSTILEPLAYER_BUFFS event
@@ -1762,6 +1910,52 @@ else
 
     -- unable to parse message
     mod.logger.LogInfo(me.tag, "Failed to parse CHAT_MSG_SPELL_DAMAGESHIELDS_ON_OTHERS")
+    return 0
+  end
+
+  --[[
+    Parse combat text for CHAT_MSG_SPELL_FAILED_LOCALPLAYER event
+    @param {string} msg
+      combat text to parse
+    @return {number, table | number}
+      1 if msg could be parsed
+      0 if not able to parse msg
+  ]]--
+  function me.ParseSpellFailedLocalPlayer(msg)
+    local _, _, keyword1, keyword2, spell, reason = string.find(msg, SPELL_FAILED_LOCALPLAYER1)
+
+    if keyword1 and keyword2 and spell and reason then
+      mod.logger.LogDebug(me.tag, "CHAT_MSG_SPELL_FAILED_LOCALPLAYER detected")
+      mod.logger.LogDebug(me.tag, string.format("spell: %s reason: %s", spell, reason))
+
+      return 1, {
+        ["type"] = "CHAT_MSG_SPELL_FAILED_LOCALPLAYER",
+        ["spellType"] = LP_CONSTANTS.SPELL_TYPES.LOCAL_FAILURE,
+        ["spell"] = spell,
+        ["keyword1"] = keyword1,
+        ["keyword2"] = keyword2,
+        ["reason"] = reason
+      }
+    end
+
+    local _, _, keyword1, keyword2, spell, reason = string.find(msg, SPELL_FAILED_LOCALPLAYER2)
+
+    if keyword1 and keyword2 and spell and reason then
+      mod.logger.LogDebug(me.tag, "CHAT_MSG_SPELL_FAILED_LOCALPLAYER detected")
+      mod.logger.LogDebug(me.tag, string.format("spell: %s reason: %s", spell, reason))
+
+      return 1, {
+        ["type"] = "CHAT_MSG_SPELL_FAILED_LOCALPLAYER",
+        ["spellType"] = LP_CONSTANTS.SPELL_TYPES.LOCAL_FAILURE,
+        ["spell"] = spell,
+        ["keyword1"] = keyword1,
+        ["keyword2"] = keyword2,
+        ["reason"] = reason
+      }
+    end
+
+    -- unable to parse message
+    mod.logger.LogInfo(me.tag, "Failed to parse CHAT_MSG_SPELL_FAILED_LOCALPLAYER")
     return 0
   end
 end

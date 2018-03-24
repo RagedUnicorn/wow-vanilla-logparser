@@ -64,6 +64,9 @@ function me.OnEvent()
   if event == "PLAYER_LOGIN" then
     me.logger.LogEvent(me.tag, "PLAYER_LOGIN")
     me.Initialize()
+  elseif event == "CHAT_MSG_SPELL_FAILED_LOCALPLAYER" then
+    me.logger.LogEvent(me.tag, "CHAT_MSG_SPELL_FAILED_LOCALPLAYER")
+    me.eventManager.HandleEvent(arg1, event)
   elseif event == "CHAT_MSG_SPELL_SELF_DAMAGE" then
     me.logger.LogEvent(me.tag, "CHAT_MSG_SPELL_SELF_DAMAGE")
     me.eventManager.HandleEvent(arg1, event)

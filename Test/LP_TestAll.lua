@@ -44,6 +44,7 @@ function _G.__LP__TEST_ALL()
     "SpellAuraGoneOther",
     "SpellDamageShieldsOnOthers",
     "SpellDamageShieldsOnSelf",
+    "SpellFailedLocalPlayer",
     "SpellHostilePlayerBuffs",
     "SpellHostilePlayerDamage",
     "SpellPeriodicHostilePlayerBuffs",
