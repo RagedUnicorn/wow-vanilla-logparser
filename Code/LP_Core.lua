@@ -28,10 +28,26 @@ local me = lp
 
 me.tag = "Core"
 
+-- global
+local _G = getfenv(0)
+
+--[[
+  Testing
+
+  Hook GetLocale to return a fixed value. Deactivate in production!
+  Note: This is used for testing only. If the locale doesn't match with the actual
+  locale of the combatlog the Addon is unable to parse the log.
+]]--
+--[[
+  function _G.GetLocale()
+    return "deDE"
+  end
+]]--
+
 --[[
   Store logdata for tests
 ]]--
-LogParserTestLog = {}
+-- LogParserTestLog = {}
 
 --[[Addon load]]--
 function me.OnLoad()

@@ -109,13 +109,13 @@ if (GetLocale() == "deDE") then
     etc.
 
     e.g $player$ bekommt 'Verbrennung'.
-    e.g $player$ gains Combustion (2).
+    e.g $player$ bekommt Combustion (2).
 
     examples:
       $player$ bekommt 'Ruhelose Stärke' (20).
       $player$ bekommt 'Verbrennung' (2).
   ]]--
-  SPELL_PERIODIC_HOSTILE_PLAYER_BUFFS2 = "^(%a+)%s(bekommt)%s([\195\159\195\132\195\150\195\156\195\188\195\164\195\182%(%)%a%s-:]+)%s([%d+%(%)]+)%.$"
+  SPELL_PERIODIC_HOSTILE_PLAYER_BUFFS2 = "^(%a+)%s(bekommt)%s'([\195\159\195\132\195\150\195\156\195\188\195\164\195\182%(%)%a%s-:]+)'%s([%d+%(%)]+)%.$"
 
   --[[
     CHAT_MSG_SPELL_HOSTILEPLAYER_BUFF
@@ -694,8 +694,18 @@ if (GetLocale() == "deDE") then
 
     if source and keyword and spell and charges then
       mod.logger.LogDebug(me.tag, "CHAT_MSG_SPELL_PERIODIC_HOSTILEPLAYER_BUFFS detected")
-      -- ignore spells with charges
-      mod.logger.LogDebug(me.tag, "CHAT_MSG_SPELL_PERIODIC_HOSTILEPLAYER_BUFFS successfully parsed but ignoring spell")
+      mod.logger.LogDebug(me.tag, string.format("source: %s spell: %s", source, spell))
+
+      return 1, {
+        ["type"] = "CHAT_MSG_SPELL_PERIODIC_HOSTILEPLAYER_BUFFS",
+        ["spellType"] = LP_CONSTANTS.SPELL_TYPES.SPELL,
+        ["source"] = source,
+        ["player1"] = player1,
+        ["player2"] = player2,
+        ["keyword1"] = keyword1,
+        ["keyword2"] = keyword2,
+        ["spell"] = spell
+      }
     end
 
     -- unable to parse message
