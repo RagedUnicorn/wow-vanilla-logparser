@@ -65,7 +65,7 @@ function me.RunAll()
   mod.testReporter.AddToTestQueue(me.TestParseMultiwordSpellNameCrits)
   mod.testReporter.AddToTestQueue(me.TestParseNormalSpellNameBeginsToCast)
   mod.testReporter.AddToTestQueue(me.TestParseMultiwordSpellNameBeginsToCast)
-  mod.testReporter.AddToTestQueue(me.TestParseMultiwordSpellNameBeginsToCast)
+  mod.testReporter.AddToTestQueue(me.TestParseSpecialCharacterSpellNameBeginsToCast)
 
   mod.testReporter.PlayTestQueue()
 end
@@ -150,10 +150,10 @@ function me.TestParseMultiwordSpellNameBeginsToCast()
   )
 end
 
-function me.TestParseMultiwordSpellNameBeginsToCast()
+function me.TestParseSpecialCharacterSpellNameBeginsToCast()
   mod.testHelper.TestParse(
     eventName,
-    "TestParseMultiwordSpellNameBeginsToCast",
+    "TestParseSpecialCharacterSpellNameBeginsToCast",
     "dummy_spell",
     "$player$ begins to cast Dummy (Spell):-'s.",
     mod.testHelper.eventTypeSpellHostilePlayerDamage

@@ -124,7 +124,7 @@ function me.TestParseMultiwordSpellNameBlocked()
     eventName,
     "TestParseMultiwordSpellNameBlocked",
     "dummy_spell",
-    "$player$'s Dummy Spell was resisted.",
+    "$player$'s Dummy Spell was blocked.",
     mod.testHelper.eventTypeSpellDamageShieldsOnOthers
   )
 end
@@ -134,7 +134,7 @@ function me.TestParseSpecialCharacterSpellNameBlocked()
     eventName,
     "TestParseSpecialCharacterSpellNameBlocked",
     "dummy_spell",
-    "$player$'s Dummy (Spell):-'s was resisted.",
+    "$player$'s Dummy (Spell):-'s was blocked.",
     mod.testHelper.eventTypeSpellDamageShieldsOnOthers
   )
 end

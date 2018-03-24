@@ -58,7 +58,7 @@ end
 function me.RunAll()
   mod.testReporter.AddToTestQueue(me.TestParseNormalSpellName)
   mod.testReporter.AddToTestQueue(me.TestParseMultiwordSpellName)
-  mod.testReporter.AddToTestQueue(me.TestParseMultiwordSpellName)
+  mod.testReporter.AddToTestQueue(me.TestParseSpecialCharacterSpellName)
 
   mod.testReporter.PlayTestQueue()
 end
@@ -83,10 +83,10 @@ function me.TestParseMultiwordSpellName()
   )
 end
 
-function me.TestParseMultiwordSpellName()
+function me.TestParseSpecialCharacterSpellName()
   mod.testHelper.TestParse(
     eventName,
-    "TestParseMultiwordSpellName",
+    "TestParseSpecialCharacterSpellName",
     "dummy_spell",
     "You are afflicted by Dummy (Spell):-'s.",
     mod.testHelper.eventTypeSpellPeriodicSelfDamage

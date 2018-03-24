@@ -59,9 +59,6 @@ function me.RunAll()
   mod.testReporter.AddToTestQueue(me.TestParseNormalSpellNameGains)
   mod.testReporter.AddToTestQueue(me.TestParseMultiwordSpellNameGains)
   mod.testReporter.AddToTestQueue(me.TestParseSpecialCharacterSpellNameGains)
-  mod.testReporter.AddToTestQueue(me.TestParseNormalSpellNameGainsRessource)
-  mod.testReporter.AddToTestQueue(me.TestParseMultiwordSpellNameGainsRessource)
-  mod.testReporter.AddToTestQueue(me.TestParseSpecialCharacterSpellNameGainsRessource)
   mod.testReporter.AddToTestQueue(me.TestParseNormalSpellNameGainsCharge)
   mod.testReporter.AddToTestQueue(me.TestParseMultiwordSpellNameGainsCharge)
   mod.testReporter.AddToTestQueue(me.TestParseSpecialCharacterSpellNameGainsCharge)
@@ -95,36 +92,6 @@ function me.TestParseSpecialCharacterSpellNameGains()
     "TestParseSpecialCharacterSpellNameGains",
     "dummy_spell",
     "$player$ gains Dummy (Spell):-'s.",
-    mod.testHelper.eventTypeSpellPeriodicHostilePlayerBuffs
-  )
-end
-
-function me.TestParseNormalSpellNameGainsRessource()
-  mod.testHelper.TestParse(
-    eventName,
-    "TestParseNormalSpellNameGainsRessource",
-    "dummyspell",
-    "$player$ gains $amount$ Energy from $player$'s Dummyspell.",
-    mod.testHelper.eventTypeSpellPeriodicHostilePlayerBuffs
-  )
-end
-
-function me.TestParseMultiwordSpellNameGainsRessource()
-  mod.testHelper.TestParse(
-    eventName,
-    "TestParseMultiwordSpellNameGainsRessource",
-    "dummy_spell",
-    "$player$ gains $amount$ Energy from $player$'s Dummy Spell.",
-    mod.testHelper.eventTypeSpellPeriodicHostilePlayerBuffs
-  )
-end
-
-function me.TestParseSpecialCharacterSpellNameGainsRessource()
-  mod.testHelper.TestParse(
-    eventName,
-    "TestParseSpecialCharacterSpellNameGainsRessource",
-    "dummy_spell",
-    "$player$ gains $amount$ Energy from $player$'s Dummy (Spell):-'s.",
     mod.testHelper.eventTypeSpellPeriodicHostilePlayerBuffs
   )
 end
