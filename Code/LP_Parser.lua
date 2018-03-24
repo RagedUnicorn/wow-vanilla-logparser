@@ -372,15 +372,6 @@ else
 
   --[[
     CHAT_MSG_SPELL_PERIODIC_HOSTILEPLAYER_BUFFS
-    [source] [keyword] [number] [source] [spell]
-
-    examples:
-      $player$ gains $amount$ Energy from $player$'s Restore Energy.
-  ]]--
-  SPELL_PERIODIC_HOSTILE_PLAYER_BUFFS2 = "^(%a+)%s(gains)%s(%d+)%s%a+%sfrom%s(%a+)'s%s([%(%)%a%s'-:]+)%.$"
-
-  --[[
-    CHAT_MSG_SPELL_PERIODIC_HOSTILEPLAYER_BUFFS
     [source] [keyword] [spell] [charges]
 
     Charges can be going up or down
@@ -397,7 +388,7 @@ else
       $player$ gains Restless Strength (20).
       $player$ gains Combustion (0).
   ]]--
-  SPELL_PERIODIC_HOSTILE_PLAYER_BUFFS3 = "^(%a+)%s(gains)%s([%(%)%a%s'-:]+)%s([%d+%(%)]+)%.$"
+  SPELL_PERIODIC_HOSTILE_PLAYER_BUFFS2 = "^(%a+)%s(gains)%s([%(%)%a%s'-:]+)%s([%d+%(%)]+)%.$"
 
   --[[
     CHAT_MSG_SPELL_HOSTILEPLAYER_BUFF
@@ -1277,18 +1268,6 @@ else
         ["spell"] = spell
       }
     end
-
-    local _, _, source, keyword, spell, charges = string.find(msg, SPELL_PERIODIC_HOSTILE_PLAYER_BUFFS3)
-
-    if source and keyword and spell and charges then
-      mod.logger.LogDebug(me.tag, "CHAT_MSG_SPELL_PERIODIC_HOSTILEPLAYER_BUFFS detected")
-      -- ignore spells with charges
-      mod.logger.LogDebug(me.tag, "CHAT_MSG_SPELL_PERIODIC_HOSTILEPLAYER_BUFFS successfully parsed but ignoring spell")
-    end
-
-    -- unable to parse message
-    mod.logger.LogInfo(me.tag, "Failed to parse CHAT_MSG_SPELL_PERIODIC_HOSTILEPLAYER_BUFFS")
-    return 0
   end
 
   --[[
