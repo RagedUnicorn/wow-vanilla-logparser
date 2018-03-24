@@ -95,7 +95,7 @@ if (GetLocale() == "deDE") then
       $player$ bekommt 'Schildwall'.
       $player$ bekommt 'Elunes Anmut'.
   ]]--
-  SPELL_PERIODIC_HOSTILE_PLAYER_BUFFS1 = "^(%a+)%s(bekommt)%s'([\195\159\195\132\195\150\195\156\195\188\195\164\195\182%a%s-:]+)'%.$"
+  SPELL_PERIODIC_HOSTILE_PLAYER_BUFFS1 = "^(%a+)%s(bekommt)%s'([\195\159\195\132\195\150\195\156\195\188\195\164\195\182%(%)%a%s-:]+)'%.$"
 
   --[[
     CHAT_MSG_SPELL_PERIODIC_HOSTILEPLAYER_BUFFS
@@ -115,7 +115,7 @@ if (GetLocale() == "deDE") then
       $player$ bekommt 'Ruhelose Stärke' (20).
       $player$ bekommt 'Verbrennung' (2).
   ]]--
-  SPELL_PERIODIC_HOSTILE_PLAYER_BUFFS2 = "^(%a+)%s(bekommt)%s([\195\159\195\132\195\150\195\156\195\188\195\164\195\182%a%s-:]+)%s([%d+%(%)]+)%.$"
+  SPELL_PERIODIC_HOSTILE_PLAYER_BUFFS2 = "^(%a+)%s(bekommt)%s([\195\159\195\132\195\150\195\156\195\188\195\164\195\182%(%)%a%s-:]+)%s([%d+%(%)]+)%.$"
 
   --[[
     CHAT_MSG_SPELL_HOSTILEPLAYER_BUFF
@@ -124,7 +124,7 @@ if (GetLocale() == "deDE") then
     examples:
       $player$s Schwacher Gesundheitsstein heilt $player$ um $amount$.
   ]]--
-  SPELL_HOSTILE_PLAYER_BUFF1 = "^(%a+)s%s([\195\159\195\132\195\150\195\156\195\188\195\164\195\182%a%s-:]+)%s(heilt)%s(%a+)%sum%s(%d+)%.$"
+  SPELL_HOSTILE_PLAYER_BUFF1 = "^(%a+)s%s([\195\159\195\132\195\150\195\156\195\188\195\164\195\182%(%)%a%s-:]+)%s(heilt)%s(%a+)%sum%s(%d+)%.$"
 
   --[[
     CHAT_MSG_SPELL_HOSTILEPLAYER_BUFF
@@ -134,7 +134,7 @@ if (GetLocale() == "deDE") then
       $player$ wirkt Sprengfalle.
       $player$ wirkt Frostfalle.
   ]]--
-  SPELL_HOSTILE_PLAYER_BUFF2 = "^(%a+)%s(wirkt)%s([\195\159\195\132\195\150\195\156\195\188\195\164\195\182%a%s-:]+)%.$"
+  SPELL_HOSTILE_PLAYER_BUFF2 = "^(%a+)%s(wirkt)%s([\195\159\195\132\195\150\195\156\195\188\195\164\195\182%(%)%a%s-:]+)%.$"
 
   --[[
     CHAT_MSG_SPELL_HOSTILEPLAYER_BUFF
@@ -144,7 +144,7 @@ if (GetLocale() == "deDE") then
       $player$ beginnt Entfesselungskünstler auszuführen.
       $player$ beginnt Kriegsdonner auszuführen.
   ]]--
-  SPELL_HOSTILE_PLAYER_BUFF3 = "^(%a+)%s(beginnt)%s([\195\159\195\132\195\150\195\156\195\188\195\164\195\182%a%s-:]+)%s(auszuf\195\188hren)%.$"
+  SPELL_HOSTILE_PLAYER_BUFF3 = "^(%a+)%s(beginnt)%s([\195\159\195\132\195\150\195\156\195\188\195\164\195\182%(%)%a%s-:]+)%s(auszuf\195\188hren)%.$"
 
   --[[
     CHAT_MSG_SPELL_HOSTILEPLAYER_BUFF
@@ -154,7 +154,7 @@ if (GetLocale() == "deDE") then
       Kritische Heilung: $player$s Handauflegung heilt $player$ um $amount$ Punkte.
 
   ]]--
-  SPELL_HOSTILE_PLAYER_BUFF4 = "^(Kritische Heilung):%s(%a+)s%s([\195\159\195\132\195\150\195\156\195\188\195\164\195\182%a%s-:]+)%s(heilt)%s(%a+)%sum%s(%d+)%sPunkte%.$"
+  SPELL_HOSTILE_PLAYER_BUFF4 = "^(Kritische Heilung):%s(%a+)s%s([\195\159\195\132\195\150\195\156\195\188\195\164\195\182%(%)%a%s-:]+)%s(heilt)%s(%a+)%sum%s(%d+)%sPunkte%.$"
 
   --[[
     CHAT_MSG_SPELL_HOSTILEPLAYER_BUFF
@@ -165,7 +165,7 @@ if (GetLocale() == "deDE") then
       $player$ bekommt $amount$ Wut durch $player$s Blutrausch.
 
   ]]--
-  SPELL_HOSTILE_PLAYER_BUFF5 = "^(%a+)%s(bekommt)%s(%d+)%s([%a]+)%s(durch)%s(%a+)s%s([\195\159\195\132\195\150\195\156\195\188\195\164\195\182%a%s-:]+)%.$"
+  SPELL_HOSTILE_PLAYER_BUFF5 = "^(%a+)%s(bekommt)%s(%d+)%s([%a]+)%s(durch)%s(%a+)s%s([\195\159\195\132\195\150\195\156\195\188\195\164\195\182%(%)%a%s-:]+)%.$"
 
   --[[
     CHAT_MSG_SPELL_PERIODIC_SELF_DAMAGE
@@ -191,7 +191,7 @@ if (GetLocale() == "deDE") then
       $player$ trifft Euch (mit Tritt). Schaden: $amount$.
 
   ]]--
-  SPELL_HOSTILEPLAYER_DAMAGE1 = "^(%a+)%s(trifft)%s(Euch)%s%(mit%s([\195\159\195\132\195\150\195\156\195\188\195\164\195\182%a%s-:]+)%)%.%s(Schaden):%s(%d+)%.$"
+  SPELL_HOSTILEPLAYER_DAMAGE1 = "^(%a+)%s(trifft)%s(Euch)%s%(mit%s([\195\159\195\132\195\150\195\156\195\188\195\164\195\182%(%)%a%s-:]+)%)%.%s(Schaden):%s(%d+)%.$"
 
   --[[
     CHAT_MSG_SPELL_HOSTILEPLAYER_DAMAGE
@@ -201,7 +201,7 @@ if (GetLocale() == "deDE") then
       $player$ trifft Euch kritisch (mit Zuschlagen). Schaden: $amount$.
       $player$ trifft Euch kritisch (mit Tritt). Schaden: $amount$.
   ]]--
-  SPELL_HOSTILEPLAYER_DAMAGE2 = "^(%a+)%s(trifft)%s(Euch)%s(kritisch)%s%(mit%s([\195\159\195\132\195\150\195\156\195\188\195\164\195\182%a%s-:]+)%)%.%s(Schaden):%s(%d+)%.$"
+  SPELL_HOSTILEPLAYER_DAMAGE2 = "^(%a+)%s(trifft)%s(Euch)%s(kritisch)%s%(mit%s([\195\159\195\132\195\150\195\156\195\188\195\164\195\182%(%)%a%s-:]+)%)%.%s(Schaden):%s(%d+)%.$"
 
   --[[
     CHAT_MSG_SPELL_HOSTILEPLAYER_DAMAGE
@@ -210,7 +210,7 @@ if (GetLocale() == "deDE") then
     examples:
       $player$ beginnt Hammer des Zorns zu wirken.
   ]]--
-  SPELL_HOSTILEPLAYER_DAMAGE3 = "^(%a+)%s(beginnt)%s([\195\159\195\132\195\150\195\156\195\188\195\164\195\182%a%s-:]+)%szu%s(wirken)%.$"
+  SPELL_HOSTILEPLAYER_DAMAGE3 = "^(%a+)%s(beginnt)%s([\195\159\195\132\195\150\195\156\195\188\195\164\195\182%(%)%a%s-:]+)%szu%s(wirken)%.$"
 
   --[[
     CHAT_MSG_SPELL_PERIODIC_HOSTILEPLAYER_DAMAGE
@@ -219,7 +219,7 @@ if (GetLocale() == "deDE") then
     examples:
       $player$ ist von Vorahnung betroffen.
   ]]--
-  SPELL_PERIODIC_HOSTILE_PLAYER_DAMAGE = "^(%a+)%sist%svon%s([\195\159\195\132\195\150\195\156\195\188\195\164\195\182%a%s-:]+)%s(betroffen)%.$"
+  SPELL_PERIODIC_HOSTILE_PLAYER_DAMAGE = "^(%a+)%sist%svon%s([\195\159\195\132\195\150\195\156\195\188\195\164\195\182%(%)%a%s-:]+)%s(betroffen)%.$"
 
   --[[
     CHAT_MSG_SPELL_AURA_GONE_OTHER
@@ -228,7 +228,7 @@ if (GetLocale() == "deDE") then
     examples:
       Feuerreflektor schwindet von $player$.
   ]]--
-  SPELL_AURA_GONE_OTHER = "^([\195\159\195\132\195\150\195\156\195\188\195\164\195\182%a%s-:]+)%s(schwindet)%svon%s(%a+)%.$"
+  SPELL_AURA_GONE_OTHER = "^([\195\159\195\132\195\150\195\156\195\188\195\164\195\182%(%)%a%s-:]+)%s(schwindet)%svon%s(%a+)%.$"
 
   --[[
     CHAT_MSG_SPELL_DAMAGESHIELDS_ON_SELF
@@ -263,7 +263,7 @@ if (GetLocale() == "deDE") then
       Hieb hat $player$ verfehlt.
 
   ]]--
-  SPELL_DAMAGESHIELDS_ON_SELF3 = "^([\195\159\195\132\195\150\195\156\195\188\195\164\195\182%a%s-:]+)%shat%s(%a+)%s(verfehlt)%.$"
+  SPELL_DAMAGESHIELDS_ON_SELF3 = "^([\195\159\195\132\195\150\195\156\195\188\195\164\195\182%(%)%a%s-:]+)%shat%s(%a+)%s(verfehlt)%.$"
 
   --[[
     CHAT_MSG_SPELL_DAMAGESHIELDS_ON_SELF
@@ -273,7 +273,7 @@ if (GetLocale() == "deDE") then
       $player$ ist Zurechtstutzen ausgewichen.
       $player$ ist Entwaffnen ausgewichen.
   ]]--
-  SPELL_DAMAGESHIELDS_ON_SELF4 = "^(%a+)%sist%s([\195\159\195\132\195\150\195\156\195\188\195\164\195\182%a%s-:]+)%s(ausgewichen)%.$"
+  SPELL_DAMAGESHIELDS_ON_SELF4 = "^(%a+)%sist%s([\195\159\195\132\195\150\195\156\195\188\195\164\195\182%(%)%a%s-:]+)%s(ausgewichen)%.$"
 
   --[[
     CHAT_MSG_SPELL_DAMAGESHIELDS_ON_SELF
@@ -284,7 +284,7 @@ if (GetLocale() == "deDE") then
       Entwaffnen wurde von $player$ pariert.
 
   ]]--
-  SPELL_DAMAGESHIELDS_ON_SELF5 = "^([\195\159\195\132\195\150\195\156\195\188\195\164\195\182%a%s-:]+)%swurde%svon%s(%a+)%s(pariert)%.$"
+  SPELL_DAMAGESHIELDS_ON_SELF5 = "^([\195\159\195\132\195\150\195\156\195\188\195\164\195\182%(%)%a%s-:]+)%swurde%svon%s(%a+)%s(pariert)%.$"
 
   --[[
     CHAT_MSG_SPELL_SELF_DAMAGE
@@ -295,7 +295,7 @@ if (GetLocale() == "deDE") then
       Finsterer Stoß wurde von $player$ geblockt.
       Ausweiden wurde von $player$ geblockt.
   ]]--
-  SPELL_SELF_DAMAGE = "^([\195\159\195\132\195\150\195\156\195\188\195\164\195\182%a%s-:]+)%swurde%svon%s(%a+)%s(geblockt)%.$"
+  SPELL_SELF_DAMAGE = "^([\195\159\195\132\195\150\195\156\195\188\195\164\195\182%(%)%a%s-:]+)%swurde%svon%s(%a+)%s(geblockt)%.$"
 
   --[[
     CHAT_MSG_SPELL_DAMAGESHIELDS_ON_OTHERS
@@ -315,7 +315,7 @@ if (GetLocale() == "deDE") then
       $player$s Tritt wurde geblockt.
       $player$s Zurechtstutzen wurde geblockt.
   ]]--
-  SPELL_DAMAGESHIELDS_ON_OTHERS2 = "^(%a+)s%s([\195\159\195\132\195\150\195\156\195\188\195\164\195\182%a%s-:]+)%swurde%s(geblockt)%.$"
+  SPELL_DAMAGESHIELDS_ON_OTHERS2 = "^(%a+)s%s([\195\159\195\132\195\150\195\156\195\188\195\164\195\182%(%)%a%s-:]+)%swurde%s(geblockt)%.$"
 
   --[[
     CHAT_MSG_SPELL_DAMAGESHIELDS_ON_OTHERS
@@ -324,7 +324,7 @@ if (GetLocale() == "deDE") then
     examples:
       $player$ greift an (mit Blenden) und verfehlt euch.
   ]]--
-  SPELL_DAMAGESHIELDS_ON_OTHERS3 = "^(%a+)%s(greift)%san%s%(mit%s([\195\159\195\132\195\150\195\156\195\188\195\164\195\182%a%s-:]+)%)%sund%s(verfehlt)%s(euch)%.$"
+  SPELL_DAMAGESHIELDS_ON_OTHERS3 = "^(%a+)%s(greift)%san%s%(mit%s([\195\159\195\132\195\150\195\156\195\188\195\164\195\182%(%)%a%s-:]+)%)%sund%s(verfehlt)%s(euch)%.$"
 
   --[[
     CHAT_MSG_SPELL_DAMAGESHIELDS_ON_OTHERS
@@ -343,7 +343,7 @@ if (GetLocale() == "deDE") then
     examples:
       Tritt von $player$ wurde pariert.
   ]]--
-  SPELL_DAMAGESHIELDS_ON_OTHERS5 = "^([\195\159\195\132\195\150\195\156\195\188\195\164\195\182%a%s-:]+)%svon%s(%a+)%swurde%s(pariert)%.$"
+  SPELL_DAMAGESHIELDS_ON_OTHERS5 = "^([\195\159\195\132\195\150\195\156\195\188\195\164\195\182%(%)%a%s-:]+)%svon%s(%a+)%swurde%s(pariert)%.$"
 
   --[[
     CHAT_MSG_SPELL_DAMAGESHIELDS_ON_OTHERS
@@ -352,7 +352,7 @@ if (GetLocale() == "deDE") then
     examples:
       $player$s Tritt wurde ausgewichen.
   ]]--
-  SPELL_DAMAGESHIELDS_ON_OTHERS6 = "^(%a+)s%s([\195\159\195\132\195\150\195\156\195\188\195\164\195\182%a%s-:]+)%swurde%s(ausgewichen)%.$"
+  SPELL_DAMAGESHIELDS_ON_OTHERS6 = "^(%a+)s%s([\195\159\195\132\195\150\195\156\195\188\195\164\195\182%(%)%a%s-:]+)%swurde%s(ausgewichen)%.$"
 else
   --[[
     CHAT_MSG_SPELL_PERIODIC_HOSTILEPLAYER_BUFFS
@@ -368,17 +368,16 @@ else
       $player$ gains Shield Wall.
       $player$ gains Elune's Grace.
   ]]--
-  SPELL_PERIODIC_HOSTILE_PLAYER_BUFFS1 = "^(%a+)%s(gains)%s([%a%s'-:]+)%.$"
+  SPELL_PERIODIC_HOSTILE_PLAYER_BUFFS1 = "^(%a+)%s(gains)%s([%(%)%a%s'-:]+)%.$"
 
   --[[
     CHAT_MSG_SPELL_PERIODIC_HOSTILEPLAYER_BUFFS
-    [source] [ke
-    yword] [number] [source] [spell]
+    [source] [keyword] [number] [source] [spell]
 
     examples:
       $player$ gains $amount$ Energy from $player$'s Restore Energy.
   ]]--
-  SPELL_PERIODIC_HOSTILE_PLAYER_BUFFS2 = "^(%a+)%s(gains)%s(%d+)%s%a+%sfrom%s(%a+)'s%s([%a%s'-:]+)%.$"
+  SPELL_PERIODIC_HOSTILE_PLAYER_BUFFS2 = "^(%a+)%s(gains)%s(%d+)%s%a+%sfrom%s(%a+)'s%s([%(%)%a%s'-:]+)%.$"
 
   --[[
     CHAT_MSG_SPELL_PERIODIC_HOSTILEPLAYER_BUFFS
@@ -398,7 +397,7 @@ else
       $player$ gains Restless Strength (20).
       $player$ gains Combustion (0).
   ]]--
-  SPELL_PERIODIC_HOSTILE_PLAYER_BUFFS3 = "^(%a+)%s(gains)%s([%a%s'-:]+)%s([%d+%(%)]+)%.$"
+  SPELL_PERIODIC_HOSTILE_PLAYER_BUFFS3 = "^(%a+)%s(gains)%s([%(%)%a%s'-:]+)%s([%d+%(%)]+)%.$"
 
   --[[
     CHAT_MSG_SPELL_HOSTILEPLAYER_BUFF
@@ -407,7 +406,7 @@ else
     examples:
       $player$'s Minor Healthstone heals $player$ for $amount$.
   ]]--
-  SPELL_HOSTILE_PLAYER_BUFF1 = "^(%a+)'s%s([%a%s'-:]+)%s(heals)%s(%a+)%sfor%s(%d+)%.$"
+  SPELL_HOSTILE_PLAYER_BUFF1 = "^(%a+)'s%s([%(%)%a%s'-:]+)%s(heals)%s(%a+)%sfor%s(%d+)%.$"
 
   --[[
     CHAT_MSG_SPELL_HOSTILEPLAYER_BUFF
@@ -417,7 +416,7 @@ else
       $player$ casts Explosive Trap.
       $player$ casts Freezing Trap.
   ]]--
-  SPELL_HOSTILE_PLAYER_BUFF2 = "^(%a+)%s(casts)%s([%a%s'-:]+)%.$"
+  SPELL_HOSTILE_PLAYER_BUFF2 = "^(%a+)%s(casts)%s([%(%)%a%s'-:]+)%.$"
 
   --[[
     CHAT_MSG_SPELL_HOSTILEPLAYER_BUFF
@@ -426,7 +425,7 @@ else
     examples:
       $player$ begins to perform Escape Artist.
   ]]--
-  SPELL_HOSTILE_PLAYER_BUFF3 = "^(%a+)%s(begins to perform)%s([%a%s'-:]+)%.$"
+  SPELL_HOSTILE_PLAYER_BUFF3 = "^(%a+)%s(begins to perform)%s([%(%)%a%s'-:]+)%.$"
 
   --[[
     CHAT_MSG_SPELL_HOSTILEPLAYER_BUFF
@@ -436,7 +435,7 @@ else
       $player$'s Lay on Hands critically heals $player$ for $amount$.
 
   ]]--
-  SPELL_HOSTILE_PLAYER_BUFF4 = "^(%a+)'s%s([%a%s'-:]+)%s(critically heals)%s(%a+)%sfor%s(%d+)%.$"
+  SPELL_HOSTILE_PLAYER_BUFF4 = "^(%a+)'s%s([%(%)%a%s'-:]+)%s(critically heals)%s(%a+)%sfor%s(%d+)%.$"
 
   --[[
     CHAT_MSG_SPELL_HOSTILEPLAYER_BUFF
@@ -446,7 +445,7 @@ else
       $player$ gains $amount$ Energy from $player$'s Restore Energy.
       $player$ gains $amount$ Rage from $player$'s Bloodrage.
   ]]--
-  SPELL_HOSTILE_PLAYER_BUFF5 = "^(%a+)%s(gains)%s(%d+)%s([%a]+)%s(from)%s(%a+)'s%s([%a%s'-:]+)%.$"
+  SPELL_HOSTILE_PLAYER_BUFF5 = "^(%a+)%s(gains)%s(%d+)%s([%a]+)%s(from)%s(%a+)'s%s([%(%)%a%s'-:]+)%.$"
 
   --[[
     CHAT_MSG_SPELL_PERIODIC_SELF_DAMAGE
@@ -460,7 +459,7 @@ else
       You are afflicted by Counterspell - Silenced.
       You are afflicted by Faerie Fire (Feral).
   ]]--
-  SPELL_PERIODIC_SELF_DAMAGE = "^(You)%sare%s(afflicted)%sby%s([%(%)%a%s:-]+)%.$"
+  SPELL_PERIODIC_SELF_DAMAGE = "^(You)%sare%s(afflicted)%sby%s([%(%)%a%s'-:]+)%.$"
 
   --[[
     CHAT_MSG_SPELL_HOSTILEPLAYER_DAMAGE
@@ -470,7 +469,7 @@ else
       $player$'s Pummel hits you for $amount$.
       $player$'s Kick hits you for $amount$.
   ]]--
-  SPELL_HOSTILEPLAYER_DAMAGE1 = "^(%a+)'s%s([%a%s'-:]+)%s(hits)%s(you)%sfor%s(%d+)%.$"
+  SPELL_HOSTILEPLAYER_DAMAGE1 = "^(%a+)'s%s([%(%)%a%s'-:]+)%s(hits)%s(you)%sfor%s(%d+)%.$"
 
   --[[
     CHAT_MSG_SPELL_HOSTILEPLAYER_DAMAGE
@@ -480,7 +479,7 @@ else
       $player$'s Pummel crits you for $amount$.
       $player$'s Kick crits you for $amount$.
   ]]--
-  SPELL_HOSTILEPLAYER_DAMAGE2 = "^(%a+)'s%s([%a%s'-:]+)%s(crits)%s(you)%sfor%s(%d+)%.$"
+  SPELL_HOSTILEPLAYER_DAMAGE2 = "^(%a+)'s%s([%(%)%a%s'-:]+)%s(crits)%s(you)%sfor%s(%d+)%.$"
 
   --[[
     CHAT_MSG_SPELL_HOSTILEPLAYER_DAMAGE
@@ -489,7 +488,7 @@ else
     examples:
       $player$ begins to cast Hammer of Wrath.
   ]]--
-  SPELL_HOSTILEPLAYER_DAMAGE3 = "^(%a+)%s(begins to cast)%s([%a%s'-:]+)%.$"
+  SPELL_HOSTILEPLAYER_DAMAGE3 = "^(%a+)%s(begins to cast)%s([%(%)%a%s'-:]+)%.$"
 
   --[[
     CHAT_MSG_SPELL_PERIODIC_HOSTILEPLAYER_DAMAGE
@@ -498,7 +497,7 @@ else
     examples:
       $player$ is afflicted by Forbearance.
   ]]--
-  SPELL_PERIODIC_HOSTILE_PLAYER_DAMAGE = "^(%a+)%sis%s(afflicted)%sby%s([%a%s'-:]+)%.$"
+  SPELL_PERIODIC_HOSTILE_PLAYER_DAMAGE = "^(%a+)%sis%s(afflicted)%sby%s([%(%)%a%s'-:]+)%.$"
 
   --[[
     CHAT_MSG_SPELL_AURA_GONE_OTHER
@@ -507,7 +506,7 @@ else
     examples:
       Fire Reflector fades from $player$.
   ]]--
-  SPELL_AURA_GONE_OTHER = "^([%a%s'-:]+)%s(fades)%sfrom%s(%a+)%.$"
+  SPELL_AURA_GONE_OTHER = "^([%(%)%a%s'-:]+)%s(fades)%sfrom%s(%a+)%.$"
 
   --[[
     CHAT_MSG_SPELL_DAMAGESHIELDS_ON_SELF
@@ -540,7 +539,7 @@ else
       Your Bash missed $player$.
       Your Aimed Shot missed $player$.
   ]]--
-  SPELL_DAMAGESHIELDS_ON_SELF3 = "^(Your)%s([%a%s'-:]+)%s(missed)%s(%a+)%.$"
+  SPELL_DAMAGESHIELDS_ON_SELF3 = "^(Your)%s([%(%)%a%s'-:]+)%s(missed)%s(%a+)%.$"
 
   --[[
     CHAT_MSG_SPELL_DAMAGESHIELDS_ON_SELF
@@ -550,7 +549,7 @@ else
       Your Wing Clip was dodged by $player$.
       Your Disarm was dodged by $player$.
   ]]--
-  SPELL_DAMAGESHIELDS_ON_SELF4 = "^(Your)%s([%a%s'-:]+)%swas%s(dodged)%sby%s(%a+)%.$"
+  SPELL_DAMAGESHIELDS_ON_SELF4 = "^(Your)%s([%(%)%a%s'-:]+)%swas%s(dodged)%sby%s(%a+)%.$"
 
   --[[
     CHAT_MSG_SPELL_DAMAGESHIELDS_ON_SELF
@@ -560,7 +559,7 @@ else
       Your Disarm is parried by $player$.
       Your Execute is parried by $player$.
   ]]--
-  SPELL_DAMAGESHIELDS_ON_SELF5 = "^(Your)%s([%a%s'-:]+)%sis%s(parried)%sby%s(%a+)%.$"
+  SPELL_DAMAGESHIELDS_ON_SELF5 = "^(Your)%s([%(%)%a%s'-:]+)%sis%s(parried)%sby%s(%a+)%.$"
 
   --[[
     CHAT_MSG_SPELL_SELF_DAMAGE
@@ -571,7 +570,7 @@ else
       Your Sinister Strike was blocked by $player$.
       Your Eviscerate was blocked by $player$.
   ]]--
-  SPELL_SELF_DAMAGE = "^(Your)%s([%a%s'-:]+)%swas%s(blocked)%sby%s(%a+)%.$"
+  SPELL_SELF_DAMAGE = "^(Your)%s([%(%)%a%s'-:]+)%swas%s(blocked)%sby%s(%a+)%.$"
 
   --[[
     CHAT_MSG_SPELL_DAMAGESHIELDS_ON_OTHERS
@@ -591,7 +590,7 @@ else
       $player$'s Kick was blocked.
       $player$'s Wing Clip was blocked.
   ]]--
-  SPELL_DAMAGESHIELDS_ON_OTHERS2 = "^(%a+)'s%s([%a%s'-:]+)%swas%s(blocked)%.$"
+  SPELL_DAMAGESHIELDS_ON_OTHERS2 = "^(%a+)'s%s([%(%)%a%s'-:]+)%swas%s(blocked)%.$"
 
   --[[
     CHAT_MSG_SPELL_DAMAGESHIELDS_ON_OTHERS
@@ -600,7 +599,7 @@ else
     examples:
       $player$'s Blind misses you.
   ]]--
-  SPELL_DAMAGESHIELDS_ON_OTHERS3 = "^(%a+)'s%s([%a%s'-:]+)%s(misses)%syou%.$"
+  SPELL_DAMAGESHIELDS_ON_OTHERS3 = "^(%a+)'s%s([%(%)%a%s'-:]+)%s(misses)%syou%.$"
 
   --[[
     CHAT_MSG_SPELL_DAMAGESHIELDS_ON_OTHERS
@@ -619,7 +618,7 @@ else
     examples:
       $player$'s Kick was parried.
   ]]--
-  SPELL_DAMAGESHIELDS_ON_OTHERS5 = "^(%a+)'s%s([%a%s'-:]+)%swas%s(parried)%.$"
+  SPELL_DAMAGESHIELDS_ON_OTHERS5 = "^(%a+)'s%s([%(%)%a%s'-:]+)%swas%s(parried)%.$"
 
   --[[
     CHAT_MSG_SPELL_DAMAGESHIELDS_ON_OTHERS
@@ -628,7 +627,7 @@ else
     examples:
       $player$'s Kick was dodged.
   ]]--
-  SPELL_DAMAGESHIELDS_ON_OTHERS6 = "^(%a+)'s%s([%a%s'-:]+)%swas%s(dodged)%.$"
+  SPELL_DAMAGESHIELDS_ON_OTHERS6 = "^(%a+)'s%s([%(%)%a%s'-:]+)%swas%s(dodged)%.$"
 end
 
 --[[

@@ -28,6 +28,11 @@ local me = lp
 
 me.tag = "Core"
 
+--[[
+  Store logdata for tests
+]]--
+LogParserTestLog = {}
+
 --[[Addon load]]--
 function me.OnLoad()
   me.RegisterEvents()
