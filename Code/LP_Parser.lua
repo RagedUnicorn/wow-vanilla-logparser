@@ -727,9 +727,12 @@ end
   @return {number, table}
     1 if msg could be parsed
     0 if not able to parse msg
+    nil if invalid parameters were passed
     nil if message eventType was unknown
 ]]--
 function me.ParseCombatText(msg, eventType)
+  if not msg or not eventType then return nil end
+
   mod.logger.LogDebug(me.tag, "Received combat text message: " .. msg)
 
   local status = 0, spellData
@@ -754,6 +757,9 @@ function me.ParseCombatText(msg, eventType)
     status, spellData = me.ParseSpellDamageShieldsOnOthers(msg)
   elseif eventType == "CHAT_MSG_SPELL_PERIODIC_HOSTILEPLAYER_DAMAGE" then
     status, spellData = me.ParseSpellPeriodicHostilePlayerDamage(msg)
+  else
+    mod.logger.LogWarn(me.tag, "Received Unknown eventType: " .. eventType)
+    return nil
   end
 
   if status == 1 then
