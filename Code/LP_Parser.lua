@@ -724,11 +724,9 @@ end
 --[[
   @param {string} msg
   @param {string} eventType
-  @return {number, table | number}
-    3 successfully parsed a friendly spell avoided message
-    2 successfully parsed a enemy spell avoided message
-    1 successfully parsed a spell announce message
-    0 if not able to parse message
+  @return {number, table}
+    1 if msg could be parsed
+    0 if not able to parse msg
     nil if message eventType was unknown
 ]]--
 function me.ParseCombatText(msg, eventType)
@@ -763,7 +761,7 @@ function me.ParseCombatText(msg, eventType)
     return status, spellData
   end
 
-  return status
+  return status, spellData
 end
 
 if (GetLocale() == "deDE") then
@@ -772,7 +770,7 @@ if (GetLocale() == "deDE") then
 
     @param {string} msg
       combat text to parse
-    @return {number, table | number}
+    @return {number, table}
       1 if msg could be parsed
       0 if not able to parse msg
   ]]--
@@ -812,7 +810,9 @@ if (GetLocale() == "deDE") then
 
     -- unable to parse message
     mod.logger.LogInfo(me.tag, "Failed to parse CHAT_MSG_SPELL_PERIODIC_HOSTILEPLAYER_BUFFS")
-    return 0
+    return 0, {
+      ["type"] = "CHAT_MSG_SPELL_PERIODIC_HOSTILEPLAYER_BUFFS"
+    }
   end
 
   --[[
@@ -820,7 +820,7 @@ if (GetLocale() == "deDE") then
 
     @param {string} msg
       combat text to parse
-    @return {number, table | number}
+    @return {number, table}
       1 if msg could be parsed
       0 if not able to parse msg
   ]]--
@@ -843,7 +843,9 @@ if (GetLocale() == "deDE") then
 
     -- unable to parse message
     mod.logger.LogInfo(me.tag, "Failed to parse CHAT_MSG_SPELL_AURA_GONE_OTHER")
-    return 0
+    return 0, {
+      ["type"] = "CHAT_MSG_SPELL_AURA_GONE_OTHER"
+    }
   end
 
   --[[
@@ -851,7 +853,7 @@ if (GetLocale() == "deDE") then
 
     @param {string} msg
       combat text to parse
-    @return {number, table | number}
+    @return {number, table}
       1 if msg could be parsed
       0 if not able to parse msg
   ]]--
@@ -943,7 +945,9 @@ if (GetLocale() == "deDE") then
 
     -- unable to parse message
     mod.logger.LogInfo(me.tag, "Failed to parse CHAT_MSG_SPELL_HOSTILEPLAYER_BUFF")
-    return 0
+    return 0, {
+      ["type"] = "CHAT_MSG_SPELL_HOSTILEPLAYER_BUFF"
+    }
   end
 
   --[[
@@ -951,7 +955,7 @@ if (GetLocale() == "deDE") then
 
     @param {string} msg
       combat text to parse
-    @return {number, table | number}
+    @return {number, table}
       1 if msg could be parsed
       0 if not able to parse msg
   ]]--
@@ -973,7 +977,9 @@ if (GetLocale() == "deDE") then
 
     -- unable to parse message
     mod.logger.LogInfo(me.tag, "Failed to parse CHAT_MSG_SPELL_PERIODIC_SELF_DAMAGE")
-    return 0
+    return 0, {
+      ["type"] = "CHAT_MSG_SPELL_PERIODIC_SELF_DAMAGE"
+    }
   end
 
   --[[
@@ -981,7 +987,7 @@ if (GetLocale() == "deDE") then
 
     @param {string} msg
       combat text to parse
-    @return {number, table | number}
+    @return {number, table}
       1 if msg could be parsed
       0 if not able to parse msg
   ]]--
@@ -1041,7 +1047,9 @@ if (GetLocale() == "deDE") then
 
     -- unable to parse message
     mod.logger.LogInfo(me.tag, "Failed to parse CHAT_MSG_SPELL_HOSTILEPLAYER_DAMAGE")
-    return 0
+    return 0, {
+      ["type"] = "CHAT_MSG_SPELL_HOSTILEPLAYER_DAMAGE"
+    }
   end
 
   --[[
@@ -1049,7 +1057,7 @@ if (GetLocale() == "deDE") then
 
     @param {string} msg
       combat text to parse
-    @return {number, table | number}
+    @return {number, table}
       1 if msg could be parsed
       0 if not able to parse msg
   ]]--
@@ -1071,7 +1079,9 @@ if (GetLocale() == "deDE") then
 
     -- unable to parse message
     mod.logger.LogInfo(me.tag, "Failed to parse CHAT_MSG_SPELL_PERIODIC_HOSTILEPLAYER_DAMAGE")
-    return 0
+    return 0, {
+      ["type"] = "CHAT_MSG_SPELL_PERIODIC_HOSTILEPLAYER_DAMAGE"
+    }
   end
 
   --[[
@@ -1079,7 +1089,7 @@ if (GetLocale() == "deDE") then
 
     @param {string} msg
       combat text to parse
-    @return {number, table | number}
+    @return {number, table}
       1 if msg could be parsed
       0 if not able to parse msg
   ]]--
@@ -1102,7 +1112,9 @@ if (GetLocale() == "deDE") then
 
     -- unable to parse message
     mod.logger.LogInfo(me.tag, "Failed to parse CHAT_MSG_SPELL_AURA_GONE_OTHER")
-    return 0
+    return 0, {
+      ["type"] = "CHAT_MSG_SPELL_AURA_GONE_OTHER"
+    }
   end
 
   --[[
@@ -1110,7 +1122,7 @@ if (GetLocale() == "deDE") then
 
     @param {string} msg
       combat text to parse
-    @return {number, table | number}
+    @return {number, table}
       1 if msg could be parsed
       0 if not able to parse msg
   ]]--
@@ -1195,7 +1207,9 @@ if (GetLocale() == "deDE") then
 
     -- unable to parse message
     mod.logger.LogInfo(me.tag, "Failed to parse CHAT_MSG_SPELL_DAMAGESHIELDS_ON_SELF")
-    return 0
+    return 0, {
+      ["type"] = "CHAT_MSG_SPELL_DAMAGESHIELDS_ON_SELF"
+    }
   end
 
   --[[
@@ -1203,7 +1217,7 @@ if (GetLocale() == "deDE") then
 
     @param {string} msg
       combat text to parse
-    @return {number, table | number}
+    @return {number, table}
       1 if msg could be parsed
       0 if not able to parse msg
   ]]--
@@ -1225,7 +1239,9 @@ if (GetLocale() == "deDE") then
 
     -- unable to parse message
     mod.logger.LogInfo(me.tag, "Failed to parse CHAT_MSG_SPELL_SELF_DAMAGE")
-    return 0
+    return 0, {
+      ["type"] = "CHAT_MSG_SPELL_SELF_DAMAGE"
+    }
   end
 
   --[[
@@ -1233,7 +1249,7 @@ if (GetLocale() == "deDE") then
 
     @param {string} msg
       combat text to parse
-    @return {number, table | number}
+    @return {number, table}
       1 if msg could be parsed
       0 if not able to parse msg
   ]]--
@@ -1335,14 +1351,16 @@ if (GetLocale() == "deDE") then
 
     -- unable to parse message
     mod.logger.LogInfo(me.tag, "Failed to parse CHAT_MSG_SPELL_DAMAGESHIELDS_ON_OTHERS")
-    return 0
+    return 0, {
+      ["type"] = "CHAT_MSG_SPELL_DAMAGESHIELDS_ON_OTHERS"
+    }
   end
 
   --[[
     Parse combat text for CHAT_MSG_SPELL_FAILED_LOCALPLAYER event
     @param {string} msg
       combat text to parse
-    @return {number, table | number}
+    @return {number, table}
       1 if msg could be parsed
       0 if not able to parse msg
   ]]--
@@ -1381,7 +1399,9 @@ if (GetLocale() == "deDE") then
 
     -- unable to parse message
     mod.logger.LogInfo(me.tag, "Failed to parse CHAT_MSG_SPELL_FAILED_LOCALPLAYER")
-    return 0
+    return 0, {
+      ["type"] = "CHAT_MSG_SPELL_FAILED_LOCALPLAYER"
+    }
   end
 else
   --[[
@@ -1389,7 +1409,7 @@ else
 
     @param {string} msg
       combat text to parse
-    @return {number, table | number}
+    @return {number, table}
       1 if msg could be parsed
       0 if not able to parse msg
   ]]--
@@ -1426,6 +1446,12 @@ else
         ["spell"] = spell
       }
     end
+
+    -- unable to parse message
+    mod.logger.LogInfo(me.tag, "Failed to parse CHAT_MSG_SPELL_PERIODIC_HOSTILEPLAYER_BUFFS")
+    return 0, {
+      ["type"] = "CHAT_MSG_SPELL_PERIODIC_HOSTILEPLAYER_BUFFS"
+    }
   end
 
   --[[
@@ -1433,7 +1459,7 @@ else
 
     @param {string} msg
       combat text to parse
-    @return {number, table | number}
+    @return {number, table}
       1 if msg could be parsed
       0 if not able to parse msg
   ]]--
@@ -1523,7 +1549,9 @@ else
 
     -- unable to parse message
     mod.logger.LogInfo(me.tag, "Failed to parse CHAT_MSG_SPELL_HOSTILEPLAYER_BUFF")
-    return 0
+    return 0, {
+      ["type"] = "CHAT_MSG_SPELL_HOSTILEPLAYER_BUFF"
+    }
   end
 
   --[[
@@ -1531,7 +1559,7 @@ else
 
     @param {string} msg
       combat text to parse
-    @return {number, table | number}
+    @return {number, table}
       1 if msg could be parsed
       0 if not able to parse msg
   ]]--
@@ -1553,7 +1581,9 @@ else
 
     -- unable to parse message
     mod.logger.LogInfo(me.tag, "Failed to parse CHAT_MSG_SPELL_PERIODIC_SELF_DAMAGE")
-    return 0
+    return 0, {
+      ["type"] = "CHAT_MSG_SPELL_PERIODIC_SELF_DAMAGE"
+    }
   end
 
   --[[
@@ -1561,7 +1591,7 @@ else
 
     @param {string} msg
       combat text to parse
-    @return {number, table | number}
+    @return {number, table}
       1 if msg could be parsed
       0 if not able to parse msg
   ]]--
@@ -1617,7 +1647,9 @@ else
 
     -- unable to parse message
     mod.logger.LogInfo(me.tag, "Failed to parse CHAT_MSG_SPELL_HOSTILEPLAYER_DAMAGE")
-    return 0
+    return 0, {
+      ["type"] = "CHAT_MSG_SPELL_HOSTILEPLAYER_DAMAGE"
+    }
   end
 
   --[[
@@ -1625,7 +1657,7 @@ else
 
     @param {string} msg
       combat text to parse
-    @return {number, table | number}
+    @return {number, table}
       1 if msg could be parsed
       0 if not able to parse msg
   ]]--
@@ -1647,7 +1679,9 @@ else
 
     -- unable to parse message
     mod.logger.LogInfo(me.tag, "Failed to parse CHAT_MSG_SPELL_PERIODIC_HOSTILEPLAYER_DAMAGE")
-    return 0
+    return 0, {
+      ["type"] = "CHAT_MSG_SPELL_PERIODIC_HOSTILEPLAYER_DAMAGE"
+    }
   end
 
   --[[
@@ -1655,7 +1689,7 @@ else
 
     @param {string} msg
       combat text to parse
-    @return {number, table | number}
+    @return {number, table}
       1 if msg could be parsed
       0 if not able to parse msg
   ]]--
@@ -1678,7 +1712,9 @@ else
 
     -- unable to parse message
     mod.logger.LogInfo(me.tag, "Failed to parse CHAT_MSG_SPELL_AURA_GONE_OTHER")
-    return 0
+    return 0, {
+      ["type"] = "CHAT_MSG_SPELL_AURA_GONE_OTHER"
+    }
   end
 
   --[[
@@ -1686,7 +1722,7 @@ else
 
     @param {string} msg
       combat text to parse
-    @return {number, table | number}
+    @return {number, table}
       1 if msg could be parsed
       0 if not able to parse msg
   ]]--
@@ -1774,7 +1810,9 @@ else
 
     -- unable to parse message
     mod.logger.LogInfo(me.tag, "Failed to parse CHAT_MSG_SPELL_DAMAGESHIELDS_ON_SELF")
-    return 0
+    return 0, {
+      ["type"] = "CHAT_MSG_SPELL_DAMAGESHIELDS_ON_SELF"
+    }
   end
 
   --[[
@@ -1782,7 +1820,7 @@ else
 
     @param {string} msg
       combat text to parse
-    @return {number, table | number}
+    @return {number, table}
       1 if msg could be parsed
       0 if not able to parse msg
   ]]--
@@ -1805,7 +1843,9 @@ else
 
     -- unable to parse message
     mod.logger.LogInfo(me.tag, "Failed to parse CHAT_MSG_SPELL_SELF_DAMAGE")
-    return 0
+    return 0, {
+      ["type"] = "CHAT_MSG_SPELL_SELF_DAMAGE"
+    }
   end
 
   --[[
@@ -1813,7 +1853,7 @@ else
 
     @param {string} msg
       combat text to parse
-    @return {number, table | number}
+    @return {number, table}
       1 if msg could be parsed
       0 if not able to parse msg
   ]]--
@@ -1910,14 +1950,16 @@ else
 
     -- unable to parse message
     mod.logger.LogInfo(me.tag, "Failed to parse CHAT_MSG_SPELL_DAMAGESHIELDS_ON_OTHERS")
-    return 0
+    return 0, {
+      ["type"] = "CHAT_MSG_SPELL_DAMAGESHIELDS_ON_OTHERS"
+    }
   end
 
   --[[
     Parse combat text for CHAT_MSG_SPELL_FAILED_LOCALPLAYER event
     @param {string} msg
       combat text to parse
-    @return {number, table | number}
+    @return {number, table}
       1 if msg could be parsed
       0 if not able to parse msg
   ]]--
@@ -1956,6 +1998,8 @@ else
 
     -- unable to parse message
     mod.logger.LogInfo(me.tag, "Failed to parse CHAT_MSG_SPELL_FAILED_LOCALPLAYER")
-    return 0
+    return 0, {
+      ["type"] = "CHAT_MSG_SPELL_FAILED_LOCALPLAYER"
+    }
   end
 end

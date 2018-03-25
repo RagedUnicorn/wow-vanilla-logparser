@@ -128,6 +128,7 @@ function me.DispatchEvent(status, spellData)
 
   -- call all registered subscriptions
   for key, subscription in pairs(subscriptions[spellData.type]) do
+    mod.logger.LogInfo(me.tag, "Dispatching eventType: " .. spellData.type .. " to " .. subscription.identifier)
     subscription.callback(status, spellData)
   end
 end
