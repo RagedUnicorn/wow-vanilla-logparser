@@ -65,7 +65,7 @@ function me.SubscribeEvent(callback, eventType)
   local subscription
 
   subscription = {
-    ["identifier"] = math.floor(math.random() * 100000),
+    ["identifier"] = math.floor(math.random() * 10000000),
     ["callback"] = callback
   }
 
