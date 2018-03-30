@@ -71,6 +71,7 @@ lp.eventManager.UnsubscribeEvent(identifier)
 
 | EventType                                    |
 | -------------------------------------------- |
+| CHAT_MSG_SPELL_FAILED_LOCALPLAYER            |
 | CHAT_MSG_COMBAT_HOSTILE_DEATH                |
 | CHAT_MSG_SPELL_PERIODIC_SELF_DAMAGE          |
 | CHAT_MSG_SPELL_PERIODIC_HOSTILEPLAYER_BUFFS  |
