@@ -778,7 +778,7 @@ function me.ParseCombatText(msg, eventType)
   elseif eventType == "CHAT_MSG_SPELL_PERIODIC_HOSTILEPLAYER_DAMAGE" then
     status, spellData = me.ParseSpellPeriodicHostilePlayerDamage(msg)
   elseif eventType == "CHAT_MSG_COMBAT_HOSTILE_DEATH" then
-    status, spelLData = me.ParseCombatHostileDeath(msg)
+    status, spellData = me.ParseCombatHostileDeath(msg)
   else
     mod.logger.LogWarn(me.tag, "Received Unknown eventType: " .. eventType)
     return nil
