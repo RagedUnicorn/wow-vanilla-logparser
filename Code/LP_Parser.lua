@@ -781,14 +781,15 @@ if (GetLocale() == "deDE") then
       0 if not able to parse msg
   ]]--
   function me.ParseSpellPeriodicHostilePlayerBuffs(msg)
+    local eventType = "CHAT_MSG_SPELL_PERIODIC_HOSTILEPLAYER_BUFFS"
     local _, _, source, keyword, spell = string.find(msg, SPELL_PERIODIC_HOSTILE_PLAYER_BUFFS1)
 
     if source and keyword and spell then
-      mod.logger.LogDebug(me.tag, "CHAT_MSG_SPELL_PERIODIC_HOSTILEPLAYER_BUFFS detected")
+      mod.logger.LogDebug(me.tag, eventType .. " detected")
       mod.logger.LogDebug(me.tag, string.format("source: %s spell: %s", source, spell))
 
       return 1, {
-        ["type"] = "CHAT_MSG_SPELL_PERIODIC_HOSTILEPLAYER_BUFFS",
+        ["type"] = eventType,
         ["spellType"] = LP_CONSTANTS.SPELL_TYPES.SPELL,
         ["source"] = source,
         ["keyword"] = keyword,
@@ -799,11 +800,11 @@ if (GetLocale() == "deDE") then
     local _, _, source, keyword, spell, charges = string.find(msg, SPELL_PERIODIC_HOSTILE_PLAYER_BUFFS2)
 
     if source and keyword and spell and charges then
-      mod.logger.LogDebug(me.tag, "CHAT_MSG_SPELL_PERIODIC_HOSTILEPLAYER_BUFFS detected")
+      mod.logger.LogDebug(me.tag, eventType .. " detected")
       mod.logger.LogDebug(me.tag, string.format("source: %s spell: %s", source, spell))
 
       return 1, {
-        ["type"] = "CHAT_MSG_SPELL_PERIODIC_HOSTILEPLAYER_BUFFS",
+        ["type"] = eventType,
         ["spellType"] = LP_CONSTANTS.SPELL_TYPES.SPELL,
         ["source"] = source,
         ["player1"] = player1,
@@ -815,9 +816,9 @@ if (GetLocale() == "deDE") then
     end
 
     -- unable to parse message
-    mod.logger.LogInfo(me.tag, "Failed to parse CHAT_MSG_SPELL_PERIODIC_HOSTILEPLAYER_BUFFS")
+    mod.logger.LogInfo(me.tag, "Failed to parse " .. eventType)
     return 0, {
-      ["type"] = "CHAT_MSG_SPELL_PERIODIC_HOSTILEPLAYER_BUFFS"
+      ["type"] = eventType
     }
   end
 
@@ -831,14 +832,15 @@ if (GetLocale() == "deDE") then
       0 if not able to parse msg
   ]]--
   function me.ParseSpellAuraGoneOther(msg)
+    local eventType = "CHAT_MSG_SPELL_AURA_GONE_OTHER"
     local _, _, spell, keyword, source = string.find(msg, SPELL_AURA_GONE_OTHER)
 
     if spell and keyword and source then
-      mod.logger.LogDebug(me.tag, "CHAT_MSG_SPELL_AURA_GONE_OTHER detected")
+      mod.logger.LogDebug(me.tag, eventType .. " detected")
       mod.logger.LogDebug(me.tag, string.format("source: %s spell: %s", source, spell))
 
       return 1, {
-        ["type"] = "CHAT_MSG_SPELL_AURA_GONE_OTHER",
+        ["type"] = eventType,
         ["spellType"] = LP_CONSTANTS.SPELL_TYPES.SPELL_DOWN,
         ["spell"] = spell,
         ["keyword"] = keyword,
@@ -848,9 +850,9 @@ if (GetLocale() == "deDE") then
     end
 
     -- unable to parse message
-    mod.logger.LogInfo(me.tag, "Failed to parse CHAT_MSG_SPELL_AURA_GONE_OTHER")
+    mod.logger.LogInfo(me.tag, "Failed to parse " .. eventType)
     return 0, {
-      ["type"] = "CHAT_MSG_SPELL_AURA_GONE_OTHER"
+      ["type"] = eventType
     }
   end
 
@@ -864,14 +866,15 @@ if (GetLocale() == "deDE") then
       0 if not able to parse msg
   ]]--
   function me.ParseSpellHostilePlayerBuff(msg)
+    local eventType = "CHAT_MSG_SPELL_HOSTILEPLAYER_BUFF"
     local _, _, source1, spell, keyword, source2, amount = string.find(msg, SPELL_HOSTILE_PLAYER_BUFF1)
 
     if source1 and spell and keyword and source2 and amount then
-      mod.logger.LogDebug(me.tag, "CHAT_MSG_SPELL_HOSTILEPLAYER_BUFF detected")
+      mod.logger.LogDebug(me.tag, eventType .. " detected")
       mod.logger.LogDebug(me.tag, string.format("player: %s spell: %s amount: %s", source1, spell, amount))
 
       return 1, {
-        ["type"] = "CHAT_MSG_SPELL_HOSTILEPLAYER_BUFF",
+        ["type"] = eventType,
         ["spellType"] = LP_CONSTANTS.SPELL_TYPES.SPELL,
         ["source1"] = source1,
         ["spell"] = spell,
@@ -884,11 +887,11 @@ if (GetLocale() == "deDE") then
     local _, _, source, keyword, spell = string.find(msg, SPELL_HOSTILE_PLAYER_BUFF2)
 
     if source and keyword and spell then
-      mod.logger.LogDebug(me.tag, "CHAT_MSG_SPELL_HOSTILEPLAYER_BUFF detected")
+      mod.logger.LogDebug(me.tag, eventType .. " detected")
       mod.logger.LogDebug(me.tag, string.format("source: %s spell: %s", source, spell))
 
       return 1, {
-        ["type"] = "CHAT_MSG_SPELL_HOSTILEPLAYER_BUFF",
+        ["type"] = eventType,
         ["spellType"] = LP_CONSTANTS.SPELL_TYPES.SPELL,
         ["source"] = source,
         ["keyword"] = keyword,
@@ -899,11 +902,11 @@ if (GetLocale() == "deDE") then
     local _, _, source, keyword1, spell, keyword2 = string.find(msg, SPELL_HOSTILE_PLAYER_BUFF3)
 
     if source and keyword1 and spell and keyword2 then
-      mod.logger.LogDebug(me.tag, "CHAT_MSG_SPELL_HOSTILEPLAYER_BUFF detected")
+      mod.logger.LogDebug(me.tag, eventType .. " detected")
       mod.logger.LogDebug(me.tag, string.format("source: %s spell: %s", source, spell))
 
       return 1, {
-        ["type"] = "CHAT_MSG_SPELL_HOSTILEPLAYER_BUFF",
+        ["type"] = eventType,
         ["spellType"] = LP_CONSTANTS.SPELL_TYPES.SPELL,
         ["source"] = source,
         ["keyword1"] = keyword1,
@@ -915,11 +918,11 @@ if (GetLocale() == "deDE") then
     local _, _, keyword1, source, spell, keyword2, target, amount = string.find(msg, SPELL_HOSTILE_PLAYER_BUFF4)
 
     if keyword1 and source and spell and keyword2 and target and amount then
-      mod.logger.LogDebug(me.tag, "CHAT_MSG_SPELL_HOSTILEPLAYER_BUFF detected")
+      mod.logger.LogDebug(me.tag, eventType .. " detected")
       mod.logger.LogDebug(me.tag, string.format("source: %s spell: %s target: %s", source, spell, target))
 
       return 1, {
-        ["type"] = "CHAT_MSG_SPELL_HOSTILEPLAYER_BUFF",
+        ["type"] = eventType,
         ["spellType"] = LP_CONSTANTS.SPELL_TYPES.SPELL,
         ["keyword1"] = keyword1,
         ["source"] = source,
@@ -933,11 +936,11 @@ if (GetLocale() == "deDE") then
     local _, _, source1, keyword1, amount, resource, keyword2, source2, spell = string.find(msg, SPELL_HOSTILE_PLAYER_BUFF5)
 
     if source1 and keyword1 and amount and resource and keyword2 and source2 and spell then
-      mod.logger.LogDebug(me.tag, "CHAT_MSG_SPELL_HOSTILEPLAYER_BUFF detected")
+      mod.logger.LogDebug(me.tag, eventType .. " detected")
       mod.logger.LogDebug(me.tag, string.format("source1: %s spell: %s source2: %s", source1, spell, source2))
 
       return 1, {
-        ["type"] = "CHAT_MSG_SPELL_HOSTILEPLAYER_BUFF",
+        ["type"] = eventType,
         ["spellType"] = LP_CONSTANTS.SPELL_TYPES.SPELL,
         ["source1"] = source1,
         ["keyword1"] = keyword1,
@@ -950,9 +953,9 @@ if (GetLocale() == "deDE") then
     end
 
     -- unable to parse message
-    mod.logger.LogInfo(me.tag, "Failed to parse CHAT_MSG_SPELL_HOSTILEPLAYER_BUFF")
+    mod.logger.LogInfo(me.tag, "Failed to parse " .. eventType)
     return 0, {
-      ["type"] = "CHAT_MSG_SPELL_HOSTILEPLAYER_BUFF"
+      ["type"] = eventType
     }
   end
 
@@ -966,14 +969,15 @@ if (GetLocale() == "deDE") then
       0 if not able to parse msg
   ]]--
   function me.ParseSpellPeriodicSelfDamage(msg)
+    local eventType = "CHAT_MSG_SPELL_PERIODIC_SELF_DAMAGE"
     local _, _, target, spell, keyword = string.find(msg, SPELL_PERIODIC_SELF_DAMAGE)
 
     if target and spell and keyword then
-      mod.logger.LogDebug(me.tag, "CHAT_MSG_SPELL_PERIODIC_SELF_DAMAGE detected")
+      mod.logger.LogDebug(me.tag, eventType .. " detected")
       mod.logger.LogDebug(me.tag, string.format("target: %s spell: %s", target, spell))
 
       return 1, {
-        ["type"] = "CHAT_MSG_SPELL_PERIODIC_SELF_DAMAGE",
+        ["type"] = eventType,
         ["spellType"] = LP_CONSTANTS.SPELL_TYPES.SPELL,
         ["target"] = target,
         ["spell"] = spell,
@@ -982,9 +986,9 @@ if (GetLocale() == "deDE") then
     end
 
     -- unable to parse message
-    mod.logger.LogInfo(me.tag, "Failed to parse CHAT_MSG_SPELL_PERIODIC_SELF_DAMAGE")
+    mod.logger.LogInfo(me.tag, "Failed to parse " .. eventType)
     return 0, {
-      ["type"] = "CHAT_MSG_SPELL_PERIODIC_SELF_DAMAGE"
+      ["type"] = eventType
     }
   end
 
@@ -998,14 +1002,15 @@ if (GetLocale() == "deDE") then
       0 if not able to parse msg
   ]]--
   function me.ParseSpellHostilePlayerDamage(msg)
+    local eventType = "CHAT_MSG_SPELL_HOSTILEPLAYER_DAMAGE"
     local _, _, source, keyword1, target, spell, keyword2, amount = string.find(msg, SPELL_HOSTILEPLAYER_DAMAGE1)
 
     if source and keyword1 and target and spell and keyword2 and amount then
-      mod.logger.LogDebug(me.tag, "CHAT_MSG_SPELL_HOSTILEPLAYER_DAMAGE detected")
+      mod.logger.LogDebug(me.tag, eventType .. " detected")
       mod.logger.LogDebug(me.tag, string.format("source: %s spell: %s", source, spell))
 
       return 1, {
-        ["type"] = "CHAT_MSG_SPELL_HOSTILEPLAYER_DAMAGE",
+        ["type"] = eventType,
         ["spellType"] = LP_CONSTANTS.SPELL_TYPES.SPELL,
         ["source"] = source,
         ["keyword1"] = keyword1,
@@ -1019,11 +1024,11 @@ if (GetLocale() == "deDE") then
     local _, _, source, keyword1, target, keyword2, spell, keyword3, amount = string.find(msg, SPELL_HOSTILEPLAYER_DAMAGE2)
 
     if source and keyword1 and target and keyword2 and spell and keyword3 and amount then
-      mod.logger.LogDebug(me.tag, "CHAT_MSG_SPELL_HOSTILEPLAYER_DAMAGE detected")
+      mod.logger.LogDebug(me.tag, eventType .. " detected")
       mod.logger.LogDebug(me.tag, string.format("source: %s spell: %s", source, spell))
 
       return 1, {
-        ["type"] = "CHAT_MSG_SPELL_HOSTILEPLAYER_DAMAGE",
+        ["type"] = eventType,
         ["spellType"] = LP_CONSTANTS.SPELL_TYPES.SPELL,
         ["source"] = source,
         ["keyword1"] = keyword1,
@@ -1038,11 +1043,11 @@ if (GetLocale() == "deDE") then
     local _, _, source, keyword1, spell, keyword2 = string.find(msg, SPELL_HOSTILEPLAYER_DAMAGE3)
 
     if source and keyword1 and spell and keyword2 then
-      mod.logger.LogDebug(me.tag, "CHAT_MSG_SPELL_HOSTILEPLAYER_DAMAGE detected")
+      mod.logger.LogDebug(me.tag, eventType .. " detected")
       mod.logger.LogDebug(me.tag, string.format("source: %s spell: %s", source, spell))
 
       return 1, {
-        ["type"] = "CHAT_MSG_SPELL_HOSTILEPLAYER_DAMAGE",
+        ["type"] = eventType,
         ["spellType"] = LP_CONSTANTS.SPELL_TYPES.SPELL,
         ["source"] = source,
         ["keyword1"] = keyword1,
@@ -1052,9 +1057,9 @@ if (GetLocale() == "deDE") then
     end
 
     -- unable to parse message
-    mod.logger.LogInfo(me.tag, "Failed to parse CHAT_MSG_SPELL_HOSTILEPLAYER_DAMAGE")
+    mod.logger.LogInfo(me.tag, "Failed to parse " .. eventType)
     return 0, {
-      ["type"] = "CHAT_MSG_SPELL_HOSTILEPLAYER_DAMAGE"
+      ["type"] = eventType
     }
   end
 
@@ -1068,14 +1073,15 @@ if (GetLocale() == "deDE") then
       0 if not able to parse msg
   ]]--
   function me.ParseSpellPeriodicHostilePlayerDamage(msg)
+    local eventType = "CHAT_MSG_SPELL_PERIODIC_HOSTILEPLAYER_DAMAGE"
     local _, _, target, spell, keyword  = string.find(msg, SPELL_PERIODIC_HOSTILE_PLAYER_DAMAGE)
 
     if target and spell and keyword then
-      mod.logger.LogDebug(me.tag, "CHAT_MSG_SPELL_PERIODIC_HOSTILEPLAYER_DAMAGE detected")
+      mod.logger.LogDebug(me.tag, eventType .. " detected")
       mod.logger.LogDebug(me.tag, string.format("target: %s spell: %s", target, spell))
 
       return 1, {
-        ["type"] = "CHAT_MSG_SPELL_PERIODIC_HOSTILEPLAYER_DAMAGE",
+        ["type"] = eventType,
         ["spellType"] = LP_CONSTANTS.SPELL_TYPES.SPELL,
         ["target"] = target,
         ["spell"] = spell,
@@ -1084,9 +1090,9 @@ if (GetLocale() == "deDE") then
     end
 
     -- unable to parse message
-    mod.logger.LogInfo(me.tag, "Failed to parse CHAT_MSG_SPELL_PERIODIC_HOSTILEPLAYER_DAMAGE")
+    mod.logger.LogInfo(me.tag, "Failed to parse " .. eventType)
     return 0, {
-      ["type"] = "CHAT_MSG_SPELL_PERIODIC_HOSTILEPLAYER_DAMAGE"
+      ["type"] = eventType
     }
   end
 
@@ -1100,14 +1106,15 @@ if (GetLocale() == "deDE") then
       0 if not able to parse msg
   ]]--
   function me.ParseSpellAuraGoneOther(msg)
+    local eventType = "CHAT_MSG_SPELL_AURA_GONE_OTHER"
     local _, _, spell, keyword, source = string.find(msg, SPELL_AURA_GONE_OTHER)
 
     if spell and keyword and source then
-      mod.logger.LogDebug(me.tag, "CHAT_MSG_SPELL_AURA_GONE_OTHER detected")
+      mod.logger.LogDebug(me.tag, eventType .. " detected")
       mod.logger.LogDebug(me.tag, string.format("source: %s spell: %s", source, spell))
 
       return 1, {
-        ["type"] = "CHAT_MSG_SPELL_AURA_GONE_OTHER",
+        ["type"] = eventType,
         ["spellType"] = LP_CONSTANTS.SPELL_TYPES.SPELL_DOWN,
         ["spell"] = spell,
         ["keyword"] = keyword,
@@ -1117,9 +1124,9 @@ if (GetLocale() == "deDE") then
     end
 
     -- unable to parse message
-    mod.logger.LogInfo(me.tag, "Failed to parse CHAT_MSG_SPELL_AURA_GONE_OTHER")
+    mod.logger.LogInfo(me.tag, "Failed to parse " .. eventType)
     return 0, {
-      ["type"] = "CHAT_MSG_SPELL_AURA_GONE_OTHER"
+      ["type"] = eventType
     }
   end
 
@@ -1133,14 +1140,15 @@ if (GetLocale() == "deDE") then
       0 if not able to parse msg
   ]]--
   function me.ParseSpellDamageShieldsOnSelf(msg)
+    local eventType = "CHAT_MSG_SPELL_DAMAGESHIELDS_ON_SELF"
     local _, _, source, spell, keyword1, target, keyword2 = string.find(msg, SPELL_DAMAGESHIELDS_ON_SELF1)
 
     if source and spell and keyword1 and target and keyword2 then
-      mod.logger.LogDebug(me.tag, "CHAT_MSG_SPELL_DAMAGESHIELDS_ON_SELF detected")
+      mod.logger.LogDebug(me.tag, eventType .. " detected")
       mod.logger.LogDebug(me.tag, string.format("spell: %s target: %s", spell, target))
 
       return 1, {
-        ["type"] = "CHAT_MSG_SPELL_DAMAGESHIELDS_ON_SELF",
+        ["type"] = eventType,
         ["spellType"] = LP_CONSTANTS.SPELL_TYPES.ENEMY_AVOIDED,
         ["source"] = source,
         ["spell"] = spell,
@@ -1153,11 +1161,11 @@ if (GetLocale() == "deDE") then
     local _, _, spell, keyword1, target, keyword2 = string.find(msg, SPELL_DAMAGESHIELDS_ON_SELF2)
 
     if spell and keyword1 and target and keyword2 then
-      mod.logger.LogDebug(me.tag, "CHAT_MSG_SPELL_DAMAGESHIELDS_ON_SELF detected")
+      mod.logger.LogDebug(me.tag, eventType .. " detected")
       mod.logger.LogDebug(me.tag, string.format("spell: %s target: %s", spell, target))
 
       return 1, {
-        ["type"] = "CHAT_MSG_SPELL_DAMAGESHIELDS_ON_SELF",
+        ["type"] = eventType,
         ["spellType"] = LP_CONSTANTS.SPELL_TYPES.ENEMY_AVOIDED,
         ["spell"] = spell,
         ["keyword1"] = keyword1,
@@ -1169,11 +1177,11 @@ if (GetLocale() == "deDE") then
     local _, _, spell, target, keyword = string.find(msg, SPELL_DAMAGESHIELDS_ON_SELF3)
 
     if spell and target and keyword then
-      mod.logger.LogDebug(me.tag, "CHAT_MSG_SPELL_DAMAGESHIELDS_ON_SELF detected")
+      mod.logger.LogDebug(me.tag, eventType .. " detected")
       mod.logger.LogDebug(me.tag, string.format("spell: %s target: %s", spell, target))
 
       return 1, {
-        ["type"] = "CHAT_MSG_SPELL_DAMAGESHIELDS_ON_SELF",
+        ["type"] = eventType,
         ["spellType"] = LP_CONSTANTS.SPELL_TYPES.ENEMY_AVOIDED,
         ["spell"] = spell,
         ["target"] = target,
@@ -1184,11 +1192,11 @@ if (GetLocale() == "deDE") then
     local _, _, target, spell, keyword = string.find(msg, SPELL_DAMAGESHIELDS_ON_SELF4)
 
     if target and spell and keyword then
-      mod.logger.LogDebug(me.tag, "CHAT_MSG_SPELL_DAMAGESHIELDS_ON_SELF detected")
+      mod.logger.LogDebug(me.tag, eventType .. " detected")
       mod.logger.LogDebug(me.tag, string.format("spell: %s target: %s", spell, target))
 
       return 1, {
-        ["type"] = "CHAT_MSG_SPELL_DAMAGESHIELDS_ON_SELF",
+        ["type"] = eventType,
         ["spellType"] = LP_CONSTANTS.SPELL_TYPES.ENEMY_AVOIDED,
         ["target"] = target,
         ["spell"] = spell,
@@ -1199,11 +1207,11 @@ if (GetLocale() == "deDE") then
     local _, _, spell, target, keyword = string.find(msg, SPELL_DAMAGESHIELDS_ON_SELF5)
 
     if spell and target and keyword then
-      mod.logger.LogDebug(me.tag, "CHAT_MSG_SPELL_DAMAGESHIELDS_ON_SELF detected")
+      mod.logger.LogDebug(me.tag, eventType .. " detected")
       mod.logger.LogDebug(me.tag, string.format("spell: %s target: %s", spell, target))
 
       return 1, {
-        ["type"] = "CHAT_MSG_SPELL_DAMAGESHIELDS_ON_SELF",
+        ["type"] = eventType,
         ["spellType"] = LP_CONSTANTS.SPELL_TYPES.ENEMY_AVOIDED,
         ["spell"] = spell,
         ["target"] = target,
@@ -1212,9 +1220,9 @@ if (GetLocale() == "deDE") then
     end
 
     -- unable to parse message
-    mod.logger.LogInfo(me.tag, "Failed to parse CHAT_MSG_SPELL_DAMAGESHIELDS_ON_SELF")
+    mod.logger.LogInfo(me.tag, "Failed to parse " .. eventType)
     return 0, {
-      ["type"] = "CHAT_MSG_SPELL_DAMAGESHIELDS_ON_SELF"
+      ["type"] = eventType
     }
   end
 
@@ -1228,14 +1236,15 @@ if (GetLocale() == "deDE") then
       0 if not able to parse msg
   ]]--
   function me.ParseSpellSelfDamage(msg)
+    local eventType = "CHAT_MSG_SPELL_SELF_DAMAGE"
     local _, _, spell, target, keyword = string.find(msg, SPELL_SELF_DAMAGE)
 
     if spell and target and keyword then
-      mod.logger.LogDebug(me.tag, "CHAT_MSG_SPELL_SELF_DAMAGE detected")
+      mod.logger.LogDebug(me.tag, eventType .. " detected")
       mod.logger.LogDebug(me.tag, string.format("spell: %s target: %s", spell, target))
 
       return 1, {
-        ["type"] = "CHAT_MSG_SPELL_SELF_DAMAGE",
+        ["type"] = eventType,
         ["spellType"] = LP_CONSTANTS.SPELL_TYPES.ENEMY_AVOIDED,
         ["spell"] = spell,
         ["target"] = target,
@@ -1244,9 +1253,9 @@ if (GetLocale() == "deDE") then
     end
 
     -- unable to parse message
-    mod.logger.LogInfo(me.tag, "Failed to parse CHAT_MSG_SPELL_SELF_DAMAGE")
+    mod.logger.LogInfo(me.tag, "Failed to parse " .. eventType)
     return 0, {
-      ["type"] = "CHAT_MSG_SPELL_SELF_DAMAGE"
+      ["type"] = eventType
     }
   end
 
@@ -1260,14 +1269,15 @@ if (GetLocale() == "deDE") then
       0 if not able to parse msg
   ]]--
   function me.ParseSpellDamageShieldsOnOthers(msg)
+    local eventType = "CHAT_MSG_SPELL_DAMAGESHIELDS_ON_OTHERS"
     local _, _, source, keyword1, spell, keyword2 = string.find(msg, SPELL_DAMAGESHIELDS_ON_OTHERS1)
 
     if source and keyword1 and spell and keyword2 then
-      mod.logger.LogDebug(me.tag, "CHAT_MSG_SPELL_DAMAGESHIELDS_ON_OTHERS detected")
+      mod.logger.LogDebug(me.tag, eventType .. " detected")
       mod.logger.LogDebug(me.tag, string.format("source: %s spell: %s", source, spell))
 
       return 1, {
-        ["type"] = "CHAT_MSG_SPELL_DAMAGESHIELDS_ON_OTHERS",
+        ["type"] = eventType,
         ["spellType"] = LP_CONSTANTS.SPELL_TYPES.SELF_AVOIDED,
         ["source"] = source,
         ["keyword1"] = keyword1,
@@ -1279,11 +1289,11 @@ if (GetLocale() == "deDE") then
     local _, _, source, spell, keyword = string.find(msg, SPELL_DAMAGESHIELDS_ON_OTHERS2)
 
     if source and spell and keyword then
-      mod.logger.LogDebug(me.tag, "CHAT_MSG_SPELL_DAMAGESHIELDS_ON_OTHERS detected")
+      mod.logger.LogDebug(me.tag, eventType .. " detected")
       mod.logger.LogDebug(me.tag, string.format("source: %s spell: %s", source, spell))
 
       return 1, {
-        ["type"] = "CHAT_MSG_SPELL_DAMAGESHIELDS_ON_OTHERS",
+        ["type"] = eventType,
         ["spellType"] = LP_CONSTANTS.SPELL_TYPES.SELF_AVOIDED,
         ["source"] = source,
         ["spell"] = spell,
@@ -1294,11 +1304,11 @@ if (GetLocale() == "deDE") then
     local _, _, source, keyword1, spell, keyword2, target = string.find(msg, SPELL_DAMAGESHIELDS_ON_OTHERS3)
 
     if source and keyword1 and spell and keyword2 and target then
-      mod.logger.LogDebug(me.tag, "CHAT_MSG_SPELL_DAMAGESHIELDS_ON_OTHERS detected")
+      mod.logger.LogDebug(me.tag, eventType .. " detected")
       mod.logger.LogDebug(me.tag, string.format("source: %s spell: %s", source, spell))
 
       return 1, {
-        ["type"] = "CHAT_MSG_SPELL_DAMAGESHIELDS_ON_OTHERS",
+        ["type"] = eventType,
         ["spellType"] = LP_CONSTANTS.SPELL_TYPES.SELF_AVOIDED,
         ["source"] = source,
         ["keyword1"] = keyword1,
@@ -1311,11 +1321,11 @@ if (GetLocale() == "deDE") then
     local _, _, source, keyword1, spell, keyword2, keyword3 = string.find(msg, SPELL_DAMAGESHIELDS_ON_OTHERS4)
 
     if source and keyword1 and spell and keyword2 and keyword3 then
-      mod.logger.LogDebug(me.tag, "CHAT_MSG_SPELL_DAMAGESHIELDS_ON_OTHERS detected")
+      mod.logger.LogDebug(me.tag, eventType .. " detected")
       mod.logger.LogDebug(me.tag, string.format("source: %s spell: %s", source, spell))
 
       return 1, {
-        ["type"] = "CHAT_MSG_SPELL_DAMAGESHIELDS_ON_OTHERS",
+        ["type"] = eventType,
         ["spellType"] = LP_CONSTANTS.SPELL_TYPES.SELF_AVOIDED,
         ["source"] = source,
         ["keyword1"] = keyword1,
@@ -1328,11 +1338,11 @@ if (GetLocale() == "deDE") then
     local _, _, source, spell, keyword = string.find(msg, SPELL_DAMAGESHIELDS_ON_OTHERS5)
 
     if source and spell and keyword then
-      mod.logger.LogDebug(me.tag, "CHAT_MSG_SPELL_DAMAGESHIELDS_ON_OTHERS detected")
+      mod.logger.LogDebug(me.tag, eventType .. " detected")
       mod.logger.LogDebug(me.tag, string.format("source: %s spell: %s", source, spell))
 
       return 1, {
-        ["type"] = "CHAT_MSG_SPELL_DAMAGESHIELDS_ON_OTHERS",
+        ["type"] = eventType,
         ["spellType"] = LP_CONSTANTS.SPELL_TYPES.SELF_AVOIDED,
         ["source"] = source,
         ["spell"] = spell,
@@ -1343,11 +1353,11 @@ if (GetLocale() == "deDE") then
     local _, _, source, spell, keyword = string.find(msg, SPELL_DAMAGESHIELDS_ON_OTHERS6)
 
     if source and spell and keyword then
-      mod.logger.LogDebug(me.tag, "CHAT_MSG_SPELL_DAMAGESHIELDS_ON_OTHERS detected")
+      mod.logger.LogDebug(me.tag, eventType .. " detected")
       mod.logger.LogDebug(me.tag, string.format("source: %s spell: %s", source, spell))
 
       return 1, {
-        ["type"] = "CHAT_MSG_SPELL_DAMAGESHIELDS_ON_OTHERS",
+        ["type"] = eventType,
         ["spellType"] = LP_CONSTANTS.SPELL_TYPES.SELF_AVOIDED,
         ["source"] = source,
         ["spell"] = spell,
@@ -1356,9 +1366,9 @@ if (GetLocale() == "deDE") then
     end
 
     -- unable to parse message
-    mod.logger.LogInfo(me.tag, "Failed to parse CHAT_MSG_SPELL_DAMAGESHIELDS_ON_OTHERS")
+    mod.logger.LogInfo(me.tag, "Failed to parse " .. eventType)
     return 0, {
-      ["type"] = "CHAT_MSG_SPELL_DAMAGESHIELDS_ON_OTHERS"
+      ["type"] = eventType
     }
   end
 
@@ -1371,14 +1381,15 @@ if (GetLocale() == "deDE") then
       0 if not able to parse msg
   ]]--
   function me.ParseSpellFailedLocalPlayer(msg)
+    local eventType = "CHAT_MSG_SPELL_FAILED_LOCALPLAYER"
     local _, _, keyword1, keyword2, spell, reason = string.find(msg, SPELL_FAILED_LOCALPLAYER1)
 
     if keyword1 and keyword2 and spell and reason then
-      mod.logger.LogDebug(me.tag, "CHAT_MSG_SPELL_FAILED_LOCALPLAYER detected")
+      mod.logger.LogDebug(me.tag, eventType .. " detected")
       mod.logger.LogDebug(me.tag, string.format("spell: %s reason: %s", spell, reason))
 
       return 1, {
-        ["type"] = "CHAT_MSG_SPELL_FAILED_LOCALPLAYER",
+        ["type"] = eventType,
         ["spellType"] = LP_CONSTANTS.SPELL_TYPES.LOCAL_FAILURE,
         ["spell"] = spell,
         ["keyword1"] = keyword1,
@@ -1390,11 +1401,11 @@ if (GetLocale() == "deDE") then
     local _, _, keyword1, keyword2, spell, reason = string.find(msg, SPELL_FAILED_LOCALPLAYER2)
 
     if keyword1 and keyword2 and spell and reason then
-      mod.logger.LogDebug(me.tag, "CHAT_MSG_SPELL_FAILED_LOCALPLAYER detected")
+      mod.logger.LogDebug(me.tag, eventType .. " detected")
       mod.logger.LogDebug(me.tag, string.format("spell: %s reason: %s", spell, reason))
 
       return 1, {
-        ["type"] = "CHAT_MSG_SPELL_FAILED_LOCALPLAYER",
+        ["type"] = eventType,
         ["spellType"] = LP_CONSTANTS.SPELL_TYPES.LOCAL_FAILURE,
         ["spell"] = spell,
         ["keyword1"] = keyword1,
@@ -1404,9 +1415,9 @@ if (GetLocale() == "deDE") then
     end
 
     -- unable to parse message
-    mod.logger.LogInfo(me.tag, "Failed to parse CHAT_MSG_SPELL_FAILED_LOCALPLAYER")
+    mod.logger.LogInfo(me.tag, "Failed to parse " .. eventType)
     return 0, {
-      ["type"] = "CHAT_MSG_SPELL_FAILED_LOCALPLAYER"
+      ["type"] = eventType
     }
   end
 else
@@ -1420,14 +1431,15 @@ else
       0 if not able to parse msg
   ]]--
   function me.ParseSpellPeriodicHostilePlayerBuffs(msg)
+    local eventType = "CHAT_MSG_SPELL_PERIODIC_HOSTILEPLAYER_BUFFS"
     local _, _, source, keyword, spell = string.find(msg, SPELL_PERIODIC_HOSTILE_PLAYER_BUFFS1)
 
     if source and keyword and spell then
-      mod.logger.LogDebug(me.tag, "CHAT_MSG_SPELL_PERIODIC_HOSTILEPLAYER_BUFFS detected")
+      mod.logger.LogDebug(me.tag, eventType .. " detected")
       mod.logger.LogDebug(me.tag, string.format("source: %s spell: %s", source, spell))
 
       return 1, {
-        ["type"] = "CHAT_MSG_SPELL_PERIODIC_HOSTILEPLAYER_BUFFS",
+        ["type"] = eventType,
         ["spellType"] = LP_CONSTANTS.SPELL_TYPES.SPELL,
         ["source"] = source,
         ["keyword"] = keyword,
@@ -1438,11 +1450,11 @@ else
     local _, _, player1, keyword, amount, player2, spell = string.find(msg, SPELL_PERIODIC_HOSTILE_PLAYER_BUFFS2)
 
     if player1 and keyword and amount and player2 and spell then
-      mod.logger.LogDebug(me.tag, "CHAT_MSG_SPELL_PERIODIC_HOSTILEPLAYER_BUFFS detected")
+      mod.logger.LogDebug(me.tag, eventType .. " detected")
       mod.logger.LogDebug(me.tag, string.format("source: %s spell: %s", player1, spell))
 
       return 1, {
-        ["type"] = "CHAT_MSG_SPELL_PERIODIC_HOSTILEPLAYER_BUFFS",
+        ["type"] = eventType,
         ["spellType"] = LP_CONSTANTS.SPELL_TYPES.SPELL,
         ["source"] = source,
         ["player1"] = player1,
@@ -1454,9 +1466,9 @@ else
     end
 
     -- unable to parse message
-    mod.logger.LogInfo(me.tag, "Failed to parse CHAT_MSG_SPELL_PERIODIC_HOSTILEPLAYER_BUFFS")
+    mod.logger.LogInfo(me.tag, "Failed to parse " .. eventType)
     return 0, {
-      ["type"] = "CHAT_MSG_SPELL_PERIODIC_HOSTILEPLAYER_BUFFS"
+      ["type"] = eventType
     }
   end
 
@@ -1470,14 +1482,15 @@ else
       0 if not able to parse msg
   ]]--
   function me.ParseSpellHostilePlayerBuff(msg)
+    local eventType = "CHAT_MSG_SPELL_HOSTILEPLAYER_BUFF"
     local _, _, source1, spell, keyword, source2, amount = string.find(msg, SPELL_HOSTILE_PLAYER_BUFF1)
 
     if source1 and spell and keyword and source2 and amount then
-      mod.logger.LogDebug(me.tag, "CHAT_MSG_SPELL_HOSTILEPLAYER_BUFF detected")
+      mod.logger.LogDebug(me.tag, eventType .. " detected")
       mod.logger.LogDebug(me.tag, string.format("player: %s spell: %s amount: %s", source1, spell, amount))
 
       return 1, {
-        ["type"] = "CHAT_MSG_SPELL_HOSTILEPLAYER_BUFF",
+        ["type"] = eventType,
         ["spellType"] = LP_CONSTANTS.SPELL_TYPES.SPELL,
         ["source1"] = source1,
         ["spell"] = spell,
@@ -1490,11 +1503,11 @@ else
     local _, _, source, keyword, spell = string.find(msg, SPELL_HOSTILE_PLAYER_BUFF2)
 
     if source and keyword and spell then
-      mod.logger.LogDebug(me.tag, "CHAT_MSG_SPELL_HOSTILEPLAYER_BUFF detected")
+      mod.logger.LogDebug(me.tag, eventType .. " detected")
       mod.logger.LogDebug(me.tag, string.format("source: %s spell: %s", source, spell))
 
       return 1, {
-        ["type"] = "CHAT_MSG_SPELL_HOSTILEPLAYER_BUFF",
+        ["type"] = eventType,
         ["spellType"] = LP_CONSTANTS.SPELL_TYPES.SPELL,
         ["source"] = source,
         ["keyword"] = keyword,
@@ -1505,11 +1518,11 @@ else
     local _, _, source, keyword, spell = string.find(msg, SPELL_HOSTILE_PLAYER_BUFF3)
 
     if source and keyword and spell then
-      mod.logger.LogDebug(me.tag, "CHAT_MSG_SPELL_HOSTILEPLAYER_BUFF detected")
+      mod.logger.LogDebug(me.tag, eventType .. " detected")
       mod.logger.LogDebug(me.tag, string.format("source: %s spell: %s", source, spell))
 
       return 1, {
-        ["type"] = "CHAT_MSG_SPELL_HOSTILEPLAYER_BUFF",
+        ["type"] = eventType,
         ["spellType"] = LP_CONSTANTS.SPELL_TYPES.SPELL,
         ["source"] = source,
         ["spell"] = spell,
@@ -1520,11 +1533,11 @@ else
     local _, _, source1, spell, keyword, source2, amount = string.find(msg, SPELL_HOSTILE_PLAYER_BUFF4)
 
     if source1 and spell and keyword and source2 and amount then
-      mod.logger.LogDebug(me.tag, "CHAT_MSG_SPELL_HOSTILEPLAYER_BUFF detected")
+      mod.logger.LogDebug(me.tag, eventType .. " detected")
       mod.logger.LogDebug(me.tag, string.format("source1: %s spell: %s source2: %s", source1, spell, source2))
 
       return 1, {
-        ["type"] = "CHAT_MSG_SPELL_HOSTILEPLAYER_BUFF",
+        ["type"] = eventType,
         ["spellType"] = LP_CONSTANTS.SPELL_TYPES.SPELL,
         ["source1"] = source1,
         ["spell"] = spell,
@@ -1537,11 +1550,11 @@ else
     local _, _, source1, keyword1, amount, resource, keyword2, source2, spell = string.find(msg, SPELL_HOSTILE_PLAYER_BUFF5)
 
     if source1 and keyword1 and amount and resource and keyword2 and source2 and spell then
-      mod.logger.LogDebug(me.tag, "CHAT_MSG_SPELL_HOSTILEPLAYER_BUFF detected")
+      mod.logger.LogDebug(me.tag, eventType .. " detected")
       mod.logger.LogDebug(me.tag, string.format("source1: %s spell: %s source2: %s", source1, spell, source2))
 
       return 1, {
-        ["type"] = "CHAT_MSG_SPELL_HOSTILEPLAYER_BUFF",
+        ["type"] = eventType,
         ["spellType"] = LP_CONSTANTS.SPELL_TYPES.SPELL,
         ["source1"] = source1,
         ["keyword1"] = keyword1,
@@ -1554,9 +1567,9 @@ else
     end
 
     -- unable to parse message
-    mod.logger.LogInfo(me.tag, "Failed to parse CHAT_MSG_SPELL_HOSTILEPLAYER_BUFF")
+    mod.logger.LogInfo(me.tag, "Failed to parse " .. eventType)
     return 0, {
-      ["type"] = "CHAT_MSG_SPELL_HOSTILEPLAYER_BUFF"
+      ["type"] = eventType
     }
   end
 
@@ -1570,14 +1583,15 @@ else
       0 if not able to parse msg
   ]]--
   function me.ParseSpellPeriodicSelfDamage(msg)
+    local eventType = "CHAT_MSG_SPELL_PERIODIC_SELF_DAMAGE"
     local _, _, target, keyword, spell = string.find(msg, SPELL_PERIODIC_SELF_DAMAGE)
 
     if target and keyword and spell then
-      mod.logger.LogDebug(me.tag, "CHAT_MSG_SPELL_PERIODIC_SELF_DAMAGE detected")
+      mod.logger.LogDebug(me.tag, eventType .. " detected")
       mod.logger.LogDebug(me.tag, string.format("target: %s spell: %s", target, spell))
 
       return 1, {
-        ["type"] = "CHAT_MSG_SPELL_PERIODIC_SELF_DAMAGE",
+        ["type"] = eventType,
         ["spellType"] = LP_CONSTANTS.SPELL_TYPES.SPELL,
         ["target"] = target,
         ["keyword"] = keyword,
@@ -1586,9 +1600,9 @@ else
     end
 
     -- unable to parse message
-    mod.logger.LogInfo(me.tag, "Failed to parse CHAT_MSG_SPELL_PERIODIC_SELF_DAMAGE")
+    mod.logger.LogInfo(me.tag, "Failed to parse " .. eventType)
     return 0, {
-      ["type"] = "CHAT_MSG_SPELL_PERIODIC_SELF_DAMAGE"
+      ["type"] = eventType
     }
   end
 
@@ -1602,14 +1616,15 @@ else
       0 if not able to parse msg
   ]]--
   function me.ParseSpellHostilePlayerDamage(msg)
+    local eventType = "CHAT_MSG_SPELL_HOSTILEPLAYER_DAMAGE"
     local _, _, source, spell, keyword, target, damage = string.find(msg, SPELL_HOSTILEPLAYER_DAMAGE1)
 
     if source and spell and keyword and target and damage then
-      mod.logger.LogDebug(me.tag, "CHAT_MSG_SPELL_HOSTILEPLAYER_DAMAGE detected")
+      mod.logger.LogDebug(me.tag, eventType .. " detected")
       mod.logger.LogDebug(me.tag, string.format("source: %s spell: %s", source, spell))
 
       return 1, {
-        ["type"] = "CHAT_MSG_SPELL_HOSTILEPLAYER_DAMAGE",
+        ["type"] = eventType,
         ["spellType"] = LP_CONSTANTS.SPELL_TYPES.SPELL,
         ["source"] = source,
         ["spell"] = spell,
@@ -1622,11 +1637,11 @@ else
     local _, _, source, spell, keyword, target, damage = string.find(msg, SPELL_HOSTILEPLAYER_DAMAGE2)
 
     if source and spell and keyword and target and damage then
-      mod.logger.LogDebug(me.tag, "CHAT_MSG_SPELL_HOSTILEPLAYER_DAMAGE detected")
+      mod.logger.LogDebug(me.tag, eventType .. " detected")
       mod.logger.LogDebug(me.tag, string.format("source: %s spell: %s", source, spell))
 
       return 1, {
-        ["type"] = "CHAT_MSG_SPELL_HOSTILEPLAYER_DAMAGE",
+        ["type"] = eventType,
         ["spellType"] = LP_CONSTANTS.SPELL_TYPES.SPELL,
         ["source"] = source,
         ["spell"] = spell,
@@ -1639,11 +1654,11 @@ else
     local _, _, source, keyword, spell = string.find(msg, SPELL_HOSTILEPLAYER_DAMAGE3)
 
     if source and keyword and spell then
-      mod.logger.LogDebug(me.tag, "CHAT_MSG_SPELL_HOSTILEPLAYER_DAMAGE detected")
+      mod.logger.LogDebug(me.tag, eventType .. " detected")
       mod.logger.LogDebug(me.tag, string.format("source: %s spell: %s", source, spell))
 
       return 1, {
-        ["type"] = "CHAT_MSG_SPELL_HOSTILEPLAYER_DAMAGE",
+        ["type"] = eventType,
         ["spellType"] = LP_CONSTANTS.SPELL_TYPES.SPELL,
         ["source"] = source,
         ["keyword"] = keyword,
@@ -1652,9 +1667,9 @@ else
     end
 
     -- unable to parse message
-    mod.logger.LogInfo(me.tag, "Failed to parse CHAT_MSG_SPELL_HOSTILEPLAYER_DAMAGE")
+    mod.logger.LogInfo(me.tag, "Failed to parse " .. eventType)
     return 0, {
-      ["type"] = "CHAT_MSG_SPELL_HOSTILEPLAYER_DAMAGE"
+      ["type"] = eventType
     }
   end
 
@@ -1668,14 +1683,15 @@ else
       0 if not able to parse msg
   ]]--
   function me.ParseSpellPeriodicHostilePlayerDamage(msg)
+    local eventType = "CHAT_MSG_SPELL_PERIODIC_HOSTILEPLAYER_DAMAGE"
     local _, _, target, keyword, spell = string.find(msg, SPELL_PERIODIC_HOSTILE_PLAYER_DAMAGE)
 
     if target and keyword and spell then
-      mod.logger.LogDebug(me.tag, "CHAT_MSG_SPELL_PERIODIC_HOSTILEPLAYER_DAMAGE detected")
+      mod.logger.LogDebug(me.tag, eventType .. " detected")
       mod.logger.LogDebug(me.tag, string.format("target: %s spell: %s", target, spell))
 
       return 1, {
-        ["type"] = "CHAT_MSG_SPELL_PERIODIC_HOSTILEPLAYER_DAMAGE",
+        ["type"] = eventType,
         ["spellType"] = LP_CONSTANTS.SPELL_TYPES.SPELL,
         ["target"] = target,
         ["keyword"] = keyword,
@@ -1684,9 +1700,9 @@ else
     end
 
     -- unable to parse message
-    mod.logger.LogInfo(me.tag, "Failed to parse CHAT_MSG_SPELL_PERIODIC_HOSTILEPLAYER_DAMAGE")
+    mod.logger.LogInfo(me.tag, "Failed to parse " .. eventType)
     return 0, {
-      ["type"] = "CHAT_MSG_SPELL_PERIODIC_HOSTILEPLAYER_DAMAGE"
+      ["type"] = eventType
     }
   end
 
@@ -1700,14 +1716,15 @@ else
       0 if not able to parse msg
   ]]--
   function me.ParseSpellAuraGoneOther(msg)
+    local eventType = "CHAT_MSG_SPELL_AURA_GONE_OTHER"
     local _, _, spell, keyword, source = string.find(msg, SPELL_AURA_GONE_OTHER)
 
     if spell and keyword and source then
-      mod.logger.LogDebug(me.tag, "CHAT_MSG_SPELL_AURA_GONE_OTHER detected")
+      mod.logger.LogDebug(me.tag, eventType .. " detected")
       mod.logger.LogDebug(me.tag, string.format("source: %s spell: %s", source, spell))
 
       return 1, {
-        ["type"] = "CHAT_MSG_SPELL_AURA_GONE_OTHER",
+        ["type"] = eventType,
         ["spellType"] = LP_CONSTANTS.SPELL_TYPES.SPELL_DOWN,
         ["spell"] = spell,
         ["keyword"] = keyword,
@@ -1717,9 +1734,9 @@ else
     end
 
     -- unable to parse message
-    mod.logger.LogInfo(me.tag, "Failed to parse CHAT_MSG_SPELL_AURA_GONE_OTHER")
+    mod.logger.LogInfo(me.tag, "Failed to parse " .. eventType)
     return 0, {
-      ["type"] = "CHAT_MSG_SPELL_AURA_GONE_OTHER"
+      ["type"] = eventType
     }
   end
 
@@ -1733,14 +1750,15 @@ else
       0 if not able to parse msg
   ]]--
   function me.ParseSpellDamageShieldsOnSelf(msg)
+    local eventType = "CHAT_MSG_SPELL_DAMAGESHIELDS_ON_SELF"
     local _, _, source, spell, keyword, target = string.find(msg, SPELL_DAMAGESHIELDS_ON_SELF1)
 
     if source and spell and keyword and target then
-      mod.logger.LogDebug(me.tag, "CHAT_MSG_SPELL_DAMAGESHIELDS_ON_SELF detected")
+      mod.logger.LogDebug(me.tag, eventType .. " detected")
       mod.logger.LogDebug(me.tag, string.format("spell: %s target: %s", spell, target))
 
       return 1, {
-        ["type"] = "CHAT_MSG_SPELL_DAMAGESHIELDS_ON_SELF",
+        ["type"] = eventType,
         ["spellType"] = LP_CONSTANTS.SPELL_TYPES.ENEMY_AVOIDED,
         ["source"] = source,
         ["spell"] = spell,
@@ -1752,11 +1770,11 @@ else
     local _, _, source, spell, keyword, target, keyword2 = string.find(msg, SPELL_DAMAGESHIELDS_ON_SELF2)
 
     if source and spell and keyword and target and keyword2 then
-      mod.logger.LogDebug(me.tag, "CHAT_MSG_SPELL_DAMAGESHIELDS_ON_SELF detected")
+      mod.logger.LogDebug(me.tag, eventType .. " detected")
       mod.logger.LogDebug(me.tag, string.format("spell: %s target: %s", spell, target))
 
       return 1, {
-        ["type"] = "CHAT_MSG_SPELL_DAMAGESHIELDS_ON_SELF",
+        ["type"] = eventType,
         ["spellType"] = LP_CONSTANTS.SPELL_TYPES.ENEMY_AVOIDED,
         ["source"] = source,
         ["spell"] = spell,
@@ -1769,11 +1787,11 @@ else
     local _, _, source, spell, keyword, target = string.find(msg, SPELL_DAMAGESHIELDS_ON_SELF3)
 
     if source and spell and keyword and target then
-      mod.logger.LogDebug(me.tag, "CHAT_MSG_SPELL_DAMAGESHIELDS_ON_SELF detected")
+      mod.logger.LogDebug(me.tag, eventType .. " detected")
       mod.logger.LogDebug(me.tag, string.format("spell: %s target: %s", spell, target))
 
       return 1, {
-        ["type"] = "CHAT_MSG_SPELL_DAMAGESHIELDS_ON_SELF",
+        ["type"] = eventType,
         ["spellType"] = LP_CONSTANTS.SPELL_TYPES.ENEMY_AVOIDED,
         ["source"] = source,
         ["spell"] = spell,
@@ -1785,11 +1803,11 @@ else
     local _, _, source, spell, keyword, target = string.find(msg, SPELL_DAMAGESHIELDS_ON_SELF4)
 
     if source and spell and keyword and target then
-      mod.logger.LogDebug(me.tag, "CHAT_MSG_SPELL_DAMAGESHIELDS_ON_SELF detected")
+      mod.logger.LogDebug(me.tag, eventType .. " detected")
       mod.logger.LogDebug(me.tag, string.format("spell: %s target: %s", spell, target))
 
       return 1, {
-        ["type"] = "CHAT_MSG_SPELL_DAMAGESHIELDS_ON_SELF",
+        ["type"] = eventType,
         ["spellType"] = LP_CONSTANTS.SPELL_TYPES.ENEMY_AVOIDED,
         ["source"] = source,
         ["spell"] = spell,
@@ -1801,11 +1819,11 @@ else
     local _, _, source, spell, keyword, target = string.find(msg, SPELL_DAMAGESHIELDS_ON_SELF5)
 
     if source and spell and keyword and target then
-      mod.logger.LogDebug(me.tag, "CHAT_MSG_SPELL_DAMAGESHIELDS_ON_SELF detected")
+      mod.logger.LogDebug(me.tag, eventType .. " detected")
       mod.logger.LogDebug(me.tag, string.format("spell: %s target: %s", spell, target))
 
       return 1, {
-        ["type"] = "CHAT_MSG_SPELL_DAMAGESHIELDS_ON_SELF",
+        ["type"] = eventType,
         ["spellType"] = LP_CONSTANTS.SPELL_TYPES.ENEMY_AVOIDED,
         ["source"] = source,
         ["spell"] = spell,
@@ -1815,9 +1833,9 @@ else
     end
 
     -- unable to parse message
-    mod.logger.LogInfo(me.tag, "Failed to parse CHAT_MSG_SPELL_DAMAGESHIELDS_ON_SELF")
+    mod.logger.LogInfo(me.tag, "Failed to parse " .. eventType)
     return 0, {
-      ["type"] = "CHAT_MSG_SPELL_DAMAGESHIELDS_ON_SELF"
+      ["type"] = eventType
     }
   end
 
@@ -1831,14 +1849,15 @@ else
       0 if not able to parse msg
   ]]--
   function me.ParseSpellSelfDamage(msg)
+    local eventType = "CHAT_MSG_SPELL_SELF_DAMAGE"
     local _, _, source, spell, keyword, target = string.find(msg, SPELL_SELF_DAMAGE)
 
     if source and spell and keyword and target then
-      mod.logger.LogDebug(me.tag, "CHAT_MSG_SPELL_SELF_DAMAGE detected")
+      mod.logger.LogDebug(me.tag, eventType .. " detected")
       mod.logger.LogDebug(me.tag, string.format("spell: %s target: %s", spell, target))
 
       return 1, {
-        ["type"] = "CHAT_MSG_SPELL_SELF_DAMAGE",
+        ["type"] = eventType,
         ["spellType"] = LP_CONSTANTS.SPELL_TYPES.ENEMY_AVOIDED,
         ["source"] = source,
         ["spell"] = spell,
@@ -1848,9 +1867,9 @@ else
     end
 
     -- unable to parse message
-    mod.logger.LogInfo(me.tag, "Failed to parse CHAT_MSG_SPELL_SELF_DAMAGE")
+    mod.logger.LogInfo(me.tag, "Failed to parse " .. eventType)
     return 0, {
-      ["type"] = "CHAT_MSG_SPELL_SELF_DAMAGE"
+      ["type"] = eventType
     }
   end
 
@@ -1864,14 +1883,15 @@ else
       0 if not able to parse msg
   ]]--
   function me.ParseSpellDamageShieldsOnOthers(msg)
+    local eventType = "CHAT_MSG_SPELL_PERIODIC_HOSTILEPLAYER_DAMAGE"
     local _, _, source, spell, keyword = string.find(msg, SPELL_DAMAGESHIELDS_ON_OTHERS1)
 
     if source and spell and keyword then
-      mod.logger.LogDebug(me.tag, "CHAT_MSG_SPELL_DAMAGESHIELDS_ON_OTHERS detected")
+      mod.logger.LogDebug(me.tag, eventType .. " detected")
       mod.logger.LogDebug(me.tag, string.format("source: %s spell: %s", source, spell))
 
       return 1, {
-        ["type"] = "CHAT_MSG_SPELL_DAMAGESHIELDS_ON_OTHERS",
+        ["type"] = eventType,
         ["spellType"] = LP_CONSTANTS.SPELL_TYPES.SELF_AVOIDED,
         ["source"] = source,
         ["spell"] = spell,
@@ -1882,11 +1902,11 @@ else
     local _, _, source, spell, keyword = string.find(msg, SPELL_DAMAGESHIELDS_ON_OTHERS2)
 
     if source and spell and keyword then
-      mod.logger.LogDebug(me.tag, "CHAT_MSG_SPELL_DAMAGESHIELDS_ON_OTHERS detected")
+      mod.logger.LogDebug(me.tag, eventType .. " detected")
       mod.logger.LogDebug(me.tag, string.format("source: %s spell: %s", source, spell))
 
       return 1, {
-        ["type"] = "CHAT_MSG_SPELL_DAMAGESHIELDS_ON_OTHERS",
+        ["type"] = eventType,
         ["spellType"] = LP_CONSTANTS.SPELL_TYPES.SELF_AVOIDED,
         ["source"] = source,
         ["spell"] = spell,
@@ -1897,11 +1917,11 @@ else
     local _, _, source, spell, keyword = string.find(msg, SPELL_DAMAGESHIELDS_ON_OTHERS3)
 
     if source and spell and keyword then
-      mod.logger.LogDebug(me.tag, "CHAT_MSG_SPELL_DAMAGESHIELDS_ON_OTHERS detected")
+      mod.logger.LogDebug(me.tag, eventType .. " detected")
       mod.logger.LogDebug(me.tag, string.format("source: %s spell: %s", source, spell))
 
       return 1, {
-        ["type"] = "CHAT_MSG_SPELL_DAMAGESHIELDS_ON_OTHERS",
+        ["type"] = eventType,
         ["spellType"] = LP_CONSTANTS.SPELL_TYPES.SELF_AVOIDED,
         ["source"] = source,
         ["spell"] = spell,
@@ -1912,11 +1932,11 @@ else
     local _, _, source, spell, keyword1, keyword2 = string.find(msg, SPELL_DAMAGESHIELDS_ON_OTHERS4)
 
     if source and spell and keyword1 and keyword2 then
-      mod.logger.LogDebug(me.tag, "CHAT_MSG_SPELL_DAMAGESHIELDS_ON_OTHERS detected")
+      mod.logger.LogDebug(me.tag, eventType .. " detected")
       mod.logger.LogDebug(me.tag, string.format("source: %s spell: %s", source, spell))
 
       return 1, {
-        ["type"] = "CHAT_MSG_SPELL_DAMAGESHIELDS_ON_OTHERS",
+        ["type"] = eventType,
         ["spellType"] = LP_CONSTANTS.SPELL_TYPES.SELF_AVOIDED,
         ["source"] = source,
         ["spell"] = spell,
@@ -1927,11 +1947,11 @@ else
     local _, _, source, spell, keyword = string.find(msg, SPELL_DAMAGESHIELDS_ON_OTHERS5)
 
     if source and spell and keyword then
-      mod.logger.LogDebug(me.tag, "CHAT_MSG_SPELL_DAMAGESHIELDS_ON_OTHERS detected")
+      mod.logger.LogDebug(me.tag, eventType .. " detected")
       mod.logger.LogDebug(me.tag, string.format("source: %s spell: %s", source, spell))
 
       return 1, {
-        ["type"] = "CHAT_MSG_SPELL_DAMAGESHIELDS_ON_OTHERS",
+        ["type"] = eventType,
         ["spellType"] = LP_CONSTANTS.SPELL_TYPES.SELF_AVOIDED,
         ["source"] = source,
         ["spell"] = spell,
@@ -1942,11 +1962,11 @@ else
     local _, _, source, spell, keyword = string.find(msg, SPELL_DAMAGESHIELDS_ON_OTHERS6)
 
     if source and spell and keyword then
-      mod.logger.LogDebug(me.tag, "CHAT_MSG_SPELL_DAMAGESHIELDS_ON_OTHERS detected")
+      mod.logger.LogDebug(me.tag, eventType .. " detected")
       mod.logger.LogDebug(me.tag, string.format("source: %s spell: %s", source, spell))
 
       return 1, {
-        ["type"] = "CHAT_MSG_SPELL_DAMAGESHIELDS_ON_OTHERS",
+        ["type"] = eventType,
         ["spellType"] = LP_CONSTANTS.SPELL_TYPES.SELF_AVOIDED,
         ["source"] = source,
         ["spell"] = spell,
@@ -1955,9 +1975,9 @@ else
     end
 
     -- unable to parse message
-    mod.logger.LogInfo(me.tag, "Failed to parse CHAT_MSG_SPELL_DAMAGESHIELDS_ON_OTHERS")
+    mod.logger.LogInfo(me.tag, "Failed to parse " .. eventType)
     return 0, {
-      ["type"] = "CHAT_MSG_SPELL_DAMAGESHIELDS_ON_OTHERS"
+      ["type"] = eventType
     }
   end
 
@@ -1970,14 +1990,15 @@ else
       0 if not able to parse msg
   ]]--
   function me.ParseSpellFailedLocalPlayer(msg)
+    local eventType = "CHAT_MSG_SPELL_FAILED_LOCALPLAYER"
     local _, _, keyword1, keyword2, spell, reason = string.find(msg, SPELL_FAILED_LOCALPLAYER1)
 
     if keyword1 and keyword2 and spell and reason then
-      mod.logger.LogDebug(me.tag, "CHAT_MSG_SPELL_FAILED_LOCALPLAYER detected")
+      mod.logger.LogDebug(me.tag, eventType .. " detected")
       mod.logger.LogDebug(me.tag, string.format("spell: %s reason: %s", spell, reason))
 
       return 1, {
-        ["type"] = "CHAT_MSG_SPELL_FAILED_LOCALPLAYER",
+        ["type"] = eventType,
         ["spellType"] = LP_CONSTANTS.SPELL_TYPES.LOCAL_FAILURE,
         ["spell"] = spell,
         ["keyword1"] = keyword1,
@@ -1989,11 +2010,11 @@ else
     local _, _, keyword1, keyword2, spell, reason = string.find(msg, SPELL_FAILED_LOCALPLAYER2)
 
     if keyword1 and keyword2 and spell and reason then
-      mod.logger.LogDebug(me.tag, "CHAT_MSG_SPELL_FAILED_LOCALPLAYER detected")
+      mod.logger.LogDebug(me.tag, eventType .. " detected")
       mod.logger.LogDebug(me.tag, string.format("spell: %s reason: %s", spell, reason))
 
       return 1, {
-        ["type"] = "CHAT_MSG_SPELL_FAILED_LOCALPLAYER",
+        ["type"] = eventType,
         ["spellType"] = LP_CONSTANTS.SPELL_TYPES.LOCAL_FAILURE,
         ["spell"] = spell,
         ["keyword1"] = keyword1,
@@ -2003,9 +2024,9 @@ else
     end
 
     -- unable to parse message
-    mod.logger.LogInfo(me.tag, "Failed to parse CHAT_MSG_SPELL_FAILED_LOCALPLAYER")
+    mod.logger.LogInfo(me.tag, "Failed to parse " .. eventType)
     return 0, {
-      ["type"] = "CHAT_MSG_SPELL_FAILED_LOCALPLAYER"
+      ["type"] = eventType
     }
   end
 end
