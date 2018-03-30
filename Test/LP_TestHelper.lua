@@ -33,6 +33,7 @@ local amountPlaceholder = "%$amount%$"
 local dummyPlayerName = "Player"
 local dummyNumber = "100"
 
+me.eventTypeCombatHostileDeath = "CHAT_MSG_COMBAT_HOSTILE_DEATH"
 me.eventTypeSpellPeriodicSelfDamage = "CHAT_MSG_SPELL_PERIODIC_SELF_DAMAGE"
 me.eventTypeSpellHostilePlayerBuff = "CHAT_MSG_SPELL_HOSTILEPLAYER_BUFF"
 me.eventTypeSpellPeriodicHostilePlayerBuffs = "CHAT_MSG_SPELL_PERIODIC_HOSTILEPLAYER_BUFFS"

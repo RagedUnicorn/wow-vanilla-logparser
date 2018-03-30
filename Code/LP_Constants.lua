@@ -36,7 +36,8 @@ LP_CONSTANTS = {
     ["SPELL_DOWN"] = 2,
     ["ENEMY_AVOIDED"] = 3,
     ["SELF_AVOIDED"] = 4,
-    ["LOCAL_FAILURE"] = 5
+    ["LOCAL_FAILURE"] = 5,
+    ["HOSTILE_DEATH"] = 6
   },
 
   --[[

@@ -24,6 +24,7 @@ Test\LP_TestReporter.lua
 Test\LP_TestHelper.lua
 
 Test\LP_TestAll.lua
+Test\LP_TestCombatHostileDeathEn.lua
 Test\LP_TestSpellAuraGoneOtherEn.lua
 Test\LP_TestSpellDamageShieldsOnOthersEn.lua
 Test\LP_TestSpellDamageShieldsOnSelfEn.lua
@@ -34,6 +35,7 @@ Test\LP_TestSpellPeriodicHostilePlayerBuffsEn.lua
 Test\LP_TestSpellPeriodicHostilePlayerDamageEn.lua
 Test\LP_TestSpellPeriodicSelfDamageEn.lua
 Test\LP_TestSpellSelfDamageEn.lua
+Test\LP_TestCombatHostileDeathDe.lua
 Test\LP_TestSpellAuraGoneOtherDe.lua
 Test\LP_TestSpellDamageShieldsOnOthersDe.lua
 Test\LP_TestSpellDamageShieldsOnSelfDe.lua

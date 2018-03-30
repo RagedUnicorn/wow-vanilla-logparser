@@ -94,6 +94,9 @@ function me.OnEvent()
   elseif event == "CHAT_MSG_SPELL_PERIODIC_HOSTILEPLAYER_DAMAGE" then
     me.logger.LogEvent(me.tag, "CHAT_MSG_SPELL_PERIODIC_HOSTILEPLAYER_DAMAGE")
     me.eventManager.HandleEvent(arg1, event)
+  elseif event == "CHAT_MSG_COMBAT_HOSTILE_DEATH" then
+    me.logger.LogEvent(me.tag, "CHAT_MSG_COMBAT_HOSTILE_DEATH")
+    me.eventManager.HandleEvent(arg1, event)
   end
 end
 

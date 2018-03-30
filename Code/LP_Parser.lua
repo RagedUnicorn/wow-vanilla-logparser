@@ -67,6 +67,8 @@ local SPELL_DAMAGESHIELDS_ON_OTHERS6
 local SPELL_FAILED_LOCALPLAYER1
 local SPELL_FAILED_LOCALPLAYER2
 
+local COMBAT_HOSTILE_DEATH
+
 if (GetLocale() == "deDE") then
   --[[
     Matching spells with umlaute:
@@ -408,6 +410,15 @@ if (GetLocale() == "deDE") then
       Ihr scheitert beim Ausführen von Wassergestalt: Kann nur beim Schwimmen benutzt werden..
   ]]--
   SPELL_FAILED_LOCALPLAYER2 = "^Ihr%s(scheitert)%sbeim%s(Ausführen)%svon%s([\195\159\195\132\195\150\195\156\195\188\195\164\195\182%(%)%a%s-:]+):%s([\195\159\195\132\195\150\195\156\195\188\195\164\195\182%a%s,]+)%.?%.?%.$"
+
+  --[[
+     CHAT_MSG_COMBAT_HOSTILE_DEATH
+     [source] [keyword]
+
+     examples:
+      $player$ stirbt.
+  ]]--
+  COMBAT_HOSTILE_DEATH = "^(%a+)%s(stirbt)%.$"
 else
   --[[
     CHAT_MSG_SPELL_PERIODIC_HOSTILEPLAYER_BUFFS
@@ -719,6 +730,15 @@ else
 
   ]]--
   SPELL_FAILED_LOCALPLAYER2 = "^You%s(fail)%sto%s(perform)%s([%(%)%a%s'-:]+):%s([%a%s']+)%.$"
+
+  --[[
+     CHAT_MSG_COMBAT_HOSTILE_DEATH
+     [source] [keyword]
+
+     examples:
+      $player$ dies.
+  ]]--
+  COMBAT_HOSTILE_DEATH = "^(%a+)%s(dies)%.$"
 end
 
 --[[
@@ -757,6 +777,8 @@ function me.ParseCombatText(msg, eventType)
     status, spellData = me.ParseSpellDamageShieldsOnOthers(msg)
   elseif eventType == "CHAT_MSG_SPELL_PERIODIC_HOSTILEPLAYER_DAMAGE" then
     status, spellData = me.ParseSpellPeriodicHostilePlayerDamage(msg)
+  elseif eventType == "CHAT_MSG_COMBAT_HOSTILE_DEATH" then
+    status, spelLData = me.ParseCombatHostileDeath(msg)
   else
     mod.logger.LogWarn(me.tag, "Received Unknown eventType: " .. eventType)
     return nil
@@ -1420,6 +1442,38 @@ if (GetLocale() == "deDE") then
       ["type"] = eventType
     }
   end
+
+  --[[
+    Parse combat text for CHAT_MSG_COMBAT_HOSTILE_DEATH event
+
+    @param {string} msg
+      combat text to parse
+    @return {number, table}
+      1 if msg could be parsed
+      0 if not able to parse msg
+  ]]--
+  function me.ParseCombatHostileDeath(msg)
+    local eventType = "CHAT_MSG_COMBAT_HOSTILE_DEATH"
+    local _, _, source, keyword = string.find(msg, COMBAT_HOSTILE_DEATH)
+
+    if source and keyword then
+      mod.logger.LogDebug(me.tag, eventType .. " detected")
+      mod.logger.LogDebug(me.tag, string.format("source: %s ", source))
+
+      return 1, {
+        ["type"] = eventType,
+        ["spellType"] = LP_CONSTANTS.SPELL_TYPES.HOSTILE_DEATH,
+        ["source"] = source,
+        ["keyword"] = keyword
+      }
+    end
+
+    -- unable to parse message
+    mod.logger.LogInfo(me.tag, "Failed to parse " .. eventType)
+    return 0, {
+      ["type"] = eventType
+    }
+  end
 else
   --[[
     Parse combat text for CHAT_MSG_SPELL_PERIODIC_HOSTILEPLAYER_BUFFS event
@@ -2020,6 +2074,38 @@ else
         ["keyword1"] = keyword1,
         ["keyword2"] = keyword2,
         ["reason"] = reason
+      }
+    end
+
+    -- unable to parse message
+    mod.logger.LogInfo(me.tag, "Failed to parse " .. eventType)
+    return 0, {
+      ["type"] = eventType
+    }
+  end
+
+  --[[
+    Parse combat text for CHAT_MSG_COMBAT_HOSTILE_DEATH event
+
+    @param {string} msg
+      combat text to parse
+    @return {number, table}
+      1 if msg could be parsed
+      0 if not able to parse msg
+  ]]--
+  function me.ParseCombatHostileDeath(msg)
+    local eventType = "CHAT_MSG_COMBAT_HOSTILE_DEATH"
+    local _, _, source, keyword = string.find(msg, COMBAT_HOSTILE_DEATH)
+
+    if source and keyword then
+      mod.logger.LogDebug(me.tag, eventType .. " detected")
+      mod.logger.LogDebug(me.tag, string.format("source: %s ", source))
+
+      return 1, {
+        ["type"] = eventType,
+        ["spellType"] = LP_CONSTANTS.SPELL_TYPES.HOSTILE_DEATH,
+        ["source"] = source,
+        ["keyword"] = keyword
       }
     end
 
