@@ -76,7 +76,7 @@ function me.RegisterEvent(eventType)
 
   if me.IsEventSupported(eventType) then
     mainFrame:RegisterEvent(eventType)
-    mod.logger.LogDebug(me.tag, "Registered event - " .. eventType .. " - ")
+    mod.logger.LogDebug(me.tag, "Registered event - " .. eventType)
   else
     mod.logger.LogError(me.tag, "Event - " .. eventType .. " - is not supported")
   end
@@ -91,7 +91,7 @@ function me.UnregisterEvent(eventType)
   local mainFrame = getglobal(LP_CONSTANTS.ELEMENT_LP_MAIN_FRAME)
 
   mainFrame:UnregisterEvent(eventType)
-  mod.logger.LogDebug(me.tag, "Unregistered event - " .. eventType .. " - ")
+  mod.logger.LogDebug(me.tag, "Unregistered event - " .. eventType)
 end
 
 --[[
