@@ -674,6 +674,7 @@ else
 
     examples:
       $player$'s Kick was parried.
+      $player$'s Gouge was parried.
   ]]--
   SPELL_DAMAGESHIELDS_ON_OTHERS5 = "^(%a+)'s%s([%(%)%a%s'-:]+)%swas%s(parried)%.$"
 
@@ -1937,7 +1938,7 @@ else
       0 if not able to parse msg
   ]]--
   function me.ParseSpellDamageShieldsOnOthers(msg)
-    local eventType = "CHAT_MSG_SPELL_PERIODIC_HOSTILEPLAYER_DAMAGE"
+    local eventType = "CHAT_MSG_SPELL_DAMAGESHIELDS_ON_OTHERS"
     local _, _, source, spell, keyword = string.find(msg, SPELL_DAMAGESHIELDS_ON_OTHERS1)
 
     if source and spell and keyword then
