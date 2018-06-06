@@ -93,6 +93,9 @@ end
   @param {number} identifier
 ]]--
 function me.UnsubscribeEvent(identifier)
+  assert(type(identifier) == "number",
+    string.format("bad argument #1 to `UnsubscribeEvent` (expected number got %s)", type(identifier)))
+
   local state = 0
 
   for eventType, _ in pairs(subscriptions) do
