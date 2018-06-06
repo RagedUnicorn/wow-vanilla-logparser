@@ -38,7 +38,7 @@ function callback(status, spellData)
 end
 
 local identifier, eventType = lp.subscriptionManager.SubscribeEvent(
-  "addon identifier" -- e.g. com.ragedunicorn.[addon-name]
+  "addon identifier", -- e.g. com.ragedunicorn.[addon-name]
   callback,
   "event" -- e.g "CHAT_MSG_SPELL_SELF_DAMAGE"
 )
