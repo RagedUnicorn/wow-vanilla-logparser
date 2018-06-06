@@ -68,6 +68,21 @@ By saving the returned identifier the Addon can unsubscribe at some later point 
 lp.eventManager.UnsubscribeEvent(identifier)
 ```
 
+### Versioning
+
+Addons that use LogParser should make sure that they check for the actual version of LogParser and their expected version before loading the Addon. A version mismatch might result in unexpected errors.
+
+```lua
+-- during initialization get version of installed LogParser
+local actualVersion = lp.version.GetVersion()
+-- compare version with expected version
+if actualVersion == expectedVersion then
+  -- load addon
+else
+  -- do not load addon
+end
+```
+
 ## Supported Events
 
 | EventType                                    |
@@ -85,22 +100,6 @@ lp.eventManager.UnsubscribeEvent(identifier)
 | CHAT_MSG_SPELL_PERIODIC_HOSTILEPLAYER_DAMAGE |
 
 **Note:** LogParser does not aim to be able to parse every message encountered in a combat log. It instead focuses on those needed in an actual Addon implementation. If parsing does not work LogParser can be further developed to support such messages. Because of this LogParser itself does not contain a lot of tests. The tests are placed directly in the Addons using the parser to see if the results fits their usage.
-
-## Versioning
-
-Addons that use LogParser should make sure that they check for the actual version of LogParser and their expected version before loading the Addon. A version mismatch might result in unexpected errors.
-
-```lua
--- during initialization get version of installed LogParser
-local actualVersion = lp.version.GetVersion()
--- compare version with expected version
-if actualVersion == expectedVersion then
-  -- load addon
-else
-  -- do not load addon
-end
-```
-
 
 ## Locale Support
 
