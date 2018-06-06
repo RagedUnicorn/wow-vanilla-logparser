@@ -48,14 +48,17 @@ end
 
 --[[
   Subscribe a callback to a specific event
-
-  @param {function} callback
   @param {string} evenType
-  @return {number}
+    Identifier in the form of y.x.z
+  @param {string} addonIdentifier
+  @param {function} callback
+
+  @return {number}, {string}
     The generated identifier. Should be saved by the caller for later unregistering
     of the callback
+    The subscribed eventname
 ]]--
-function me.SubscribeEvent(callback, eventType)
+function me.SubscribeEvent(addonIdentifier, callback, eventType)
   assert(type(callback) == "function",
     string.format("bad argument #1 to `SubscribeEvent` (expected function got %s)", type(callback)))
 
@@ -65,6 +68,7 @@ function me.SubscribeEvent(callback, eventType)
   local subscription
 
   subscription = {
+    ["addonIdentifier"] = addonIdentifier,
     ["identifier"] = math.floor(math.random() * 10000000),
     ["callback"] = callback
   }
@@ -77,7 +81,7 @@ function me.SubscribeEvent(callback, eventType)
   mod.logger.LogInfo(me.tag, "Registered new subscription for type: " .. eventType)
   mod.eventManager.RegisterEvent(eventType) -- register event on mainframe
 
-  return subscription.identifier
+  return subscription.identifier, eventType
 end
 
 --[[
