@@ -12,6 +12,7 @@ Code\LP_Logger.lua
 Code\LP_Parser.lua
 Code\LP_SubscriptionManager.lua
 Code\LP_EventManager.lua
+Code\LP_Version.lua
 
 # gui
 Gui\LP_Frame.xml

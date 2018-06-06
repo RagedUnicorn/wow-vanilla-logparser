@@ -86,6 +86,22 @@ lp.eventManager.UnsubscribeEvent(identifier)
 
 **Note:** LogParser does not aim to be able to parse every message encountered in a combat log. It instead focuses on those needed in an actual Addon implementation. If parsing does not work LogParser can be further developed to support such messages. Because of this LogParser itself does not contain a lot of tests. The tests are placed directly in the Addons using the parser to see if the results fits their usage.
 
+## Versioning
+
+Addons that use LogParser should make sure that they check for the actual version of LogParser and their expected version before loading the Addon. A version mismatch might result in unexpected errors.
+
+```lua
+-- during initialization get version of installed LogParser
+local actualVersion = lp.version.GetVersion()
+-- compare version with expected version
+if actualVersion == expectedVersion then
+  -- load addon
+else
+  -- do not load addon
+end
+```
+
+
 ## Locale Support
 
 Because the combat log messages that the Addon receives are in the language of the client a separate parser has to be developed depending on the language. This library currently supports `enUS` and `deDE`.
