@@ -59,11 +59,14 @@ end
     The subscribed eventname
 ]]--
 function me.SubscribeEvent(addonIdentifier, callback, eventType)
+  assert(type(addonIdentifier) == "string",
+    string.format("bad argument #1 to `SubscribeEvent` (expected string got %s)", type(addonIdentifier)))
+
   assert(type(callback) == "function",
-    string.format("bad argument #1 to `SubscribeEvent` (expected function got %s)", type(callback)))
+    string.format("bad argument #2 to `SubscribeEvent` (expected function got %s)", type(callback)))
 
   assert(type(eventType) == "string",
-    string.format("bad argument #2 to `SubscribeEvent` (expected string got %s)", type(eventType)))
+    string.format("bad argument #3 to `SubscribeEvent` (expected string got %s)", type(eventType)))
 
   local subscription
 
