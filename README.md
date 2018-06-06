@@ -37,13 +37,14 @@ function callback(status, spellData)
 
 end
 
-local identifier = lp.subscriptionManager.SubscribeEvent(
+local identifier, eventType = lp.subscriptionManager.SubscribeEvent(
+  "addon identifier" -- e.g. com.ragedunicorn.[addon-name]
   callback,
-  "event"
+  "event" -- e.g "CHAT_MSG_SPELL_SELF_DAMAGE"
 )
 ```
 
-The callback will be called with the status of the parser and if successful the gathered data
+The callback will be called with the status of the parser and if successful the gathered data. The addon identifier can be freely chosen but it is recommend to use a unique identificator for your addon. Using a reverse domain style notation ensures this.
 
 Status `1` if parsing was successful
 Status `0` if parsing failed
