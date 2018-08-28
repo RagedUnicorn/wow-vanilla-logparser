@@ -11,4 +11,57 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <addon.name>LogParser</addon.name>
   </properties>
+
+  <profiles>
+    <profile>
+      <id>development</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+        <property>
+          <name>build</name>
+          <value>development</value>
+        </property>
+      </activation>
+      <properties>
+        <package.descriptor>build-resources/assembly-development.xml</package.descriptor>
+        <package.finalName>${addon.name}</package.finalName>
+        <package.appendAssemblyId>true</package.appendAssemblyId>
+      </properties>
+    </profile>
+    <profile>
+      <id>release</id>
+      <activation>
+        <property>
+          <name>build</name>
+          <value>release</value>
+        </property>
+      </activation>
+      <properties>
+        <package.descriptor>build-resources/assembly-release.xml</package.descriptor>
+        <package.finalName>${addon.name}</package.finalName>
+        <package.appendAssemblyId>false</package.appendAssemblyId>
+      </properties>
+    </profile>
+  </profiles>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>default-cli</id>
+            <configuration>
+              <descriptors>
+                <descriptor>${package.descriptor}</descriptor>
+              </descriptors>
+              <finalName>${package.finalName}</finalName>
+              <appendAssemblyId>${package.appendAssemblyId}</appendAssemblyId>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
 </project>
