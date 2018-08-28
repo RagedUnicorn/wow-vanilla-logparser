@@ -27,6 +27,9 @@
         <package.filter>${basedir}/build-resources/addon-development.properties</package.filter>
         <package.finalName>${addon.name}</package.finalName>
         <package.appendAssemblyId>true</package.appendAssemblyId>
+        <generate.sources.filter>${basedir}/build-resources/addon-development.properties</generate.sources.filter>
+        <generate.sources.descriptor>build-resources/generate-development.xml</generate.sources.descriptor>
+        <generate.sources.toc>logparser-development.toc</generate.sources.toc>
       </properties>
     </profile>
     <profile>
@@ -42,6 +45,9 @@
         <package.filter>${basedir}/build-resources/addon-release.properties</package.filter>
         <package.finalName>${addon.name}</package.finalName>
         <package.appendAssemblyId>false</package.appendAssemblyId>
+        <generate.sources.filter>${basedir}/build-resources/addon-release.properties</generate.sources.filter>
+        <generate.sources.descriptor>build-resources/generate-release.xml</generate.sources.descriptor>
+        <generate.sources.toc>logparser-release.toc</generate.sources.toc>
       </properties>
     </profile>
   </profiles>
@@ -63,6 +69,49 @@
               </filters>
               <finalName>${package.finalName}</finalName>
               <appendAssemblyId>${package.appendAssemblyId}</appendAssemblyId>
+            </configuration>
+          </execution>
+          <execution>
+            <id>generate-sources</id>
+            <phase>generate-resources</phase>
+            <goals>
+              <goal>single</goal>
+            </goals>
+            <configuration>
+              <descriptors>
+                <descriptor>${generate.sources.descriptor}</descriptor>
+              </descriptors>
+              <filters>
+                <filter>${generate.sources.filter}</filter>
+              </filters>
+              <finalName>generated</finalName>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <artifactId>maven-resources-plugin</artifactId>
+        <version>3.1.0</version>
+        <executions>
+          <execution>
+            <id>default-cli</id>
+            <goals>
+              <goal>copy-resources</goal>
+            </goals>
+            <configuration>
+              <outputDirectory>${basedir}</outputDirectory>
+              <filters>
+                <filter>${generate.sources.filter}</filter>
+              </filters>
+              <resources>
+                <resource>
+                  <directory>${basedir}/target/generated</directory>
+                  <filtering>true</filtering>
+                  <includes>
+                    <include>LogParser.toc</include>
+                  </includes>
+                </resource>
+              </resources>
             </configuration>
           </execution>
         </executions>

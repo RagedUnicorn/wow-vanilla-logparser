@@ -1,3 +1,5 @@
+# THIS FILE IS AUTO-GENERATED. CHANGES SHOULD BE DONE IN 'resources' FOLDER
+
 ## Interface: 11200
 ## Title: LogParser
 ## Author: Michael Wiesendanger <michael.wiesendanger@gmail.com>
@@ -5,6 +7,8 @@
 
 # constant values
 Code\LP_Constants.lua
+# environment variables
+Code\LP_Environment.lua
 
 # code
 Code\LP_Core.lua
