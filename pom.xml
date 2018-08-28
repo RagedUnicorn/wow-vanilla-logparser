@@ -23,7 +23,8 @@
         </property>
       </activation>
       <properties>
-        <package.descriptor>build-resources/assembly-development.xml</package.descriptor>
+        <package.descriptor>${basedir}/build-resources/assembly-development.xml</package.descriptor>
+        <package.filter>${basedir}/build-resources/addon-development.properties</package.filter>
         <package.finalName>${addon.name}</package.finalName>
         <package.appendAssemblyId>true</package.appendAssemblyId>
       </properties>
@@ -37,7 +38,8 @@
         </property>
       </activation>
       <properties>
-        <package.descriptor>build-resources/assembly-release.xml</package.descriptor>
+        <package.descriptor>${basedir}/build-resources/assembly-release.xml</package.descriptor>
+        <package.filter>${basedir}/build-resources/addon-release.properties</package.filter>
         <package.finalName>${addon.name}</package.finalName>
         <package.appendAssemblyId>false</package.appendAssemblyId>
       </properties>
@@ -56,6 +58,9 @@
               <descriptors>
                 <descriptor>${package.descriptor}</descriptor>
               </descriptors>
+              <filters>
+                <filter>${package.filter}</filter>
+              </filters>
               <finalName>${package.finalName}</finalName>
               <appendAssemblyId>${package.appendAssemblyId}</appendAssemblyId>
             </configuration>

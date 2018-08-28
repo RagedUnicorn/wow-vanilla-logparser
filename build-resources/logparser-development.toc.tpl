@@ -1,0 +1,53 @@
+${addon.comment.generated.toc}
+
+## Interface: 11200
+## Title: LogParser
+## Author: Michael Wiesendanger <michael.wiesendanger@gmail.com>
+## Notes: Addon for parsing combat log messages
+
+# constant values
+Code\LP_Constants.lua
+# environment variables
+Code\LP_Environment.lua
+
+# code
+Code\LP_Core.lua
+Code\LP_Logger.lua
+Code\LP_Parser.lua
+Code\LP_SubscriptionManager.lua
+Code\LP_EventManager.lua
+Code\LP_Version.lua
+
+# gui
+Gui\LP_Frame.xml
+
+# debug
+Code\LP_Debug.lua
+
+# test
+Test\LP_TestReporter.lua
+Test\LP_TestHelper.lua
+
+Test\LP_TestAll.lua
+Test\LP_TestCombatHostileDeathEn.lua
+Test\LP_TestSpellAuraGoneOtherEn.lua
+Test\LP_TestSpellDamageShieldsOnOthersEn.lua
+Test\LP_TestSpellDamageShieldsOnSelfEn.lua
+Test\LP_TestSpellFailedLocalPlayerEn.lua
+Test\LP_TestSpellHostilePlayerBuffEn.lua
+Test\LP_TestSpellHostilePlayerDamageEn.lua
+Test\LP_TestSpellPeriodicHostilePlayerBuffsEn.lua
+Test\LP_TestSpellPeriodicHostilePlayerDamageEn.lua
+Test\LP_TestSpellPeriodicSelfDamageEn.lua
+Test\LP_TestSpellSelfDamageEn.lua
+Test\LP_TestCombatHostileDeathDe.lua
+Test\LP_TestSpellAuraGoneOtherDe.lua
+Test\LP_TestSpellDamageShieldsOnOthersDe.lua
+Test\LP_TestSpellDamageShieldsOnSelfDe.lua
+Test\LP_TestSpellFailedLocalPlayerDe.lua
+Test\LP_TestSpellHostilePlayerBuffDe.lua
+Test\LP_TestSpellHostilePlayerDamageDe.lua
+Test\LP_TestSpellPeriodicHostilePlayerBuffsDe.lua
+Test\LP_TestSpellPeriodicHostilePlayerDamageDe.lua
+Test\LP_TestSpellPeriodicSelfDamageDe.lua
+Test\LP_TestSpellSelfDamageDe.lua
