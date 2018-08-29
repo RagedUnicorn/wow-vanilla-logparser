@@ -12,5 +12,11 @@
       <filtered>true</filtered>
       <destName>LogParser.toc</destName>
     </file>
+    <file>
+      <source>build-resources/environment.lua.tpl</source>
+      <outputDirectory>/</outputDirectory>
+      <filtered>true</filtered>
+      <destName>LP_Environment.lua</destName>
+    </file>
   </files>
 </assembly>

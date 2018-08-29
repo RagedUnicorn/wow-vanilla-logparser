@@ -4,12 +4,13 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.ragedunicorn.wow</groupId>
   <artifactId>logparser-addon</artifactId>
-  <version>1.0.0-SNAPSHOT</version>
+  <version>1.0.0</version>
   <packaging>pom</packaging>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <addon.name>LogParser</addon.name>
+    <addon.name.short>LP</addon.name.short>
   </properties>
 
   <profiles>
@@ -28,7 +29,7 @@
         <package.finalName>${addon.name}</package.finalName>
         <package.appendAssemblyId>true</package.appendAssemblyId>
         <generate.sources.filter>${basedir}/build-resources/addon-development.properties</generate.sources.filter>
-        <generate.sources.descriptor>build-resources/generate-development.xml</generate.sources.descriptor>
+        <generate.sources.descriptor>${basedir}/build-resources/generate-development.xml</generate.sources.descriptor>
         <generate.sources.toc>logparser-development.toc</generate.sources.toc>
       </properties>
     </profile>
@@ -100,15 +101,21 @@
             </goals>
             <configuration>
               <outputDirectory>${basedir}</outputDirectory>
-              <filters>
-                <filter>${generate.sources.filter}</filter>
-              </filters>
               <resources>
                 <resource>
                   <directory>${basedir}/target/generated</directory>
-                  <filtering>true</filtering>
+                  <targetPath>${basedir}</targetPath>
+                  <filtering>false</filtering>
                   <includes>
                     <include>LogParser.toc</include>
+                  </includes>
+                </resource>
+                <resource>
+                  <directory>${basedir}/target/generated</directory>
+                  <targetPath>${basedir}/Code</targetPath>
+                  <filtering>false</filtering>
+                  <includes>
+                    <include>LP_Environment.lua</include>
                   </includes>
                 </resource>
               </resources>
