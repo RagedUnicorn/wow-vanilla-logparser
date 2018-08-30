@@ -29,5 +29,6 @@ LP_ENVIRONMENT = {
   ADDON_NAME = "${addon.name}",
   ADDON_NAME_SHORT = "${addon.name.short}",
   ADDON_VERSION = "${project.version}",
-  LOGLEVEL = ${addon.loglevel}
+  LOG_LEVEL = ${addon.logLevel},
+  LOG_EVENT = ${addon.logEvent}
 }

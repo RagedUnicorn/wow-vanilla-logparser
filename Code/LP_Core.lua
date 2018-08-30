@@ -125,8 +125,8 @@ local function ShowInfoMessage()
   local reload = "|cFFFFFF00reload|r - reload UI"
   local info = "|cFFFFFF00info|r - show this message"
 
-  DEFAULT_CHAT_FRAME:AddMessage(string.format(LP_CONSTANTS.ADDON_NAME
-    .. "|cFFFFFF00(%s)|r:", LP_CONSTANTS.ADDON_VERSION))
+  DEFAULT_CHAT_FRAME:AddMessage(string.format(LP_ENVIRONMENT.ADDON_NAME
+    .. "|cFFFFFF00(%s)|r:", LP_ENVIRONMENT.ADDON_VERSION))
   DEFAULT_CHAT_FRAME:AddMessage(reload)
   DEFAULT_CHAT_FRAME:AddMessage(info)
 end

@@ -34,5 +34,5 @@ me.tag = "Version"
     Addon version
 ]]--
 function me.GetVersion()
-  return LP_CONSTANTS.ADDON_VERSION
+  return LP_ENVIRONMENT.ADDON_VERSION
 end

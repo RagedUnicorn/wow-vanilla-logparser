@@ -101,7 +101,7 @@ function me.StartTestEventSet(eventName)
     string.format("bad argument #1 to `StartTestEventSet` (expected string got %s)", type(eventName)))
 
   local logMessage = string.format(
-    "%s%s: %s Starting testset for %s", me.colors.neutral, LP_CONSTANTS.ADDON_NAME_SHORT, me.tag, eventName)
+    "%s%s: %s Starting testset for %s", me.colors.neutral, LP_ENVIRONMENT.ADDON_NAME_SHORT, me.tag, eventName)
 
   DEFAULT_CHAT_FRAME:AddMessage(logMessage)
   me.AddLine()
@@ -136,7 +136,7 @@ function me.StartTest(eventName, testName)
     string.format("bad argument #2 to `StartTest` (expected string got %s)", type(testName)))
 
   local logMessage = string.format(
-    "%s%s: %s Starting testset for %s", me.colors.neutral, LP_CONSTANTS.ADDON_NAME_SHORT, me.tag, testName)
+    "%s%s: %s Starting testset for %s", me.colors.neutral, LP_ENVIRONMENT.ADDON_NAME_SHORT, me.tag, testName)
 
   me.AddLine()
   DEFAULT_CHAT_FRAME:AddMessage(logMessage)
@@ -169,7 +169,7 @@ function me.EndTest(eventName, testName)
     string.format("bad argument #2 to `EndTest` (expected string got %s)", type(testName)))
 
   local logMessage = string.format(
-    "%s%s: %s End testset for %s", me.colors.neutral, LP_CONSTANTS.ADDON_NAME_SHORT, me.tag, testName)
+    "%s%s: %s End testset for %s", me.colors.neutral, LP_ENVIRONMENT.ADDON_NAME_SHORT, me.tag, testName)
 
   DEFAULT_CHAT_FRAME:AddMessage(logMessage)
   me.AddLine()
@@ -207,7 +207,7 @@ function me.ReportSuccessTest(eventName, testName, reason)
     string.format("bad argument #3 to `ReportSuccessTest` (expected string got %s)", type(reason)))
 
   local logMessage = string.format(
-    "%s%s: %s %s", me.colors.success, LP_CONSTANTS.ADDON_NAME_SHORT, me.tag, reason)
+    "%s%s: %s %s", me.colors.success, LP_ENVIRONMENT.ADDON_NAME_SHORT, me.tag, reason)
 
   DEFAULT_CHAT_FRAME:AddMessage(logMessage)
 
@@ -238,7 +238,7 @@ function me.ReportFailTest(eventName, testName, reason)
     string.format("bad argument #3 to `ReportFailTest` (expected string got %s)", type(reason)))
 
   local logMessage = string.format(
-    "%s%s: %s %s", me.colors.fail, LP_CONSTANTS.ADDON_NAME_SHORT, me.tag, reason)
+    "%s%s: %s %s", me.colors.fail, LP_ENVIRONMENT.ADDON_NAME_SHORT, me.tag, reason)
 
   DEFAULT_CHAT_FRAME:AddMessage(logMessage)
 

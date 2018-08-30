@@ -24,13 +24,6 @@
 ]]--
 
 LP_CONSTANTS = {
-  --[[
-    Addon basic variables
-  ]]--
-  ADDON_NAME = "LogParser",
-  ADDON_NAME_SHORT = "LP",
-  ADDON_VERSION = "0.0.1",
-
   SPELL_TYPES = {
     ["SPELL"] = 1,
     ["SPELL_DOWN"] = 2,
