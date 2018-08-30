@@ -22,11 +22,11 @@
   <files>
     <file>
       <source>Docs/TESTING.md</source>
-      <outputDirectory>/</outputDirectory>
+      <outputDirectory>./</outputDirectory>
     </file>
     <file>
       <source>build-resources/logparser-development.toc.tpl</source>
-      <outputDirectory>/</outputDirectory>
+      <outputDirectory>./</outputDirectory>
       <filtered>true</filtered>
       <destName>LogParser.toc</destName>
     </file>

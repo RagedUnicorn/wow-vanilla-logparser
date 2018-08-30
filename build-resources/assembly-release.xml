@@ -21,7 +21,7 @@
   <files>
     <file>
       <source>build-resources/logparser-release.toc.tpl</source>
-      <outputDirectory>/</outputDirectory>
+      <outputDirectory>./</outputDirectory>
       <filtered>true</filtered>
       <destName>LogParser.toc</destName>
     </file>

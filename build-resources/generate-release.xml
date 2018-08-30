@@ -9,13 +9,13 @@
   <files>
     <file>
       <source>build-resources/logparser-release.toc.tpl</source>
-      <outputDirectory>/</outputDirectory>
+      <outputDirectory>./</outputDirectory>
       <filtered>true</filtered>
       <destName>LogParser.toc</destName>
     </file>
     <file>
       <source>build-resources/environment.lua.tpl</source>
-      <outputDirectory>/</outputDirectory>
+      <outputDirectory>./</outputDirectory>
       <filtered>true</filtered>
       <destName>LP_Environment.lua</destName>
     </file>
