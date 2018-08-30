@@ -61,6 +61,10 @@
         <executions>
           <execution>
             <id>default-cli</id>
+            <phase>package</phase>
+            <goals>
+              <goal>assembly</goal>
+            </goals>
             <configuration>
               <descriptors>
                 <descriptor>${package.descriptor}</descriptor>
