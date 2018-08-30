@@ -24,6 +24,7 @@
         </property>
       </activation>
       <properties>
+        <profile.id.value>development</profile.id.value>
         <package.descriptor>${basedir}/build-resources/assembly-development.xml</package.descriptor>
         <package.filter>${basedir}/build-resources/addon-development.properties</package.filter>
         <package.finalName>${addon.name}</package.finalName>
@@ -31,6 +32,7 @@
         <generate.sources.filter>${basedir}/build-resources/addon-development.properties</generate.sources.filter>
         <generate.sources.descriptor>${basedir}/build-resources/generate-development.xml</generate.sources.descriptor>
         <generate.sources.toc>logparser-development.toc</generate.sources.toc>
+        <generate.sources.overwrite>false</generate.sources.overwrite>
       </properties>
     </profile>
     <profile>
@@ -42,6 +44,7 @@
         </property>
       </activation>
       <properties>
+        <profile.id.value>release</profile.id.value>
         <package.descriptor>${basedir}/build-resources/assembly-release.xml</package.descriptor>
         <package.filter>${basedir}/build-resources/addon-release.properties</package.filter>
         <package.finalName>${addon.name}</package.finalName>
@@ -49,6 +52,7 @@
         <generate.sources.filter>${basedir}/build-resources/addon-release.properties</generate.sources.filter>
         <generate.sources.descriptor>build-resources/generate-release.xml</generate.sources.descriptor>
         <generate.sources.toc>logparser-release.toc</generate.sources.toc>
+        <generate.sources.overwrite>false</generate.sources.overwrite>
       </properties>
     </profile>
   </profiles>
@@ -108,9 +112,10 @@
             </goals>
             <configuration>
               <outputDirectory>${basedir}</outputDirectory>
+              <overwrite>${generate.sources.overwrite}</overwrite>
               <resources>
                 <resource>
-                  <directory>${basedir}/target/generated</directory>
+                  <directory>${basedir}/target/generated-${profile.id.value}</directory>
                   <targetPath>${basedir}</targetPath>
                   <filtering>false</filtering>
                   <includes>
@@ -118,7 +123,7 @@
                   </includes>
                 </resource>
                 <resource>
-                  <directory>${basedir}/target/generated</directory>
+                  <directory>${basedir}/target/generated-${profile.id.value}</directory>
                   <targetPath>${basedir}/Code</targetPath>
                   <filtering>false</filtering>
                   <includes>
