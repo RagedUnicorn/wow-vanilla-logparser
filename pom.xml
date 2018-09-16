@@ -140,6 +140,27 @@
           </execution>
         </executions>
       </plugin>
+      <plugin>
+        <groupId>com.ragedunicorn.tools.maven</groupId>
+        <artifactId>github-release-maven-plugin</artifactId>
+        <version>1.0.0</version>
+        <executions>
+          <execution>
+            <id>default-cli</id>
+            <configuration>
+              <owner>ragedunicorn</owner>
+              <repository>wow-logparser</repository>
+              <server>github-oauth</server>
+              <tagName>v1.0.0</tagName>
+              <name>v1.0.0</name>
+              <releaseNotes>${basedir}/build-resources/release-notes.md</releaseNotes>
+              <assets>
+                <asset>${basedir}/target/${addon.name}.zip</asset>
+              </assets>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
     </plugins>
   </build>
 </project>
