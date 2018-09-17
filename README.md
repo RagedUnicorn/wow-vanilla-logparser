@@ -105,6 +105,54 @@ end
 
 Because the combat log messages that the Addon receives are in the language of the client a separate parser has to be developed depending on the language. This library currently supports `enUS` and `deDE`.
 
+## Development
+
+### Switching between Environments
+
+Switching between development and release can be achieved with maven.
+
+```
+mvn generate-resources -Dgenerate.sources.overwrite=true -P development
+```
+
+This generates and overwrites `LP_Environment.lua` and `LogParser.toc`. You need to specifically specify that you want to overwrite to files to prevent data loss. It is also possible to omit the profile because development is the default profile that will be used.
+
+Switching to release can be done as such:
+
+```
+mvn generate-resources -Dgenerate.sources.overwrite=true -P release
+```
+
+In this case it is mandatory to add the release profile.
+
+**Note:** Switching environments has the effect changing certain files to match an expected value depending on the environment. To be more specific this means that as an example test and debug files are not included when switching to release. It also means that variables such as loglevel change to match the environment.
+
+As to not change those files all the time the repository should always stay in the development environment. Do not commit `LogParser.toc` and `LP_Environment.lua` in their release state. Changes to those files should always be done inside `build-resources` and their respective template files marked with `.tpl`.
+
+### Packaging the Addon
+
+To package the addon use the `package` phase.
+
+```
+mvn package -P development
+```
+
+This generates an addon package for development. For generating a release package the release profile can be used.
+
+```
+mvn package -P release
+```
+
+### Deploy a Release
+
+Before creating a new release update `addon.tag.version` in `pom.xml`. Afterwards to create a new release and deploy to GitHub the `deploy` profile has to be used.
+
+```
+mvn package -P deploy
+```
+
+For this to work an oauth token for GitHub is required and has to be configured in your `.m2` settings file.
+
 ## License
 
 MIT License
