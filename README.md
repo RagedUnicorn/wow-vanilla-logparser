@@ -148,6 +148,9 @@ mvn package -P release
 Before creating a new release update `addon.tag.version` in `pom.xml`. Afterwards to create a new release and deploy to GitHub the `deploy` profile has to be used.
 
 ```
+# switch environment to release
+mvn generate-resources -Dgenerate.sources.overwrite=true -P release
+# deploy release to GitHub
 mvn package -P deploy
 ```
 
