@@ -40,7 +40,7 @@ me.warn = 2
 me.error = 1
 
 -- log events
-me.logEvent = true
+me.logEvent = LP_ENVIRONMENT.LOG_EVENT
 
 me.colors = {}
 me.colors.error = "|cfff00000"  -- red
