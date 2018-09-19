@@ -11,7 +11,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <addon.name>LogParser</addon.name>
     <addon.name.short>LP</addon.name.short>
-    <addon.tag.version>v1.0.0</addon.tag.version>
+    <addon.tag.version>v${project.version}</addon.tag.version>
   </properties>
 
   <profiles>
