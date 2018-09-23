@@ -29,7 +29,6 @@
         <generate.sources.skip>false</generate.sources.skip>
         <generate.sources.filter>${basedir}/build-resources/addon-development.properties</generate.sources.filter>
         <generate.sources.descriptor>${basedir}/build-resources/generate-development.xml</generate.sources.descriptor>
-        <generate.sources.toc>logparser-development.toc</generate.sources.toc>
         <generate.sources.overwrite>false</generate.sources.overwrite>
       </properties>
     </profile>
@@ -44,7 +43,6 @@
         <generate.sources.skip>false</generate.sources.skip>
         <generate.sources.filter>${basedir}/build-resources/addon-release.properties</generate.sources.filter>
         <generate.sources.descriptor>build-resources/generate-release.xml</generate.sources.descriptor>
-        <generate.sources.toc>logparser-release.toc</generate.sources.toc>
         <generate.sources.overwrite>false</generate.sources.overwrite>
       </properties>
     </profile>
