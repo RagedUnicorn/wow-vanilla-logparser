@@ -14,9 +14,6 @@ ehthumbs.db
 Icon
 Thumbs.db
 
-# sass cache
-.sass-cache/
-
 # java/maven/intellij
 target/
 .idea/
