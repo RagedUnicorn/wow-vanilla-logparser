@@ -11,7 +11,7 @@
       <directory>${basedir}</directory>
       <includes>
         <include>README.md</include>
-        <include>LICENSE.md</include>
+        <include>LICENSE</include>
         <include>Code/*.lua</include>
         <include>Gui/*.lua</include>
         <include>Gui/*.xml</include>
