@@ -219,10 +219,11 @@ if (GetLocale() == "deDE") then
 
   --[[
     CHAT_MSG_SPELL_PERIODIC_HOSTILEPLAYER_DAMAGE
-    [target] [spell] [keyword]
+    [source] [spell] [keyword]
 
     examples:
       $player$ ist von Vorahnung betroffen.
+      $player$ ist von Todeswunsch betroffen.
   ]]--
   SPELL_PERIODIC_HOSTILE_PLAYER_DAMAGE = "^(%a+)%sist%svon%s([\195\159\195\132\195\150\195\156\195\188\195\164\195\182%(%)%a%s-:]+)%s(betroffen)%.$"
 
@@ -549,10 +550,11 @@ else
 
   --[[
     CHAT_MSG_SPELL_PERIODIC_HOSTILEPLAYER_DAMAGE
-    [target] [keyword] [spell]
+    [source] [spell] [keyword]
 
     examples:
       $player$ is afflicted by Forbearance.
+      $player is afflicted by Death Wish.
   ]]--
   SPELL_PERIODIC_HOSTILE_PLAYER_DAMAGE = "^(%a+)%sis%s(afflicted)%sby%s([%(%)%a%s'-:]+)%.$"
 
@@ -1097,16 +1099,16 @@ if (GetLocale() == "deDE") then
   ]]--
   function me.ParseSpellPeriodicHostilePlayerDamage(msg)
     local eventType = "CHAT_MSG_SPELL_PERIODIC_HOSTILEPLAYER_DAMAGE"
-    local _, _, target, spell, keyword  = string.find(msg, SPELL_PERIODIC_HOSTILE_PLAYER_DAMAGE)
+    local _, _, source, spell, keyword  = string.find(msg, SPELL_PERIODIC_HOSTILE_PLAYER_DAMAGE)
 
-    if target and spell and keyword then
+    if source and spell and keyword then
       mod.logger.LogDebug(me.tag, eventType .. " detected")
-      mod.logger.LogDebug(me.tag, string.format("target: %s spell: %s", target, spell))
+      mod.logger.LogDebug(me.tag, string.format("source: %s spell: %s", source, spell))
 
       return 1, {
         ["type"] = eventType,
         ["spellType"] = LP_CONSTANTS.SPELL_TYPES.SPELL,
-        ["target"] = target,
+        ["source"] = source,
         ["spell"] = spell,
         ["keyword"] = keyword
       }
@@ -1739,16 +1741,16 @@ else
   ]]--
   function me.ParseSpellPeriodicHostilePlayerDamage(msg)
     local eventType = "CHAT_MSG_SPELL_PERIODIC_HOSTILEPLAYER_DAMAGE"
-    local _, _, target, keyword, spell = string.find(msg, SPELL_PERIODIC_HOSTILE_PLAYER_DAMAGE)
+    local _, _, source, keyword, spell = string.find(msg, SPELL_PERIODIC_HOSTILE_PLAYER_DAMAGE)
 
-    if target and keyword and spell then
+    if source and keyword and spell then
       mod.logger.LogDebug(me.tag, eventType .. " detected")
-      mod.logger.LogDebug(me.tag, string.format("target: %s spell: %s", target, spell))
+      mod.logger.LogDebug(me.tag, string.format("source: %s spell: %s", source, spell))
 
       return 1, {
         ["type"] = eventType,
         ["spellType"] = LP_CONSTANTS.SPELL_TYPES.SPELL,
-        ["target"] = target,
+        ["source"] = source,
         ["keyword"] = keyword,
         ["spell"] = spell
       }
