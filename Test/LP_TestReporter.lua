@@ -41,6 +41,11 @@ local writeLogFile = true
 local testQueue = {}
 
 --[[
+  Store logdata for tests
+]]--
+LogParserTestLog = {}
+
+--[[
   Reset SavedVariable for storing logs
 ]]--
 function me.ClearSavedTestReports()

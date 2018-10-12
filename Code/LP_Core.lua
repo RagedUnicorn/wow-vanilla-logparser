@@ -44,11 +44,6 @@ local _G = getfenv(0)
   end
 ]]--
 
---[[
-  Store logdata for tests
-]]--
--- LogParserTestLog = {}
-
 --[[Addon load]]--
 function me.OnLoad()
   me.RegisterEvents()
