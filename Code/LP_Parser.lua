@@ -1997,7 +1997,8 @@ else
         ["spellType"] = LP_CONSTANTS.SPELL_TYPES.SELF_AVOIDED,
         ["source"] = source,
         ["spell"] = spell,
-        ["keyword"] = keyword
+        ["keyword1"] = keyword1,
+        ["keyword2"] = keyword2
       }
     end
 
