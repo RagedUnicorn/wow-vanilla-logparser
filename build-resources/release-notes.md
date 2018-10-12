@@ -1,1 +1,2 @@
-Initial release
+* Removing support for CHAT_MSG_SPELL_DAMAGESHIELDS_ON_SELF. Messages that were previously parsed in this event are now parsed within CHAT_MSG_SPELL_SELF_DAMAGE. This is due to the fact that plain mangos and lights hope fire those combat messages with different event types. This change is adapting logparser to work with Lights Hope.
+* Removing support for CHAT_MSG_SPELL_DAMAGESHIELDS_ON_OTHERS. Messages that were previously parsed in this event are now parsed within CHAT_MSG_SPELL_HOSTILEPLAYER_DAMAGE. This is due to the fact that plain mangos and lights hope fire those combat messages with different event types. This change is adapting logparser to work with Lights Hope.

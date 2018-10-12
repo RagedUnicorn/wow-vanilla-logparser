@@ -30,7 +30,7 @@
 LP_ENVIRONMENT = {
   ADDON_NAME = "LogParser",
   ADDON_NAME_SHORT = "LP",
-  ADDON_VERSION = "1.0.1",
+  ADDON_VERSION = "1.1.0",
   LOG_LEVEL = 4,
   LOG_EVENT = true
 }
