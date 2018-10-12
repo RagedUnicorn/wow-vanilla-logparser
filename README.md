@@ -96,7 +96,6 @@ end
 | CHAT_MSG_SPELL_AURA_GONE_OTHER               |
 | CHAT_MSG_SPELL_DAMAGESHIELDS_ON_SELF         |
 | CHAT_MSG_SPELL_SELF_DAMAGE                   |
-| CHAT_MSG_SPELL_DAMAGESHIELDS_ON_OTHERS       |
 | CHAT_MSG_SPELL_PERIODIC_HOSTILEPLAYER_DAMAGE |
 
 **Note:** LogParser does not aim to be able to parse every message encountered in a combat log. It instead focuses on those needed in an actual Addon implementation. If parsing does not work LogParser can be further developed to support such messages. Because of this LogParser itself does not contain a lot of tests. The tests are placed directly in the Addons using the parser to see if the results fits their usage.

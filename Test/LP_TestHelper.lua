@@ -42,7 +42,6 @@ me.eventTypeSpellPeriodicSpellHostilePlayerDamage = "CHAT_MSG_SPELL_PERIODIC_HOS
 me.eventTypeSpellAuraGoneOther = "CHAT_MSG_SPELL_AURA_GONE_OTHER"
 me.eventTypeSpellSelfDamage = "CHAT_MSG_SPELL_SELF_DAMAGE"
 me.eventTypeSpellDamageShieldsOnSelf = "CHAT_MSG_SPELL_DAMAGESHIELDS_ON_SELF"
-me.eventTypeSpellDamageShieldsOnOthers = "CHAT_MSG_SPELL_DAMAGESHIELDS_ON_OTHERS"
 me.eventTypeSpellFailedLocalPlayer = "CHAT_MSG_SPELL_FAILED_LOCALPLAYER"
 
 --[[
