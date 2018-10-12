@@ -74,9 +74,6 @@ function me.OnEvent()
   elseif event == "CHAT_MSG_SPELL_PERIODIC_HOSTILEPLAYER_BUFFS" then
     me.logger.LogEvent(me.tag, "CHAT_MSG_SPELL_PERIODIC_HOSTILEPLAYER_BUFFS")
     me.eventManager.HandleEvent(arg1, event)
-  elseif event == "CHAT_MSG_SPELL_DAMAGESHIELDS_ON_SELF" then
-    me.logger.LogEvent(me.tag, "CHAT_MSG_SPELL_DAMAGESHIELDS_ON_SELF")
-    me.eventManager.HandleEvent(arg1, event)
   elseif event == "CHAT_MSG_SPELL_AURA_GONE_OTHER" then
     me.logger.LogEvent(me.tag, "CHAT_MSG_SPELL_AURA_GONE_OTHER")
     me.eventManager.HandleEvent(arg1, event)

@@ -55,13 +55,12 @@ local SPELL_PERIODIC_HOSTILE_PLAYER_DAMAGE
 
 local SPELL_AURA_GONE_OTHER
 
-local SPELL_DAMAGESHIELDS_ON_SELF1
-local SPELL_DAMAGESHIELDS_ON_SELF2
-local SPELL_DAMAGESHIELDS_ON_SELF3
-local SPELL_DAMAGESHIELDS_ON_SELF4
-local SPELL_DAMAGESHIELDS_ON_SELF5
-
-local SPELL_SELF_DAMAGE
+local SPELL_SELF_DAMAGE1
+local SPELL_SELF_DAMAGE2
+local SPELL_SELF_DAMAGE3
+local SPELL_SELF_DAMAGE4
+local SPELL_SELF_DAMAGE5
+local SPELL_SELF_DAMAGE6
 
 local SPELL_FAILED_LOCALPLAYER1
 local SPELL_FAILED_LOCALPLAYER2
@@ -294,62 +293,6 @@ if (GetLocale() == "deDE") then
   SPELL_AURA_GONE_OTHER = "^([\195\159\195\132\195\150\195\156\195\188\195\164\195\182%(%)%a%s-:]+)%s(schwindet)%svon%s(%a+)%.$"
 
   --[[
-    CHAT_MSG_SPELL_DAMAGESHIELDS_ON_SELF
-    [source] [spell] [keyword] [target] [keyword]
-
-    examples:
-      Ihr habt es mit Zorn versucht, aber $player$ hat widerstanden.
-      Ihr habt es mit Feenfeuer versucht, aber $player$ hat widerstanden.
-      Ihr habt es mit Feenfeuer (Tiergestalt) versucht, aber $player$ hat widerstanden.
-
-  ]]--
-  SPELL_DAMAGESHIELDS_ON_SELF1 = "^(Ihr)%shabt%ses%smit%s([\195\159\195\132\195\150\195\156\195\188\195\164\195\182%(%)%a%s-:]+)%s(versucht),%saber%s(%a+)%shat%s(widerstanden)%.$"
-
-  --[[
-    CHAT_MSG_SPELL_DAMAGESHIELDS_ON_SELF
-    [spell] [keyword] [target] [keyword]
-
-    examples:
-      Feenfeuer war ein Fehlschlag. $player$ ist immun.
-      Feenfeuer (Tiergestalt) war ein Fehlschlag. $player$ ist immun.
-      Gegenzauber war ein Fehlschlag. $player$ ist immun.
-
-  ]]--
-  SPELL_DAMAGESHIELDS_ON_SELF2 = "^([\195\159\195\132\195\150\195\156\195\188\195\164\195\182%(%)%a%s-:]+)%swar%sein%s(Fehlschlag)%.%s(%a+)%sist%s(immun)%.$"
-
-  --[[
-    CHAT_MSG_SPELL_DAMAGESHIELDS_ON_SELF
-    [spell] [target] [keyword]
-
-    example:
-      Gezielter Schuss hat $player$ verfehlt.
-      Hieb hat $player$ verfehlt.
-
-  ]]--
-  SPELL_DAMAGESHIELDS_ON_SELF3 = "^([\195\159\195\132\195\150\195\156\195\188\195\164\195\182%(%)%a%s-:]+)%shat%s(%a+)%s(verfehlt)%.$"
-
-  --[[
-    CHAT_MSG_SPELL_DAMAGESHIELDS_ON_SELF
-    [target] [spell] [keyword]
-
-    examples:
-      $player$ ist Zurechtstutzen ausgewichen.
-      $player$ ist Entwaffnen ausgewichen.
-  ]]--
-  SPELL_DAMAGESHIELDS_ON_SELF4 = "^(%a+)%sist%s([\195\159\195\132\195\150\195\156\195\188\195\164\195\182%(%)%a%s-:]+)%s(ausgewichen)%.$"
-
-  --[[
-    CHAT_MSG_SPELL_DAMAGESHIELDS_ON_SELF
-    [spell] [target] [keyword]
-
-    examples:
-      Zuschlagen wurde von $player$ pariert.
-      Entwaffnen wurde von $player$ pariert.
-
-  ]]--
-  SPELL_DAMAGESHIELDS_ON_SELF5 = "^([\195\159\195\132\195\150\195\156\195\188\195\164\195\182%(%)%a%s-:]+)%swurde%svon%s(%a+)%s(pariert)%.$"
-
-  --[[
     CHAT_MSG_SPELL_SELF_DAMAGE
     [spell] [target] [keyword]
 
@@ -358,7 +301,64 @@ if (GetLocale() == "deDE") then
       Finsterer Stoß wurde von $player$ geblockt.
       Ausweiden wurde von $player$ geblockt.
   ]]--
-  SPELL_SELF_DAMAGE = "^([\195\159\195\132\195\150\195\156\195\188\195\164\195\182%(%)%a%s-:]+)%swurde%svon%s(%a+)%s(geblockt)%.$"
+  SPELL_SELF_DAMAGE1 = "^([\195\159\195\132\195\150\195\156\195\188\195\164\195\182%(%)%a%s-:]+)%swurde%svon%s(%a+)%s(geblockt)%.$"
+
+
+  --[[
+    CHAT_MSG_SPELL_SELF_DAMAGE
+    [spell] [keyword] [target] [keyword]
+
+    examples:
+      Ihr habt es mit Zorn versucht, aber $player$ hat widerstanden.
+      Ihr habt es mit Feenfeuer versucht, aber $player$ hat widerstanden.
+      Ihr habt es mit Feenfeuer (Tiergestalt) versucht, aber $player$ hat widerstanden.
+
+  ]]--
+  SPELL_SELF_DAMAGE2 = "^Ihr%shabt%ses%smit%s([\195\159\195\132\195\150\195\156\195\188\195\164\195\182%(%)%a%s-:]+)%s(versucht),%saber%s(%a+)%shat%s(widerstanden)%.$"
+
+  --[[
+    CHAT_MSG_SPELL_SELF_DAMAGE
+    [spell] [keyword] [target] [keyword]
+
+    examples:
+      Feenfeuer war ein Fehlschlag. $player$ ist immun.
+      Feenfeuer (Tiergestalt) war ein Fehlschlag. $player$ ist immun.
+      Gegenzauber war ein Fehlschlag. $player$ ist immun.
+
+  ]]--
+  SPELL_SELF_DAMAGE3 = "^([\195\159\195\132\195\150\195\156\195\188\195\164\195\182%(%)%a%s-:]+)%swar%sein%s(Fehlschlag)%.%s(%a+)%sist%s(immun)%.$"
+
+  --[[
+    CHAT_MSG_SPELL_SELF_DAMAGE
+    [spell] [target] [keyword]
+
+    example:
+      Gezielter Schuss hat $player$ verfehlt.
+      Hieb hat $player$ verfehlt.
+
+  ]]--
+  SPELL_SELF_DAMAGE4 = "^([\195\159\195\132\195\150\195\156\195\188\195\164\195\182%(%)%a%s-:]+)%shat%s(%a+)%s(verfehlt)%.$"
+
+  --[[
+    CHAT_MSG_SPELL_SELF_DAMAGE
+    [target] [spell] [keyword]
+
+    examples:
+      $player$ ist Zurechtstutzen ausgewichen.
+      $player$ ist Entwaffnen ausgewichen.
+  ]]--
+  SPELL_SELF_DAMAGE5 = "^(%a+)%sist%s([\195\159\195\132\195\150\195\156\195\188\195\164\195\182%(%)%a%s-:]+)%s(ausgewichen)%.$"
+
+  --[[
+    CHAT_MSG_SPELL_SELF_DAMAGE
+    [spell] [target] [keyword]
+
+    examples:
+      Zuschlagen wurde von $player$ pariert.
+      Entwaffnen wurde von $player$ pariert.
+
+  ]]--
+  SPELL_SELF_DAMAGE6 = "^([\195\159\195\132\195\150\195\156\195\188\195\164\195\182%(%)%a%s-:]+)%swurde%svon%s(%a+)%s(pariert)%.$"
 
   --[[
     CHAT_MSG_SPELL_FAILED_LOCALPLAYER
@@ -629,8 +629,19 @@ else
   SPELL_AURA_GONE_OTHER = "^([%(%)%a%s'-:]+)%s(fades)%sfrom%s(%a+)%.$"
 
   --[[
-    CHAT_MSG_SPELL_DAMAGESHIELDS_ON_SELF
-    [source] [spell] [keyword] [target]
+    CHAT_MSG_SPELL_SELF_DAMAGE
+    [spell] [keyword] [target]
+
+    examples:
+      Your Kick was blocked by $player$.
+      Your Sinister Strike was blocked by $player$.
+      Your Eviscerate was blocked by $player$.
+  ]]--
+  SPELL_SELF_DAMAGE1= "^Your%s([%(%)%a%s'-:]+)%swas%s(blocked)%sby%s(%a+)%.$"
+
+  --[[
+    CHAT_MSG_SPELL_SELF_DAMAGE
+    [spell] [keyword] [target]
 
     examples:
       Your Wrath was resisted by $player$.
@@ -638,59 +649,48 @@ else
       Your Faerie Fire (Feral) was resisted by $player$.
 
   ]]--
-  SPELL_DAMAGESHIELDS_ON_SELF1 = "^(Your)%s([%(%)%a%s'-:]+)%swas%s(resisted)%sby%s(%a+)%.$"
+  SPELL_SELF_DAMAGE2 = "^Your%s([%(%)%a%s'-:]+)%swas%s(resisted)%sby%s(%a+)%.$"
 
   --[[
-    CHAT_MSG_SPELL_DAMAGESHIELDS_ON_SELF
-    [source] [spell] [keyword] [target] [keyword2]
+    CHAT_MSG_SPELL_SELF_DAMAGE
+    [spell] [keyword] [target] [keyword2]
 
     examples:
       Your Faerie Fire failed. $player$ is immune.
       Your Silence failed. $player$ is immune.
       Your Faerie Fire (Feral) failed. $player$ is immune.
   ]]--
-  SPELL_DAMAGESHIELDS_ON_SELF2 = "^(Your)%s([%(%)%a%s'-:]+)%s(failed)%.%s(%a+)%sis%s(immune)%.$"
+  SPELL_SELF_DAMAGE3 = "^Your%s([%(%)%a%s'-:]+)%s(failed)%.%s(%a+)%sis%s(immune)%.$"
 
   --[[
-    CHAT_MSG_SPELL_DAMAGESHIELDS_ON_SELF
-    [source] [spell] [keyword] [target]
+    CHAT_MSG_SPELL_SELF_DAMAGE
+    [spell] [keyword] [target]
 
     example:
       Your Bash missed $player$.
       Your Aimed Shot missed $player$.
   ]]--
-  SPELL_DAMAGESHIELDS_ON_SELF3 = "^(Your)%s([%(%)%a%s'-:]+)%s(missed)%s(%a+)%.$"
+  SPELL_SELF_DAMAGE4 = "^Your%s([%(%)%a%s'-:]+)%s(missed)%s(%a+)%.$"
 
   --[[
-    CHAT_MSG_SPELL_DAMAGESHIELDS_ON_SELF
-    [source] [spell] [keyword] [target]
+    CHAT_MSG_SPELL_SELF_DAMAGE
+    [spell] [keyword] [target]
 
     examples:
       Your Wing Clip was dodged by $player$.
       Your Disarm was dodged by $player$.
   ]]--
-  SPELL_DAMAGESHIELDS_ON_SELF4 = "^(Your)%s([%(%)%a%s'-:]+)%swas%s(dodged)%sby%s(%a+)%.$"
+  SPELL_SELF_DAMAGE5 = "^Your%s([%(%)%a%s'-:]+)%swas%s(dodged)%sby%s(%a+)%.$"
 
   --[[
-    CHAT_MSG_SPELL_DAMAGESHIELDS_ON_SELF
-    [source] [spell] [keyword] [target]
+    CHAT_MSG_SPELL_SELF_DAMAGE
+    [spell] [keyword] [target]
 
     examples:
       Your Disarm is parried by $player$.
       Your Execute is parried by $player$.
   ]]--
-  SPELL_DAMAGESHIELDS_ON_SELF5 = "^(Your)%s([%(%)%a%s'-:]+)%sis%s(parried)%sby%s(%a+)%.$"
-
-  --[[
-    CHAT_MSG_SPELL_SELF_DAMAGE
-    [source] [spell] [keyword] [target]
-
-    examples:
-      Your Kick was blocked by $player$.
-      Your Sinister Strike was blocked by $player$.
-      Your Eviscerate was blocked by $player$.
-  ]]--
-  SPELL_SELF_DAMAGE = "^(Your)%s([%(%)%a%s'-:]+)%swas%s(blocked)%sby%s(%a+)%.$"
+  SPELL_SELF_DAMAGE6 = "^Your%s([%(%)%a%s'-:]+)%sis%s(parried)%sby%s(%a+)%.$"
 
   --[[
     CHAT_MSG_SPELL_FAILED_LOCALPLAYER
@@ -775,8 +775,6 @@ function me.ParseCombatText(msg, eventType)
     status, spellData = me.ParseSpellHostilePlayerDamage(msg)
   elseif eventType == "CHAT_MSG_SPELL_AURA_GONE_OTHER" then
     status, spellData = me.ParseSpellAuraGoneOther(msg)
-  elseif eventType == "CHAT_MSG_SPELL_DAMAGESHIELDS_ON_SELF" then
-    status, spellData = me.ParseSpellDamageShieldsOnSelf(msg)
   elseif eventType == "CHAT_MSG_SPELL_SELF_DAMAGE" then
     status, spellData = me.ParseSpellSelfDamage(msg)
   elseif eventType == "CHAT_MSG_SPELL_PERIODIC_HOSTILEPLAYER_DAMAGE" then
@@ -1252,102 +1250,6 @@ if (GetLocale() == "deDE") then
   end
 
   --[[
-    Parse combat text for CHAT_MSG_SPELL_DAMAGESHIELDS_ON_SELF event
-
-    @param {string} msg
-      combat text to parse
-    @return {number, table}
-      1 if msg could be parsed
-      0 if not able to parse msg
-  ]]--
-  function me.ParseSpellDamageShieldsOnSelf(msg)
-    local eventType = "CHAT_MSG_SPELL_DAMAGESHIELDS_ON_SELF"
-    local _, _, source, spell, keyword1, target, keyword2 = string.find(msg, SPELL_DAMAGESHIELDS_ON_SELF1)
-
-    if source and spell and keyword1 and target and keyword2 then
-      mod.logger.LogDebug(me.tag, eventType .. " detected")
-      mod.logger.LogDebug(me.tag, string.format("spell: %s target: %s", spell, target))
-
-      return 1, {
-        ["type"] = eventType,
-        ["spellType"] = LP_CONSTANTS.SPELL_TYPES.ENEMY_AVOIDED,
-        ["source"] = source,
-        ["spell"] = spell,
-        ["keyword1"] = keyword1,
-        ["target"] = target,
-        ["keyword2"] = keyword2
-      }
-    end
-
-    local _, _, spell, keyword1, target, keyword2 = string.find(msg, SPELL_DAMAGESHIELDS_ON_SELF2)
-
-    if spell and keyword1 and target and keyword2 then
-      mod.logger.LogDebug(me.tag, eventType .. " detected")
-      mod.logger.LogDebug(me.tag, string.format("spell: %s target: %s", spell, target))
-
-      return 1, {
-        ["type"] = eventType,
-        ["spellType"] = LP_CONSTANTS.SPELL_TYPES.ENEMY_AVOIDED,
-        ["spell"] = spell,
-        ["keyword1"] = keyword1,
-        ["target"] = target,
-        ["keyword2"] = keyword2
-      }
-    end
-
-    local _, _, spell, target, keyword = string.find(msg, SPELL_DAMAGESHIELDS_ON_SELF3)
-
-    if spell and target and keyword then
-      mod.logger.LogDebug(me.tag, eventType .. " detected")
-      mod.logger.LogDebug(me.tag, string.format("spell: %s target: %s", spell, target))
-
-      return 1, {
-        ["type"] = eventType,
-        ["spellType"] = LP_CONSTANTS.SPELL_TYPES.ENEMY_AVOIDED,
-        ["spell"] = spell,
-        ["target"] = target,
-        ["keyword"] = keyword
-      }
-    end
-
-    local _, _, target, spell, keyword = string.find(msg, SPELL_DAMAGESHIELDS_ON_SELF4)
-
-    if target and spell and keyword then
-      mod.logger.LogDebug(me.tag, eventType .. " detected")
-      mod.logger.LogDebug(me.tag, string.format("spell: %s target: %s", spell, target))
-
-      return 1, {
-        ["type"] = eventType,
-        ["spellType"] = LP_CONSTANTS.SPELL_TYPES.ENEMY_AVOIDED,
-        ["target"] = target,
-        ["spell"] = spell,
-        ["keyword"] = keyword
-      }
-    end
-
-    local _, _, spell, target, keyword = string.find(msg, SPELL_DAMAGESHIELDS_ON_SELF5)
-
-    if spell and target and keyword then
-      mod.logger.LogDebug(me.tag, eventType .. " detected")
-      mod.logger.LogDebug(me.tag, string.format("spell: %s target: %s", spell, target))
-
-      return 1, {
-        ["type"] = eventType,
-        ["spellType"] = LP_CONSTANTS.SPELL_TYPES.ENEMY_AVOIDED,
-        ["spell"] = spell,
-        ["target"] = target,
-        ["keyword"] = keyword
-      }
-    end
-
-    -- unable to parse message
-    mod.logger.LogInfo(me.tag, "Failed to parse " .. eventType)
-    return 0, {
-      ["type"] = eventType
-    }
-  end
-
-  --[[
     Parse combat text for CHAT_MSG_SPELL_SELF_DAMAGE event
 
     @param {string} msg
@@ -1358,7 +1260,7 @@ if (GetLocale() == "deDE") then
   ]]--
   function me.ParseSpellSelfDamage(msg)
     local eventType = "CHAT_MSG_SPELL_SELF_DAMAGE"
-    local _, _, spell, target, keyword = string.find(msg, SPELL_SELF_DAMAGE)
+    local _, _, spell, target, keyword = string.find(msg, SPELL_SELF_DAMAGE1)
 
     if spell and target and keyword then
       mod.logger.LogDebug(me.tag, eventType .. " detected")
@@ -1370,6 +1272,83 @@ if (GetLocale() == "deDE") then
         ["spell"] = spell,
         ["target"] = target,
         ["keyword"] = keyword
+      }
+    end
+
+    local _, _, spell, keyword1, target, keyword2 = string.find(msg, SPELL_SELF_DAMAGE2)
+
+    if spell and keyword1 and target and keyword2 then
+      mod.logger.LogDebug(me.tag, eventType .. " detected")
+      mod.logger.LogDebug(me.tag, string.format("spell: %s target: %s", spell, target))
+
+      return 1, {
+        ["type"] = eventType,
+        ["spellType"] = LP_CONSTANTS.SPELL_TYPES.ENEMY_AVOIDED,
+        ["spell"] = spell,
+        ["target"] = target,
+        ["keyword1"] = keyword1,
+        ["keyword2"] = keyword2
+      }
+    end
+
+    local _, _, spell, keyword1, target, keyword2 = string.find(msg, SPELL_SELF_DAMAGE3)
+
+    if spell and keyword1 and target and keyword2 then
+      mod.logger.LogDebug(me.tag, eventType .. " detected")
+      mod.logger.LogDebug(me.tag, string.format("spell: %s target: %s", spell, target))
+
+      return 1, {
+        ["type"] = eventType,
+        ["spellType"] = LP_CONSTANTS.SPELL_TYPES.ENEMY_AVOIDED,
+        ["spell"] = spell,
+        ["target"] = target,
+        ["keyword1"] = keyword1,
+        ["keyword2"] = keyword2
+      }
+    end
+
+    local _, _, spell, target, keyword = string.find(msg, SPELL_SELF_DAMAGE4)
+
+    if spell and target and keyword then
+      mod.logger.LogDebug(me.tag, eventType .. " detected")
+      mod.logger.LogDebug(me.tag, string.format("spell: %s target: %s", spell, target))
+
+      return 1, {
+        ["type"] = eventType,
+        ["spellType"] = LP_CONSTANTS.SPELL_TYPES.ENEMY_AVOIDED,
+        ["spell"] = spell,
+        ["keyword"] = keyword,
+        ["target"] = target
+      }
+    end
+
+    local _, _, target, spell, keyword = string.find(msg, SPELL_SELF_DAMAGE5)
+
+    if target and spell and keyword then
+      mod.logger.LogDebug(me.tag, eventType .. " detected")
+      mod.logger.LogDebug(me.tag, string.format("spell: %s target: %s", spell, target))
+
+      return 1, {
+        ["type"] = eventType,
+        ["spellType"] = LP_CONSTANTS.SPELL_TYPES.ENEMY_AVOIDED,
+        ["spell"] = spell,
+        ["keyword"] = keyword,
+        ["target"] = target
+      }
+    end
+
+    local _, _, spell, target, keyword = string.find(msg, SPELL_SELF_DAMAGE6)
+
+    if spell and target and keyword then
+      mod.logger.LogDebug(me.tag, eventType .. " detected")
+      mod.logger.LogDebug(me.tag, string.format("spell: %s target: %s", spell, target))
+
+      return 1, {
+        ["type"] = eventType,
+        ["spellType"] = LP_CONSTANTS.SPELL_TYPES.ENEMY_AVOIDED,
+        ["spell"] = spell,
+        ["keyword"] = keyword,
+        ["target"] = target
       }
     end
 
@@ -1872,105 +1851,6 @@ else
   end
 
   --[[
-    Parse combat text for CHAT_MSG_SPELL_DAMAGESHIELDS_ON_SELF event
-
-    @param {string} msg
-      combat text to parse
-    @return {number, table}
-      1 if msg could be parsed
-      0 if not able to parse msg
-  ]]--
-  function me.ParseSpellDamageShieldsOnSelf(msg)
-    local eventType = "CHAT_MSG_SPELL_DAMAGESHIELDS_ON_SELF"
-    local _, _, source, spell, keyword, target = string.find(msg, SPELL_DAMAGESHIELDS_ON_SELF1)
-
-    if source and spell and keyword and target then
-      mod.logger.LogDebug(me.tag, eventType .. " detected")
-      mod.logger.LogDebug(me.tag, string.format("spell: %s target: %s", spell, target))
-
-      return 1, {
-        ["type"] = eventType,
-        ["spellType"] = LP_CONSTANTS.SPELL_TYPES.ENEMY_AVOIDED,
-        ["source"] = source,
-        ["spell"] = spell,
-        ["keyword"] = keyword,
-        ["target"] = target
-      }
-    end
-
-    local _, _, source, spell, keyword, target, keyword2 = string.find(msg, SPELL_DAMAGESHIELDS_ON_SELF2)
-
-    if source and spell and keyword and target and keyword2 then
-      mod.logger.LogDebug(me.tag, eventType .. " detected")
-      mod.logger.LogDebug(me.tag, string.format("spell: %s target: %s", spell, target))
-
-      return 1, {
-        ["type"] = eventType,
-        ["spellType"] = LP_CONSTANTS.SPELL_TYPES.ENEMY_AVOIDED,
-        ["source"] = source,
-        ["spell"] = spell,
-        ["keyword"] = keyword,
-        ["target"] = target,
-        ["keyword2"] = keyword2
-      }
-    end
-
-    local _, _, source, spell, keyword, target = string.find(msg, SPELL_DAMAGESHIELDS_ON_SELF3)
-
-    if source and spell and keyword and target then
-      mod.logger.LogDebug(me.tag, eventType .. " detected")
-      mod.logger.LogDebug(me.tag, string.format("spell: %s target: %s", spell, target))
-
-      return 1, {
-        ["type"] = eventType,
-        ["spellType"] = LP_CONSTANTS.SPELL_TYPES.ENEMY_AVOIDED,
-        ["source"] = source,
-        ["spell"] = spell,
-        ["keyword"] = keyword,
-        ["target"] = target
-      }
-    end
-
-    local _, _, source, spell, keyword, target = string.find(msg, SPELL_DAMAGESHIELDS_ON_SELF4)
-
-    if source and spell and keyword and target then
-      mod.logger.LogDebug(me.tag, eventType .. " detected")
-      mod.logger.LogDebug(me.tag, string.format("spell: %s target: %s", spell, target))
-
-      return 1, {
-        ["type"] = eventType,
-        ["spellType"] = LP_CONSTANTS.SPELL_TYPES.ENEMY_AVOIDED,
-        ["source"] = source,
-        ["spell"] = spell,
-        ["keyword"] = keyword,
-        ["target"] = target
-      }
-    end
-
-    local _, _, source, spell, keyword, target = string.find(msg, SPELL_DAMAGESHIELDS_ON_SELF5)
-
-    if source and spell and keyword and target then
-      mod.logger.LogDebug(me.tag, eventType .. " detected")
-      mod.logger.LogDebug(me.tag, string.format("spell: %s target: %s", spell, target))
-
-      return 1, {
-        ["type"] = eventType,
-        ["spellType"] = LP_CONSTANTS.SPELL_TYPES.ENEMY_AVOIDED,
-        ["source"] = source,
-        ["spell"] = spell,
-        ["keyword"] = keyword,
-        ["target"] = target
-      }
-    end
-
-    -- unable to parse message
-    mod.logger.LogInfo(me.tag, "Failed to parse " .. eventType)
-    return 0, {
-      ["type"] = eventType
-    }
-  end
-
-  --[[
     Parse combat text for CHAT_MSG_SPELL_SELF_DAMAGE event
 
     @param {string} msg
@@ -1981,16 +1861,90 @@ else
   ]]--
   function me.ParseSpellSelfDamage(msg)
     local eventType = "CHAT_MSG_SPELL_SELF_DAMAGE"
-    local _, _, source, spell, keyword, target = string.find(msg, SPELL_SELF_DAMAGE)
+    local _, _, spell, keyword, target = string.find(msg, SPELL_SELF_DAMAGE1)
 
-    if source and spell and keyword and target then
+    if spell and keyword and target then
       mod.logger.LogDebug(me.tag, eventType .. " detected")
       mod.logger.LogDebug(me.tag, string.format("spell: %s target: %s", spell, target))
 
       return 1, {
         ["type"] = eventType,
         ["spellType"] = LP_CONSTANTS.SPELL_TYPES.ENEMY_AVOIDED,
-        ["source"] = source,
+        ["spell"] = spell,
+        ["target"] = target,
+        ["keyword"] = keyword
+      }
+    end
+
+    local _, _, spell, keyword, target = string.find(msg, SPELL_SELF_DAMAGE2)
+
+    if spell and keyword and target then
+      mod.logger.LogDebug(me.tag, eventType .. " detected")
+      mod.logger.LogDebug(me.tag, string.format("spell: %s target: %s", spell, target))
+
+      return 1, {
+        ["type"] = eventType,
+        ["spellType"] = LP_CONSTANTS.SPELL_TYPES.ENEMY_AVOIDED,
+        ["spell"] = spell,
+        ["target"] = target,
+        ["keyword"] = keyword
+      }
+    end
+
+    local _, _, spell, keyword, target = string.find(msg, SPELL_SELF_DAMAGE3)
+
+    if spell and keyword and target then
+      mod.logger.LogDebug(me.tag, eventType .. " detected")
+      mod.logger.LogDebug(me.tag, string.format("spell: %s target: %s", spell, target))
+
+      return 1, {
+        ["type"] = eventType,
+        ["spellType"] = LP_CONSTANTS.SPELL_TYPES.ENEMY_AVOIDED,
+        ["spell"] = spell,
+        ["keyword"] = keyword,
+        ["target"] = target
+      }
+    end
+
+    local _, _, spell, keyword, target = string.find(msg, SPELL_SELF_DAMAGE4)
+
+    if spell and keyword and target then
+      mod.logger.LogDebug(me.tag, eventType .. " detected")
+      mod.logger.LogDebug(me.tag, string.format("spell: %s target: %s", spell, target))
+
+      return 1, {
+        ["type"] = eventType,
+        ["spellType"] = LP_CONSTANTS.SPELL_TYPES.ENEMY_AVOIDED,
+        ["spell"] = spell,
+        ["keyword"] = keyword,
+        ["target"] = target
+      }
+    end
+
+    local _, _, spell, keyword, target = string.find(msg, SPELL_SELF_DAMAGE5)
+
+    if spell and keyword and target then
+      mod.logger.LogDebug(me.tag, eventType .. " detected")
+      mod.logger.LogDebug(me.tag, string.format("spell: %s target: %s", spell, target))
+
+      return 1, {
+        ["type"] = eventType,
+        ["spellType"] = LP_CONSTANTS.SPELL_TYPES.ENEMY_AVOIDED,
+        ["spell"] = spell,
+        ["keyword"] = keyword,
+        ["target"] = target
+      }
+    end
+
+    local _, _, spell, keyword, target = string.find(msg, SPELL_SELF_DAMAGE6)
+
+    if spell and keyword and target then
+      mod.logger.LogDebug(me.tag, eventType .. " detected")
+      mod.logger.LogDebug(me.tag, string.format("spell: %s target: %s", spell, target))
+
+      return 1, {
+        ["type"] = eventType,
+        ["spellType"] = LP_CONSTANTS.SPELL_TYPES.ENEMY_AVOIDED,
         ["spell"] = spell,
         ["keyword"] = keyword,
         ["target"] = target

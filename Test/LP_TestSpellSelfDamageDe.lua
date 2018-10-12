@@ -59,6 +59,21 @@ function me.RunAll()
   mod.testReporter.AddToTestQueue(me.TestParseNormalSpellName)
   mod.testReporter.AddToTestQueue(me.TestParseMultiwordSpellName)
   mod.testReporter.AddToTestQueue(me.TestParseSpecialCharacterSpellName)
+  mod.testReporter.AddToTestQueue(me.TestParseNormalSpellNameResisted)
+  mod.testReporter.AddToTestQueue(me.TestParseMultiwordSpellNameResisted)
+  mod.testReporter.AddToTestQueue(me.TestParseSpecialCharacterSpellNameResisted)
+  mod.testReporter.AddToTestQueue(me.TestParseNormalSpellNameImmune)
+  mod.testReporter.AddToTestQueue(me.TestParseMultiwordSpellNameImmune)
+  mod.testReporter.AddToTestQueue(me.TestParseSpecialCharacterSpellNameImmune)
+  mod.testReporter.AddToTestQueue(me.TestParseNormalSpellNameMissed)
+  mod.testReporter.AddToTestQueue(me.TestParseMultiwordSpellNameMissed)
+  mod.testReporter.AddToTestQueue(me.TestParseSpecialCharacterSpellNameMissed)
+  mod.testReporter.AddToTestQueue(me.TestParseNormalSpellNameDodged)
+  mod.testReporter.AddToTestQueue(me.TestParseMultiwordSpellNameDodged)
+  mod.testReporter.AddToTestQueue(me.TestParseSpecialCharacterSpellNameDodged)
+  mod.testReporter.AddToTestQueue(me.TestParseNormalSpellNameParried)
+  mod.testReporter.AddToTestQueue(me.TestParseMultiwordSpellNameParried)
+  mod.testReporter.AddToTestQueue(me.TestParseSpecialCharacterSpellNameParried)
 
   mod.testReporter.PlayTestQueue()
 end
@@ -89,6 +104,156 @@ function me.TestParseSpecialCharacterSpellName()
     "TestParseSpecialCharacterSpellName",
     "dummy_spell",
     "Dummy (Spell):-s wurde von $player$ geblockt.",
+    mod.testHelper.eventTypeSpellSelfDamage
+  )
+end
+
+function me.TestParseNormalSpellNameResisted()
+  mod.testHelper.TestParse(
+    eventName,
+    "TestParseNormalSpellNameResisted",
+    "dummyspell",
+    "Ihr habt es mit Dummyspell versucht, aber $player$ hat widerstanden.",
+    mod.testHelper.eventTypeSpellSelfDamage
+  )
+end
+
+function me.TestParseMultiwordSpellNameResisted()
+  mod.testHelper.TestParse(
+    eventName,
+    "TestParseMultiwordSpellNameResisted",
+    "dummy_spell",
+    "Ihr habt es mit Dummy Spell versucht, aber $player$ hat widerstanden.",
+    mod.testHelper.eventTypeSpellSelfDamage
+  )
+end
+
+function me.TestParseSpecialCharacterSpellNameResisted()
+  mod.testHelper.TestParse(
+    eventName,
+    "TestParseSpecialCharacterSpellNameResisted",
+    "dummy_spell",
+    "Ihr habt es mit Dummy (Spell):-s versucht, aber $player$ hat widerstanden.",
+    mod.testHelper.eventTypeSpellSelfDamage
+  )
+end
+
+function me.TestParseNormalSpellNameImmune()
+  mod.testHelper.TestParse(
+    eventName,
+    "TestParseNormalSpellNameImmune",
+    "dummyspell",
+    "Dummyspell war ein Fehlschlag. $player$ ist immun.",
+    mod.testHelper.eventTypeSpellSelfDamage
+  )
+end
+
+function me.TestParseMultiwordSpellNameImmune()
+  mod.testHelper.TestParse(
+    eventName,
+    "TestParseMultiwordSpellNameImmune",
+    "dummy_spell",
+    "Dummy Spell war ein Fehlschlag. $player$ ist immun.",
+    mod.testHelper.eventTypeSpellSelfDamage
+  )
+end
+
+function me.TestParseSpecialCharacterSpellNameImmune()
+  mod.testHelper.TestParse(
+    eventName,
+    "TestParseSpecialCharacterSpellNameImmune",
+    "dummy_spell",
+    "Dummy (Spell):-s war ein Fehlschlag. $player$ ist immun.",
+    mod.testHelper.eventTypeSpellSelfDamage
+  )
+end
+
+function me.TestParseNormalSpellNameMissed()
+  mod.testHelper.TestParse(
+    eventName,
+    "TestParseNormalSpellNameMissed",
+    "dummyspell",
+    "Dummyspell hat $player$ verfehlt.",
+    mod.testHelper.eventTypeSpellSelfDamage
+  )
+end
+
+function me.TestParseMultiwordSpellNameMissed()
+  mod.testHelper.TestParse(
+    eventName,
+    "TestParseMultiwordSpellNameMissed",
+    "dummy_spell",
+    "Dummy Spell hat $player$ verfehlt.",
+    mod.testHelper.eventTypeSpellSelfDamage
+  )
+end
+
+function me.TestParseSpecialCharacterSpellNameMissed()
+  mod.testHelper.TestParse(
+    eventName,
+    "TestParseSpecialCharacterSpellNameMissed",
+    "dummy_spell",
+    "Dummy (Spell):-s hat $player$ verfehlt.",
+    mod.testHelper.eventTypeSpellSelfDamage
+  )
+end
+
+function me.TestParseNormalSpellNameDodged()
+  mod.testHelper.TestParse(
+    eventName,
+    "TestParseNormalSpellNameDodged",
+    "dummyspell",
+    "$player$ ist Dummyspell ausgewichen.",
+    mod.testHelper.eventTypeSpellSelfDamage
+  )
+end
+
+function me.TestParseMultiwordSpellNameDodged()
+  mod.testHelper.TestParse(
+    eventName,
+    "TestParseMultiwordSpellNameDodged",
+    "dummy_spell",
+    "$player$ ist Dummy Spell ausgewichen.",
+    mod.testHelper.eventTypeSpellSelfDamage
+  )
+end
+
+function me.TestParseSpecialCharacterSpellNameDodged()
+  mod.testHelper.TestParse(
+    eventName,
+    "TestParseSpecialCharacterSpellNameDodged",
+    "dummy_spell",
+    "$player$ ist Dummy (Spell):-s ausgewichen.",
+    mod.testHelper.eventTypeSpellSelfDamage
+  )
+end
+
+function me.TestParseNormalSpellNameParried()
+  mod.testHelper.TestParse(
+    eventName,
+    "TestParseNormalSpellNameParried",
+    "dummyspell",
+    "Dummyspell wurde von $player$ pariert.",
+    mod.testHelper.eventTypeSpellSelfDamage
+  )
+end
+
+function me.TestParseMultiwordSpellNameParried()
+  mod.testHelper.TestParse(
+    eventName,
+    "TestParseMultiwordSpellNameParried",
+    "dummy_spell",
+    "Dummy Spell wurde von $player$ pariert.",
+    mod.testHelper.eventTypeSpellSelfDamage
+  )
+end
+
+function me.TestParseSpecialCharacterSpellNameParried()
+  mod.testHelper.TestParse(
+    eventName,
+    "TestParseSpecialCharacterSpellNameParried",
+    "dummy_spell",
+    "Dummy (Spell):-s wurde von $player$ pariert.",
     mod.testHelper.eventTypeSpellSelfDamage
   )
 end
