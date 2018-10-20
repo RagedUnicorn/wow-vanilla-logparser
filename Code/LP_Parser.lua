@@ -957,21 +957,20 @@ if (GetLocale() == "deDE") then
       }
     end
 
-    local _, _, source1, keyword1, amount, resource, keyword2, source2, spell = string.find(msg, SPELL_HOSTILE_PLAYER_BUFF5)
+    local _, _, source, keyword1, amount, resource, keyword2, _, spell = string.find(msg, SPELL_HOSTILE_PLAYER_BUFF5)
 
-    if source1 and keyword1 and amount and resource and keyword2 and source2 and spell then
+    if source and keyword1 and amount and resource and keyword2 and spell then
       mod.logger.LogDebug(me.tag, eventType .. " detected")
-      mod.logger.LogDebug(me.tag, string.format("source1: %s spell: %s source2: %s", source1, spell, source2))
+      mod.logger.LogDebug(me.tag, string.format("source: %s spell: %s", source, spell))
 
       return 1, {
         ["type"] = eventType,
         ["spellType"] = LP_CONSTANTS.SPELL_TYPES.SPELL,
-        ["source1"] = source1,
+        ["source"] = source,
         ["keyword1"] = keyword1,
         ["amount"] = amount,
         ["resource"] = resource,
         ["keyword2"] = keyword2,
-        ["source2"] = source2,
         ["spell"] = spell
       }
     end
@@ -1502,19 +1501,18 @@ else
   ]]--
   function me.ParseSpellHostilePlayerBuff(msg)
     local eventType = "CHAT_MSG_SPELL_HOSTILEPLAYER_BUFF"
-    local _, _, source1, spell, keyword, source2, amount = string.find(msg, SPELL_HOSTILE_PLAYER_BUFF1)
+    local _, _, source, spell, keyword, _, amount = string.find(msg, SPELL_HOSTILE_PLAYER_BUFF1)
 
-    if source1 and spell and keyword and source2 and amount then
+    if source and spell and keyword and amount then
       mod.logger.LogDebug(me.tag, eventType .. " detected")
-      mod.logger.LogDebug(me.tag, string.format("player: %s spell: %s amount: %s", source1, spell, amount))
+      mod.logger.LogDebug(me.tag, string.format("source: %s spell: %s amount: %s", source, spell, amount))
 
       return 1, {
         ["type"] = eventType,
         ["spellType"] = LP_CONSTANTS.SPELL_TYPES.SPELL,
-        ["source1"] = source1,
+        ["source"] = source,
         ["spell"] = spell,
         ["keyword"] = keyword,
-        ["source2"] = source2,
         ["amount"] = amount
       }
     end
@@ -1549,38 +1547,36 @@ else
       }
     end
 
-    local _, _, source1, spell, keyword, source2, amount = string.find(msg, SPELL_HOSTILE_PLAYER_BUFF4)
+    local _, _, source, spell, keyword, _, amount = string.find(msg, SPELL_HOSTILE_PLAYER_BUFF4)
 
-    if source1 and spell and keyword and source2 and amount then
+    if source and spell and keyword and amount then
       mod.logger.LogDebug(me.tag, eventType .. " detected")
-      mod.logger.LogDebug(me.tag, string.format("source1: %s spell: %s source2: %s", source1, spell, source2))
+      mod.logger.LogDebug(me.tag, string.format("source: %s spell: %s", source, spell))
 
       return 1, {
         ["type"] = eventType,
         ["spellType"] = LP_CONSTANTS.SPELL_TYPES.SPELL,
-        ["source1"] = source1,
+        ["source"] = source,
         ["spell"] = spell,
         ["keyword"] = keyword,
-        ["source2"] = source2,
         ["amount"] = amount
       }
     end
 
-    local _, _, source1, keyword1, amount, resource, keyword2, source2, spell = string.find(msg, SPELL_HOSTILE_PLAYER_BUFF5)
+    local _, _, source, keyword1, amount, resource, keyword2, _, spell = string.find(msg, SPELL_HOSTILE_PLAYER_BUFF5)
 
-    if source1 and keyword1 and amount and resource and keyword2 and source2 and spell then
+    if source and keyword1 and amount and resource and keyword2 and spell then
       mod.logger.LogDebug(me.tag, eventType .. " detected")
-      mod.logger.LogDebug(me.tag, string.format("source1: %s spell: %s source2: %s", source1, spell, source2))
+      mod.logger.LogDebug(me.tag, string.format("source: %s spell: %s", source, spell))
 
       return 1, {
         ["type"] = eventType,
         ["spellType"] = LP_CONSTANTS.SPELL_TYPES.SPELL,
-        ["source1"] = source1,
+        ["source"] = source,
         ["keyword1"] = keyword1,
         ["amount"] = amount,
         ["resource"] = resource,
         ["keyword2"] = keyword2,
-        ["source2"] = source2,
         ["spell"] = spell
       }
     end
