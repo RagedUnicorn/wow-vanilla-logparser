@@ -1463,21 +1463,19 @@ else
       }
     end
 
-    local _, _, player1, keyword, amount, player2, spell = string.find(msg, SPELL_PERIODIC_HOSTILE_PLAYER_BUFFS2)
+    local _, _, source, keyword, spell, charges = string.find(msg, SPELL_PERIODIC_HOSTILE_PLAYER_BUFFS2)
 
-    if player1 and keyword and amount and player2 and spell then
+    if source and keyword and spell and charges and spell then
       mod.logger.LogDebug(me.tag, eventType .. " detected")
-      mod.logger.LogDebug(me.tag, string.format("source: %s spell: %s", player1, spell))
+      mod.logger.LogDebug(me.tag, string.format("source: %s spell: %s", source, spell))
 
       return 1, {
         ["type"] = eventType,
         ["spellType"] = LP_CONSTANTS.SPELL_TYPES.SPELL,
         ["source"] = source,
-        ["player1"] = player1,
-        ["player2"] = player2,
-        ["keyword1"] = keyword1,
-        ["keyword2"] = keyword2,
-        ["spell"] = spell
+        ["keyword"] = keyword,
+        ["spell"] = spell,
+        ["charges"] = charges
       }
     end
 
