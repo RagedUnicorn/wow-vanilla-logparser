@@ -831,11 +831,9 @@ if (GetLocale() == "deDE") then
         ["type"] = eventType,
         ["spellType"] = LP_CONSTANTS.SPELL_TYPES.SPELL,
         ["source"] = source,
-        ["player1"] = player1,
-        ["player2"] = player2,
-        ["keyword1"] = keyword1,
-        ["keyword2"] = keyword2,
-        ["spell"] = spell
+        ["keyword"] = keyword,
+        ["spell"] = spell,
+        ["charges"] = charges
       }
     end
 
