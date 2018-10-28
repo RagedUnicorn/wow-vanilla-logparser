@@ -4,6 +4,7 @@ ${addon.comment.generated.toc}
 ## Title: LogParser
 ## Author: Michael Wiesendanger <michael.wiesendanger@gmail.com>
 ## Notes: Addon for parsing combat log messages
+## SavedVariables: LogParserTestLog
 
 # constant values
 Code\LP_Constants.lua

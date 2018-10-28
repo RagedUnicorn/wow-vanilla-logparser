@@ -57,10 +57,9 @@ Configure the `LogParser.toc` file with the LogParserTestLog variable:
 
 ```
 ## SavedVariables: LogParserTestLog
-## SavedVariablesPerCharacter: LogParserTestLog
 ```
 
-Make sure that the variable itself is initialized (this is done in `LP_Core.lua`)
+Make sure that the variable itself is initialized (this is done in `LP_TestReporter.lua`)
 
 ```lua
 LogParserTestLog = {}
@@ -74,7 +73,7 @@ local writeLogFile = true
 
 After running a test and logging out the report should be inside the Addon configuration file.
 
-`[World of Warcraft installation-folder]/WTF/Account/[username]/[servername]/[charactername]/SavedVariables/LogParser.lua`
+`[World of Warcraft installation-folder]/WTF/Account/[username]/SavedVariables/LogParser.lua`
 
 ***Note:*** The file will be big if all tests were ran make sure to search for the keyword `fail` to find tests that failed.
 
