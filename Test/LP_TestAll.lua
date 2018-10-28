@@ -42,8 +42,6 @@ local _G = getfenv(0)
 function _G.__LP__TEST_ALL()
   local testEvents = {
     "SpellAuraGoneOther",
-    "SpellDamageShieldsOnOthers",
-    "SpellDamageShieldsOnSelf",
     "SpellFailedLocalPlayer",
     "SpellHostilePlayerBuffs",
     "SpellHostilePlayerDamage",
