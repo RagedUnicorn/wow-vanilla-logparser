@@ -889,19 +889,18 @@ if (GetLocale() == "deDE") then
   ]]--
   function me.ParseSpellHostilePlayerBuff(msg)
     local eventType = "CHAT_MSG_SPELL_HOSTILEPLAYER_BUFF"
-    local _, _, source1, spell, keyword, source2, amount = string.find(msg, SPELL_HOSTILE_PLAYER_BUFF1)
+    local _, _, source, spell, keyword, _, amount = string.find(msg, SPELL_HOSTILE_PLAYER_BUFF1)
 
-    if source1 and spell and keyword and source2 and amount then
+    if source and spell and keyword and amount then
       mod.logger.LogDebug(me.tag, eventType .. " detected")
-      mod.logger.LogDebug(me.tag, string.format("player: %s spell: %s amount: %s", source1, spell, amount))
+      mod.logger.LogDebug(me.tag, string.format("player: %s spell: %s amount: %s", source, spell, amount))
 
       return 1, {
         ["type"] = eventType,
         ["spellType"] = LP_CONSTANTS.SPELL_TYPES.SPELL,
-        ["source1"] = source1,
+        ["source"] = source,
         ["spell"] = spell,
         ["keyword"] = keyword,
-        ["source2"] = source2,
         ["amount"] = amount
       }
     end
