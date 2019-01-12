@@ -14,7 +14,7 @@ WoW-Addons are installed directly in your WoW directory:
 
 Make sure to get the newest version of the Addon from the releases tab:
 
-[LogParser-Releases](https://github.com/RagedUnicorn/wow-logparser/releases)
+[LogParser-Releases](https://github.com/RagedUnicorn/wow-vanilla-logparser/releases)
 
 > Note: If the Addon is not showing up in your ingame Addonlist make sure that the Addon is named `LogParser` in your Addons folder
 
