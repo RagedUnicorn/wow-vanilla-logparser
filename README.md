@@ -1,6 +1,6 @@
 # LogParser
 
-![](/Docs/raged_unicorn_logo.png)
+![](/Docs/lp_ragedunicorn_love_vanilla.png)
 
 > LogParser is an Addon for parsing combatlog messages and dispatching the results to other Addons that subscribed to such events
 
