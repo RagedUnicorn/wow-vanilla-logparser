@@ -1,9 +1,10 @@
 ${addon.comment.generated.toc}
 
-## Interface: 11200
-## Title: LogParser
-## Author: Michael Wiesendanger <michael.wiesendanger@gmail.com>
+## Interface: ${addon.interface}
+## Title: ${addon.name}
+## Author: ${addon.author}
 ## Notes: Addon for parsing combat log messages
+## Version: ${addon.tag.version}
 ## SavedVariables: LogParserTestLog
 
 # constant values

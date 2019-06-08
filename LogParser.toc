@@ -4,6 +4,7 @@
 ## Title: LogParser
 ## Author: Michael Wiesendanger <michael.wiesendanger@gmail.com>
 ## Notes: Addon for parsing combat log messages
+## Version: v1.1.1
 ## SavedVariables: LogParserTestLog
 
 # constant values
