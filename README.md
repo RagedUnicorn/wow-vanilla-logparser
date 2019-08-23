@@ -6,6 +6,10 @@
 
 **Note:** The Addon on its own is not helpful to the player. It is to be understood as a helper that is used by other Addons.
 
+![](/docs/badge_wow_vanilla.png)
+
+**Note:** With the release of World of Warcraft classic this addon is entering maintenance only mode. This means that no new features will be implemented and only the most important bugs are fixed. There is no classic version of this addon because it is no longer needed to have an extra addon for parsing combatlog messages.
+
 ## Installation
 
 WoW-Addons are installed directly in your WoW directory:
